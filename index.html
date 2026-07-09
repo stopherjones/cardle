@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardle - Daily Classic Car Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CARDLE</h1>
+        <p>Guess the 20th-century classic car of the day.</p>
+        <div class="mode-switcher" role="group" aria-label="Game mode">
+            <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
+            <button id="random-play-btn" class="mode-btn" type="button">Random Play</button>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <div class="image-wrapper">
+            <img id="target-image" src="" alt="Car of the day" class="blurred-image">
+        </div>
+
+        <div class="feedback-grid-header">
+            <div>Make</div>
+            <div>Model</div>
+            <div>Country</div>
+            <div>Year</div>
+        </div>
+
+        <div id="guess-matrix" class="matrix-container"></div>
+
+        <div id="input-controls" class="controls-panel">
+            <input type="text" id="user-input" list="car-options" placeholder="Type a car model or manufacturer...">
+            <datalist id="car-options"></datalist>
+            <button id="submit-btn">Guess</button>
+        </div>
+
+        <div id="game-status" class="status-overlay hidden">
+            <h2 id="status-message"></h2>
+            <p id="solution-reveal"></p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

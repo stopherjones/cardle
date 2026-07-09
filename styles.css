@@ -1,0 +1,168 @@
+:root {
+    --bg-main: #121214;
+    --bg-surface: #1e1e24;
+    --text-primary: #ffffff;
+    --text-muted: #a0a0b0;
+    --colour-correct: #2e7d32;
+    --colour-wrong: #3a3a3c;
+    --colour-directional: #b59f3b;
+    --border-subtle: #33333b;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+header p {
+    color: var(--text-muted);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.mode-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.mode-btn {
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.mode-btn:hover {
+    background-color: #2a2a33;
+}
+
+.mode-btn.active {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 280px;
+    background-color: #000;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Blur levels based on game progress */
+.blurred-image { filter: blur(24px); }
+.blur-step-1 { filter: blur(18px); }
+.blur-step-2 { filter: blur(12px); }
+.blur-step-3 { filter: blur(8px); }
+.blur-step-4 { filter: blur(4px); }
+.blur-step-5 { filter: blur(2px); }
+.unblurred { filter: blur(0px); }
+
+/* Matrix Row Structures */
+.feedback-grid-header, .guess-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.feedback-grid-header {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.guess-cell {
+    background-color: var(--bg-main);
+    padding: 12px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-subtle);
+    word-break: break-word;
+}
+
+/* Dynamic State Assignments */
+.cell-correct { background-color: var(--colour-correct); }
+.cell-wrong { background-color: var(--colour-wrong); }
+.cell-directional { background-color: var(--colour-directional); }
+
+.controls-panel {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.controls-panel input {
+    flex-grow: 1;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.controls-panel button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 0 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.status-overlay {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: var(--bg-main);
+    text-align: center;
+    border: 1px solid var(--border-subtle);
+}
+
+.hidden { display: none !important; }
