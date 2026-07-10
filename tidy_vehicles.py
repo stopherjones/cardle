@@ -6,88 +6,91 @@ OUTPUT_FILE = "vehicles_clean.json"
 
 def clean_model_name(model_str):
     """
-    Strips away engine sizes, drivetrains, and redundant trim indicators
-    while leaving core models and generational suffixes intact.
+    Aggressively strips text in brackets, engine specs, drivetrains, 
+    and trim tiers to isolate the absolute base model name.
     """
-    cleaned = model_str
+    if not model_str:
+        return "Unknown"
 
-    # 1. Strip engine displacements (e.g., 1.5, 1.6, 2.0T, 2.8, 3.2, 1.5T)
-    cleaned = re.sub(r'\b\d\.\d[tT]?(?:\s*TSI|\s*T-GDI)?\b', '', cleaned)
+    # 1. Strip out everything inside parentheses or square brackets immediately
+    # (e.g., deletes chassis codes like '(964)' or factory designations)
+    cleaned = re.sub(r'\(.*?\)|\[.*?\]', '', model_str)
     
-    # 2. Strip specific engine configurations and electric capacities
-    cleaned = re.sub(r'\b(?:V6|V8|V12|TDI|PHEV|Hybrid|EcoBlue|65kWh|289|350)\b', '', cleaned, flags=re.IGNORECASE)
-    
-    # 3. Strip drivetrain configurations
-    cleaned = re.sub(r'\b(?:AWD|4WD|RWD|4MOTION|xDrive)\b', '', cleaned, flags=re.IGNORECASE)
-    
-    # 4. Strip generic body/spec text that doesn't define a unique model line
-    cleaned = re.sub(r'\b(?:Saloon|Touring|Hard Top|Injection|Automatic)\b', '', cleaned, flags=re.IGNORECASE)
-    
-    # 5. Convert numeric spec names like '740d' or '520d' to just '740' or '520'
-    cleaned = re.sub(r'\b(\d{3})[di]\b', r'\1', cleaned, flags=re.IGNORECASE)
+    # 2. Standardise punctuation and spacing to avoid regex boundary misses
+    cleaned = re.sub(r'[-–—_+,./]', ' ', cleaned)
 
-    # 6. Clean up trailing/double spaces left behind by deletions
+    # 3. Aggressive list of suffixes, trims, and configurations to wipe out
+    strip_patterns = [
+        # Drivetrains & Engines
+        r'\b(?:AWD|4WD|RWD|FWD|4x4|4motion|xDrive|quattro|V6|V8|V12|TDI|BiTurbo|Supercharged|Injection)\b',
+        # Powertrains & Propulsion
+        r'\b(?:Hybrid|PHEV|MHEV|EV|E-Tech|Electric|Turbo)\b',
+        # Common Performance & Trim Designations
+        r'\b(?:GTI|GTR|GTB|GTS|GTx|GTE|RS|R\.S\.|SRT|ST|S-Line|ST-Line|Type-R|VTEC|Evo(?:lution)?|Sport|Line|Pack|Spec|Edition\s*\d*)\b',
+        # Body Styles & Marketing Terms
+        r'\b(?:Coupe|Saloon|Sedan|Convertible|Cabriolet|Roadster|Touring|Estate|Avant|Spyder|Hard\s*Top|Prototype|Vision|Concept)\b',
+        # Common Transmission/Spec references
+        r'\b(?:Automatic|Manual|Active|Classic)\b'
+    ]
+    
+    for pattern in strip_patterns:
+        cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE)
+        
+    # 4. Remove standard engine displacements (e.g., 1.6, 2.0, 3.5, 4.2)
+    cleaned = re.sub(r'\b\d\.\d[tT]?\b', '', cleaned)
+    
+    # 5. Collapse duplicate spaces down to single spaces
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()
     
-    # Fallback to prevent accidental empty strings if a name was purely trim-based
-    return cleaned if cleaned else model_str
-
-def should_keep_variant(existing_entries, new_entry, cleaned_model):
-    """
-    Determines if an entry is a notable variant or a separate generation,
-    rather than just a duplicate trim line.
-    """
-    for existing in existing_entries:
-        # If the years are more than 6 years apart, it's highly likely a different generation
-        if abs(existing['Year'] - new_entry['Year']) > 6:
-            return True
-        
-        # If one is explicitly an EV or high-performance distinct line, keep it
-        # (e.g. 'Mustang' vs 'Mustang Mach-E', or 'Evija' vs 'Evija X')
-        existing_clean = clean_model_name(existing['Model']).lower()
-        if cleaned_model.lower() != existing_clean:
-            return True
-            
-    return False
+    # Fallback protection: if the model was named purely after a trim, return original
+    return cleaned if cleaned else model_str.strip()
 
 def process_vehicle_data():
     try:
         with open(INPUT_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
     except FileNotFoundError:
-        print(f"Error: Could not find {INPUT_FILE}. Ensure the script is in the correct directory.")
+        print(f"Error: Could not locate source file '{INPUT_FILE}'.")
         return
 
     cleaned_database = []
-    # Track items using a composite key: (Make, BaseCleanedModel) -> list of kept entries
-    registry = {}
+    # Set to track unique combinations of (Make, CleanedModel, Decade)
+    seen_combinations = set()
 
     for entry in data:
-        make = entry.get('Make', 'Unknown')
+        make = entry.get('Make', 'Unknown').strip()
         original_model = entry.get('Model', '')
+        year = entry.get('Year')
         
-        # Get the simplified core name
-        base_model = clean_model_name(original_model)
-        registry_key = (make, base_model)
-
-        if registry_key not in registry:
-            # First time seeing this make/model combination, always keep it
-            # Update the model name to the cleaned version for consistency
-            entry['Model'] = base_model
-            registry[registry_key] = [entry]
+        # Calculate the historical decade bucket (e.g., 1974 -> 1970, 2023 -> 2020)
+        try:
+            year_int = int(year)
+            decade = (year_int // 10) * 10
+        except (ValueError, TypeError):
+            continue  # Discard items missing a parseable number entry
+            
+        # Isolate the base model name
+        cleaned_model = clean_model_name(original_model)
+        
+        # Create a lowercase composite key to catch identical entries across the same decade
+        composite_key = (make.lower(), cleaned_model.lower(), decade)
+        
+        if composite_key not in seen_combinations:
+            seen_combinations.add(composite_key)
+            
+            # Rewrite the model attribute to the simplified base name for clean UI display
+            entry['Model'] = cleaned_model
             cleaned_database.append(entry)
-        else:
-            # We have seen this base model before. Check if this instance is distinct enough
-            if should_keep_variant(registry[registry_key], entry, base_model):
-                entry['Model'] = base_model
-                registry[registry_key].append(entry)
-                cleaned_database.append(entry)
 
-    # Save the deduplicated dataset
+    # Sort the resulting data array chronologically to keep the file ordered
+    cleaned_database.sort(key=lambda x: (x.get('Make'), x.get('Year')))
+
+    # Output the simplified dataset with spacing and line breaks
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(cleaned_database, f, indent=4, ensure_ascii=False)
         
-    print(f"Processing complete! Reduced dataset from {len(data)} down to {len(cleaned_database)} unique entries.")
+    print(f"Aggressive reduction complete.")
+    print(f"Original entries: {len(data)} -> Cleaned base entries: {len(cleaned_database)}")
 
 if __name__ == "__main__":
     process_vehicle_data()
