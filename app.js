@@ -7,7 +7,8 @@ let currentGameState = {
     guesses: [],
     completed: false,
     victory: false,
-    mode: "daily"
+    mode: "daily",
+    overlayHiddenIndices: []
 };
 
 // 1. Data Normalisation and Sanitisation Pipeline
@@ -15,35 +16,25 @@ function normaliseData(rawItems) {
     const registry = {};
 
     rawItems.forEach(item => {
-        // Extract plain year integers
-        const manufacturingYear = parseInt(item.year, 10);
-        
-        // Context Filtering: Exclude anomalies outside the 20th Century spectrum
-        if (isNaN(manufacturingYear) || manufacturingYear < 1900 || manufacturingYear > 1999) return;
-        
-        // Structural Sanitisation: Reject fallback system entities missing clean identifiers
-        if (!item.carLabel || item.carLabel.startsWith('Q') || !item.image) return;
+        const make = String(item.Make ?? item.make ?? item.manufacturerLabel ?? '').trim();
+        const model = String(item.Model ?? item.model ?? item.carLabel ?? '').trim();
+        const country = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
+        const manufacturingYear = parseInt(item.Year ?? item.year, 10);
+        const image = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
 
-        // Isolate short-code string QID keys
-        const qid = item.car.split('/').pop();
+        if (isNaN(manufacturingYear) || !make || !model || !image) return;
+
+        const qid = `${make}-${model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
         if (!registry[qid]) {
             registry[qid] = {
                 id: qid,
-                model: item.carLabel.trim(),
-                make: item.manufacturerLabel ? item.manufacturerLabel.trim() : "Unknown",
-                country: item.countryLabel ? item.countryLabel.trim() : "Unknown",
+                model,
+                make,
+                country: country || 'Unknown',
                 year: manufacturingYear,
-                image: item.image
+                image
             };
-        } else {
-            // Append multi-property items cleanly to resolve flat join arrays
-            if (item.manufacturerLabel && !registry[qid].make.includes(item.manufacturerLabel.trim())) {
-                registry[qid].make += ` / ${item.manufacturerLabel.trim()}`;
-            }
-            if (item.countryLabel && !registry[qid].country.includes(item.countryLabel.trim())) {
-                registry[qid].country += ` / ${item.countryLabel.trim()}`;
-            }
         }
     });
 
@@ -97,14 +88,22 @@ function startGame(mode = 'daily') {
         guesses: [],
         completed: false,
         victory: false,
-        mode
+        mode,
+        overlayHiddenIndices: []
     };
+
+    if (!gameDatabase.length) {
+        console.error('No playable vehicles with images are available.');
+        return;
+    }
 
     targetCar = selectTargetForMode(gameDatabase, mode);
     resetGameUI();
     updateModeButtons(mode);
     document.getElementById('target-image').src = targetCar.image;
-    adjustImageBlur(0);
+    buildOverlay();
+    removeRandomOverlayCell();
+    refreshImageDisplay();
 }
 
 // 3. UI Matrix Render Component
@@ -136,25 +135,73 @@ function drawFeedbackRow(guessObj) {
     container.appendChild(row);
 }
 
-// 4. Blur State Modifier Loop
-function adjustImageBlur(guessCount) {
-    const img = document.getElementById('target-image');
-    img.className = ""; // Reset base class mutations
-    
-    if (currentGameState.completed) {
-        img.classList.add('unblurred');
+// 4. Image Display State
+function buildOverlay() {
+    const overlay = document.getElementById('image-overlay');
+    if (!overlay) return;
+
+    const cells = overlay.querySelectorAll('.overlay-cell');
+    if (cells.length === 0) {
+        for (let i = 0; i < 6; i += 1) {
+            const cell = document.createElement('div');
+            cell.className = 'overlay-cell';
+            overlay.appendChild(cell);
+        }
+    }
+    applyOverlayState();
+}
+
+function applyOverlayState() {
+    const overlay = document.getElementById('image-overlay');
+    if (!overlay) return;
+
+    const cells = Array.from(overlay.querySelectorAll('.overlay-cell'));
+    cells.forEach((cell, index) => {
+        cell.classList.toggle('hidden', currentGameState.overlayHiddenIndices.includes(index));
+    });
+}
+
+function revealFullImage() {
+    currentGameState.overlayHiddenIndices = [];
+    applyOverlayState();
+    const overlay = document.getElementById('image-overlay');
+    if (overlay) {
+        overlay.classList.add('revealed');
+    }
+}
+
+function removeRandomOverlayCell() {
+    const overlay = document.getElementById('image-overlay');
+    if (!overlay) return;
+
+    const cells = Array.from(overlay.querySelectorAll('.overlay-cell'));
+    const visibleIndices = cells
+        .map((_, index) => index)
+        .filter(index => !currentGameState.overlayHiddenIndices.includes(index));
+
+    if (visibleIndices.length === 0) {
+        revealFullImage();
         return;
     }
 
-    switch(guessCount) {
-        case 0: img.classList.add('blurred-image'); break;
-        case 1: img.classList.add('blur-step-1'); break;
-        case 2: img.classList.add('blur-step-2'); break;
-        case 3: img.classList.add('blur-step-3'); break;
-        case 4: img.classList.add('blur-step-4'); break;
-        case 5: img.classList.add('blur-step-5'); break;
-        default: img.classList.add('unblurred');
+    const randomIndex = visibleIndices[Math.floor(Math.random() * visibleIndices.length)];
+    if (!currentGameState.overlayHiddenIndices.includes(randomIndex)) {
+        currentGameState.overlayHiddenIndices.push(randomIndex);
     }
+    applyOverlayState();
+}
+
+function refreshImageDisplay() {
+    const img = document.getElementById('target-image');
+    const overlay = document.getElementById('image-overlay');
+    if (img) {
+        img.className = '';
+        img.style.filter = 'none';
+    }
+    if (overlay) {
+        overlay.classList.toggle('revealed', currentGameState.completed && currentGameState.victory);
+    }
+    applyOverlayState();
 }
 
 // 5. User Input Handler Event Pipeline
@@ -165,7 +212,13 @@ function processGuess() {
     const inputString = inputField.value.trim();
     
     // Find matched object inside validated dictionary references
-    const selectedCar = gameDatabase.find(c => `${c.make} ${c.model}`.toLowerCase() === inputString.toLowerCase() || c.model.toLowerCase() === inputString.toLowerCase());
+    const normalizedInput = inputString.toLowerCase();
+    const selectedCar = gameDatabase.find(c => {
+        const simpleMatch = `${c.make} ${c.model}`.toLowerCase() === normalizedInput;
+        const modelMatch = c.model.toLowerCase() === normalizedInput;
+        const formattedMatch = `${c.make} ${c.model} (${c.year})`.toLowerCase() === normalizedInput;
+        return simpleMatch || modelMatch || formattedMatch;
+    });
 
     if (!selectedCar) {
         alert("Please select a valid option directly from the provided drop-down listing.");
@@ -179,13 +232,21 @@ function processGuess() {
     const isVictory = selectedCar.id === targetCar.id;
     const isExhausted = currentGameState.guesses.length >= MAX_GUESSES;
 
-    if (isVictory || isExhausted) {
+    if (isVictory) {
         currentGameState.completed = true;
-        currentGameState.victory = isVictory;
+        currentGameState.victory = true;
+        revealFullImage();
+        displayTerminationState();
+    } else if (currentGameState.guesses.length < MAX_GUESSES) {
+        removeRandomOverlayCell();
+    } else {
+        currentGameState.completed = true;
+        currentGameState.victory = false;
+        revealFullImage();
         displayTerminationState();
     }
 
-    adjustImageBlur(currentGameState.guesses.length);
+    refreshImageDisplay();
     localStorage.setItem('cardle_session', JSON.stringify(currentGameState));
 }
 
@@ -216,11 +277,17 @@ function hydrateSession() {
         const parsedCache = JSON.parse(cache);
         if (parsedCache.mode === currentGameState.mode && parsedCache.date === currentGameState.date) {
             currentGameState = parsedCache;
+            if (!Array.isArray(currentGameState.overlayHiddenIndices)) {
+                currentGameState.overlayHiddenIndices = [];
+            }
             currentGameState.guesses.forEach(g => drawFeedbackRow(g));
             if (currentGameState.completed) {
+                revealFullImage();
                 displayTerminationState();
+            } else {
+                buildOverlay();
+                refreshImageDisplay();
             }
-            adjustImageBlur(currentGameState.guesses.length);
         }
     } catch (e) {
         console.error("Session restoration error:", e);
@@ -229,7 +296,7 @@ function hydrateSession() {
 
 // Initialization Lifecycle Hook
 window.addEventListener('DOMContentLoaded', () => {
-    fetch('query.json')
+    fetch('vehicles.json')
         .then(res => {
             if (!res.ok) {
                 throw new Error(`Unable to load game data (${res.status})`);
@@ -242,15 +309,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Populate HTML5 native datalist elements for UI suggestions
             const datalist = document.getElementById('car-options');
-            gameDatabase.forEach(car => {
+            const sortedCars = [...gameDatabase].sort((a, b) => {
+                const left = `${a.make} ${a.model}`.toLowerCase();
+                const right = `${b.make} ${b.model}`.toLowerCase();
+                return left.localeCompare(right);
+            });
+
+            sortedCars.forEach(car => {
                 const opt = document.createElement('option');
-                opt.value = `${car.make} ${car.model}`;
+                opt.value = `${car.make} ${car.model} (${car.year})`;
+                opt.label = `${car.make} ${car.model} (${car.year})`;
                 datalist.appendChild(opt);
             });
 
             hydrateSession();
             if (!currentGameState.completed) {
-                adjustImageBlur(currentGameState.guesses.length);
+                refreshImageDisplay();
             }
 
             document.getElementById('submit-btn').addEventListener('click', processGuess);
