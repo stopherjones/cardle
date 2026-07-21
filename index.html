@@ -39,9 +39,10 @@
         <div id="guess-matrix" class="matrix-container"></div>
 
         <div id="input-controls" class="controls-panel">
-            <select id="user-input" aria-label="Select a car">
-                <option value="">Select a car...</option>
-            </select>
+            <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Type a make, model, year or country..." autocomplete="off" aria-label="Search cars">
+                <div id="car-suggestions" class="suggestions-list hidden" role="listbox"></div>
+            </div>
             <button id="submit-btn">Guess</button>
         </div>
 

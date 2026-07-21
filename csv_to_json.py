@@ -19,7 +19,8 @@ def convert_cardle_csv_to_json(input_file='cardle.csv', output_file='cardle.json
                 "Model": row.get('model', '').strip(),
                 "Year": year_value,
                 "url": row.get('URL', '').strip(),
-                "imageurl": row.get('image_url', '').strip()
+                "imageurl": row.get('image_url', '').strip(),
+                "notes": row.get('notes', '').strip()
             }
             formatted_data.append(record)
 

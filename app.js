@@ -2,6 +2,7 @@
 const MAX_GUESSES = 6;
 let gameDatabase = [];
 let targetCar = null;
+let searchableCars = [];
 let currentGameState = {
     date: "",
     guesses: [],
@@ -22,6 +23,8 @@ function normaliseData(rawItems) {
         const country = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
         const manufacturingYear = parseInt(item.Year ?? item.year, 10);
         const image = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
+        const notes = String(item.notes ?? item.Notes ?? '').trim();
+        const url = String(item.url ?? item.URL ?? item.link ?? item.sourceUrl ?? '').trim();
 
         if (isNaN(manufacturingYear) || !make || !model || !image) return;
 
@@ -34,7 +37,9 @@ function normaliseData(rawItems) {
                 make,
                 country: country || 'Unknown',
                 year: manufacturingYear,
-                image
+                image,
+                notes,
+                url
             };
         }
     });
@@ -89,9 +94,78 @@ function updateModeButtons(activeMode) {
     document.getElementById('random-play-btn').classList.toggle('active', activeMode === 'random');
 }
 
+function getCarDisplayLabel(car) {
+    return `${car.make} ${car.model} (${car.country}, ${car.year})`;
+}
+
+function clearSuggestions() {
+    const suggestions = document.getElementById('car-suggestions');
+    if (suggestions) {
+        suggestions.innerHTML = '';
+        suggestions.classList.add('hidden');
+    }
+}
+
+function renderSuggestions(query) {
+    const suggestions = document.getElementById('car-suggestions');
+    if (!suggestions) return;
+
+    const normalizedQuery = query.trim().toLowerCase();
+    if (!normalizedQuery) {
+        clearSuggestions();
+        return;
+    }
+
+    const matches = searchableCars.filter(car => {
+        const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
+        return searchableText.includes(normalizedQuery);
+    });
+
+    if (!matches.length) {
+        suggestions.innerHTML = '<div class="suggestion-empty">No matches</div>';
+        suggestions.classList.remove('hidden');
+        return;
+    }
+
+    suggestions.innerHTML = matches.slice(0, 50).map(car => `
+        <button type="button" class="suggestion-item" data-label="${getCarDisplayLabel(car)}">
+            ${getCarDisplayLabel(car)}
+        </button>
+    `).join('');
+    suggestions.classList.remove('hidden');
+}
+
+function findCarByInput(inputString) {
+    const trimmedInput = inputString.trim();
+    if (!trimmedInput) return null;
+
+    const normalizedInput = trimmedInput.toLowerCase();
+
+    const exactLabelMatch = searchableCars.find(car => getCarDisplayLabel(car).toLowerCase() === normalizedInput);
+    if (exactLabelMatch) return exactLabelMatch;
+
+    const simpleMatch = searchableCars.find(car => `${car.make} ${car.model}`.toLowerCase() === normalizedInput);
+    if (simpleMatch) return simpleMatch;
+
+    const modelMatch = searchableCars.find(car => car.model.toLowerCase() === normalizedInput);
+    if (modelMatch) return modelMatch;
+
+    const yearMatch = searchableCars.find(car => String(car.year) === normalizedInput);
+    if (yearMatch) return yearMatch;
+
+    const countryMatch = searchableCars.find(car => car.country.toLowerCase() === normalizedInput);
+    if (countryMatch) return countryMatch;
+
+    return searchableCars.find(car => {
+        const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
+        return searchableText.includes(normalizedInput);
+    });
+}
+
 function resetGameUI() {
     document.getElementById('guess-matrix').innerHTML = '';
     document.getElementById('user-input').value = '';
+    clearSuggestions();
     document.getElementById('input-controls').classList.remove('hidden');
     document.getElementById('game-status').classList.add('hidden');
     document.getElementById('status-message').textContent = '';
@@ -236,15 +310,7 @@ function processGuess() {
     const inputField = document.getElementById('user-input');
     const inputString = inputField.value.trim();
     
-    // Find matched object inside validated dictionary references
-    const normalizedInput = inputString.toLowerCase();
-    const selectedCar = gameDatabase.find(c => {
-        const simpleMatch = `${c.make} ${c.model}`.toLowerCase() === normalizedInput;
-        const modelMatch = c.model.toLowerCase() === normalizedInput;
-        const formattedMatch = `${c.make} ${c.model} (${c.year})`.toLowerCase() === normalizedInput;
-        const countryFormattedMatch = `${c.make} ${c.model} (${c.country}, ${c.year})`.toLowerCase() === normalizedInput;
-        return simpleMatch || modelMatch || formattedMatch || countryFormattedMatch;
-    });
+    const selectedCar = findCarByInput(inputString);
 
     if (!selectedCar) {
         alert("Please select a valid option directly from the provided drop-down listing.");
@@ -285,13 +351,19 @@ function displayTerminationState() {
 
     panel.classList.remove('hidden');
     if (currentGameState.victory) {
-        msg.textContent = "Victory achieved!";
+        msg.textContent = `${targetCar.make} ${targetCar.model}, ${targetCar.year}, ${targetCar.country || 'Unknown'}`;
         msg.style.color = "var(--colour-correct)";
+        reveal.innerHTML = `
+            <div class="solution-details">
+                <div>${targetCar.notes || 'No notes available.'}</div>
+                ${targetCar.url ? `<div><a href="${targetCar.url}" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a></div>` : ''}
+            </div>
+        `;
     } else {
         msg.textContent = "Game Over";
         msg.style.color = "#d32f2f";
+        reveal.textContent = `Target Car: ${targetCar.make} ${targetCar.model} (${targetCar.year})`;
     }
-    reveal.textContent = `Target Car: ${targetCar.make} ${targetCar.model} (${targetCar.year})`;
 }
 
 // 7. Local Storage Session Hydration Engine
@@ -336,21 +408,36 @@ window.addEventListener('DOMContentLoaded', () => {
             gameDatabase = normaliseData(rawJson);
             startGame('daily');
 
-            // Populate the dropdown options for the guess selector
-            const select = document.getElementById('user-input');
-            select.innerHTML = '<option value="">Select a car...</option>';
-            const sortedCars = [...gameDatabase].sort((a, b) => {
+            searchableCars = [...gameDatabase].sort((a, b) => {
                 const left = `${a.make} ${a.model}`.toLowerCase();
                 const right = `${b.make} ${b.model}`.toLowerCase();
                 return left.localeCompare(right);
             });
 
-            sortedCars.forEach(car => {
-                const opt = document.createElement('option');
-                const displayLabel = `${car.make} ${car.model} (${car.country}, ${car.year})`;
-                opt.value = displayLabel;
-                opt.textContent = displayLabel;
-                select.appendChild(opt);
+            const input = document.getElementById('user-input');
+            const suggestions = document.getElementById('car-suggestions');
+
+            input.addEventListener('input', () => renderSuggestions(input.value));
+            input.addEventListener('focus', () => renderSuggestions(input.value));
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    processGuess();
+                }
+            });
+
+            suggestions.addEventListener('click', (event) => {
+                const suggestionButton = event.target.closest('.suggestion-item');
+                if (!suggestionButton) return;
+
+                input.value = suggestionButton.dataset.label;
+                clearSuggestions();
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!input.contains(event.target) && !suggestions.contains(event.target)) {
+                    clearSuggestions();
+                }
             });
 
             hydrateSession();
@@ -359,9 +446,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
             document.getElementById('submit-btn').addEventListener('click', processGuess);
-            document.getElementById('user-input').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') processGuess();
-            });
             document.getElementById('daily-play-btn').addEventListener('click', () => startGame('daily'));
             document.getElementById('random-play-btn').addEventListener('click', () => startGame('random'));
         })

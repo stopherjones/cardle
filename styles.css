@@ -163,11 +163,16 @@ header p {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    align-items: flex-start;
 }
 
-.controls-panel input,
-.controls-panel select {
+.input-wrapper {
     flex-grow: 1;
+    position: relative;
+}
+
+.controls-panel input {
+    width: 100%;
     background-color: var(--bg-main);
     border: 1px solid var(--border-subtle);
     color: var(--text-primary);
@@ -178,9 +183,40 @@ header p {
     box-sizing: border-box;
 }
 
-.controls-panel select option {
-    background-color: var(--bg-main);
+.suggestions-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    max-height: 240px;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.suggestion-item,
+.suggestion-empty {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    background: none;
+    border: none;
     color: var(--text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.suggestion-empty {
+    color: var(--text-muted);
+    cursor: default;
 }
 
 .controls-panel button {
