@@ -18,7 +18,8 @@ def fetch_wikipedia_data(search_term):
         "gsrlimit": "1",
         "prop": "pageimages|info",
         "inprop": "url",
-        "piprop": "original",
+        "piprop": "thumbnail", 
+        "pithumbsize": "900",
         "format": "json"
     }
     
@@ -33,7 +34,7 @@ def fetch_wikipedia_data(search_term):
             page_info = pages[page_id]
             
             wiki_url = page_info.get("fullurl", "")
-            image_url = page_info.get("original", {}).get("source", "")
+            image_url = page_info.get("thumbnail", {}).get("source", "")
             
             return wiki_url, image_url
             
@@ -73,10 +74,11 @@ def update_existing_json(json_file):
         if search_term and (not row['url'] or not row['imageurl']):
             print(f"Updating missing data for: {search_term}")
             wiki_url, image_url = fetch_wikipedia_data(search_term)
-            
-            if wiki_url:
+    
+            # Only update if the current field is empty
+            if wiki_url and not row['url']:
                 row['url'] = wiki_url
-            if image_url:
+            if image_url and not row['imageurl']:
                 row['imageurl'] = image_url
                 
             updated_count += 1
