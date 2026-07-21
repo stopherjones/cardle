@@ -163,7 +163,7 @@ header p {
     display: flex;
     gap: 10px;
     margin-top: 20px;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .input-wrapper {
@@ -225,8 +225,9 @@ header p {
     border: none;
     padding: 0 24px;
     border-radius: 4px;
-    font-weight: bold;
     cursor: pointer;
+    min-height: 48px;
+    align-self: stretch;
 }
 
 .status-overlay {
