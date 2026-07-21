@@ -8,7 +8,8 @@ let currentGameState = {
     completed: false,
     victory: false,
     mode: "daily",
-    overlayHiddenIndices: []
+    overlayHiddenIndices: [],
+    revealOrder: []
 };
 
 // 1. Data Normalisation and Sanitisation Pipeline
@@ -68,6 +69,21 @@ function selectTargetForMode(carsList, mode) {
     return calculateDailyTarget(carsList);
 }
 
+function shuffleArray(items) {
+    const shuffled = [...items];
+
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+    }
+
+    return shuffled;
+}
+
+function createRandomRevealOrder(cellCount = 6) {
+    return shuffleArray(Array.from({ length: cellCount }, (_, index) => index));
+}
+
 function updateModeButtons(activeMode) {
     document.getElementById('daily-play-btn').classList.toggle('active', activeMode === 'daily');
     document.getElementById('random-play-btn').classList.toggle('active', activeMode === 'random');
@@ -89,7 +105,8 @@ function startGame(mode = 'daily') {
         completed: false,
         victory: false,
         mode,
-        overlayHiddenIndices: []
+        overlayHiddenIndices: [],
+        revealOrder: createRandomRevealOrder()
     };
 
     if (!gameDatabase.length) {
@@ -148,6 +165,19 @@ function buildOverlay() {
             overlay.appendChild(cell);
         }
     }
+
+    const tilePositions = shuffleArray([
+        [1, 1], [1, 2], [1, 3],
+        [2, 1], [2, 2], [2, 3]
+    ]);
+
+    Array.from(overlay.querySelectorAll('.overlay-cell')).forEach((cell, index) => {
+        const [row, column] = tilePositions[index];
+        cell.style.gridRow = row;
+        cell.style.gridColumn = column;
+    });
+
+    overlay.classList.remove('revealed');
     applyOverlayState();
 }
 
@@ -174,19 +204,14 @@ function removeRandomOverlayCell() {
     const overlay = document.getElementById('image-overlay');
     if (!overlay) return;
 
-    const cells = Array.from(overlay.querySelectorAll('.overlay-cell'));
-    const visibleIndices = cells
-        .map((_, index) => index)
-        .filter(index => !currentGameState.overlayHiddenIndices.includes(index));
-
-    if (visibleIndices.length === 0) {
+    const nextIndex = currentGameState.revealOrder.shift();
+    if (nextIndex === undefined) {
         revealFullImage();
         return;
     }
 
-    const randomIndex = visibleIndices[Math.floor(Math.random() * visibleIndices.length)];
-    if (!currentGameState.overlayHiddenIndices.includes(randomIndex)) {
-        currentGameState.overlayHiddenIndices.push(randomIndex);
+    if (!currentGameState.overlayHiddenIndices.includes(nextIndex)) {
+        currentGameState.overlayHiddenIndices.push(nextIndex);
     }
     applyOverlayState();
 }
@@ -217,7 +242,8 @@ function processGuess() {
         const simpleMatch = `${c.make} ${c.model}`.toLowerCase() === normalizedInput;
         const modelMatch = c.model.toLowerCase() === normalizedInput;
         const formattedMatch = `${c.make} ${c.model} (${c.year})`.toLowerCase() === normalizedInput;
-        return simpleMatch || modelMatch || formattedMatch;
+        const countryFormattedMatch = `${c.make} ${c.model} (${c.country}, ${c.year})`.toLowerCase() === normalizedInput;
+        return simpleMatch || modelMatch || formattedMatch || countryFormattedMatch;
     });
 
     if (!selectedCar) {
@@ -280,6 +306,9 @@ function hydrateSession() {
             if (!Array.isArray(currentGameState.overlayHiddenIndices)) {
                 currentGameState.overlayHiddenIndices = [];
             }
+            if (!Array.isArray(currentGameState.revealOrder)) {
+                currentGameState.revealOrder = createRandomRevealOrder();
+            }
             currentGameState.guesses.forEach(g => drawFeedbackRow(g));
             if (currentGameState.completed) {
                 revealFullImage();
@@ -307,8 +336,9 @@ window.addEventListener('DOMContentLoaded', () => {
             gameDatabase = normaliseData(rawJson);
             startGame('daily');
 
-            // Populate HTML5 native datalist elements for UI suggestions
-            const datalist = document.getElementById('car-options');
+            // Populate the dropdown options for the guess selector
+            const select = document.getElementById('user-input');
+            select.innerHTML = '<option value="">Select a car...</option>';
             const sortedCars = [...gameDatabase].sort((a, b) => {
                 const left = `${a.make} ${a.model}`.toLowerCase();
                 const right = `${b.make} ${b.model}`.toLowerCase();
@@ -317,9 +347,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             sortedCars.forEach(car => {
                 const opt = document.createElement('option');
-                opt.value = `${car.make} ${car.model} (${car.year})`;
-                opt.label = `${car.make} ${car.model} (${car.year})`;
-                datalist.appendChild(opt);
+                const displayLabel = `${car.make} ${car.model} (${car.country}, ${car.year})`;
+                opt.value = displayLabel;
+                opt.textContent = displayLabel;
+                select.appendChild(opt);
             });
 
             hydrateSession();

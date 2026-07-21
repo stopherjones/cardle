@@ -39,8 +39,9 @@
         <div id="guess-matrix" class="matrix-container"></div>
 
         <div id="input-controls" class="controls-panel">
-            <input type="text" id="user-input" list="car-options" placeholder="Type a car model or manufacturer...">
-            <datalist id="car-options"></datalist>
+            <select id="user-input" aria-label="Select a car">
+                <option value="">Select a car...</option>
+            </select>
             <button id="submit-btn">Guess</button>
         </div>
 
@@ -50,6 +51,6 @@
         </div>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=2"></script>
 </body>
 </html>

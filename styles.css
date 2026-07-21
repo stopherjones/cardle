@@ -165,7 +165,8 @@ header p {
     margin-top: 20px;
 }
 
-.controls-panel input {
+.controls-panel input,
+.controls-panel select {
     flex-grow: 1;
     background-color: var(--bg-main);
     border: 1px solid var(--border-subtle);
@@ -173,6 +174,13 @@ header p {
     padding: 12px;
     border-radius: 4px;
     font-size: 1rem;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+.controls-panel select option {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
 }
 
 .controls-panel button {
