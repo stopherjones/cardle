@@ -1294,5 +1294,554 @@
         "url": "https://en.wikipedia.org/wiki/Rimac_Nevera",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rimac_Nevera.jpg/960px-Rimac_Nevera.jpg",
         "notes": "All-electric hypercar that set global acceleration records and redefined electric vehicle performance limits."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "PV444",
+        "Year": 1947,
+        "url": "https://en.wikipedia.org/wiki/Volvo_PV444/544",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Volvo_PV_444_LS_1957_Rubinr%C3%B6d_%28cropped%29.JPG/960px-Volvo_PV_444_LS_1957_Rubinr%C3%B6d_%28cropped%29.JPG",
+        "notes": "Unibody compact saloon featuring a safety cage design that established Volvo's global export footprint."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "Amazon (120 Series)",
+        "Year": 1956,
+        "url": "https://en.wikipedia.org/wiki/Volvo_Amazon",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Volvo_122_-_Flickr_-_mick_-_Lumix_%28cropped%29.jpg/960px-Volvo_122_-_Flickr_-_mick_-_Lumix_%28cropped%29.jpg",
+        "notes": "Iconic family car that became the first vehicle in the world to feature three-point seatbelts as standard equipment."
+    },
+    {
+        "Make": "Saab",
+        "Country": "Sweden",
+        "Model": "96",
+        "Year": 1960,
+        "url": "https://en.wikipedia.org/wiki/Saab_96",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/1972_Saab_96_V4_1.5.jpg/960px-1972_Saab_96_V4_1.5.jpg",
+        "notes": "Aerodynamic, rally-winning compact car that established Saab’s international reputation for durability and engineering."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "P1800",
+        "Year": 1961,
+        "url": "https://en.wikipedia.org/wiki/Volvo_P1800",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Volvo_P1800_mfd_1965_1780cc_Essex.JPG/960px-Volvo_P1800_mfd_1965_1780cc_Essex.JPG",
+        "notes": "Sleek sports coupe famous for its TV appearance in The Saint and for setting the highest certified vehicle mileage record."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "240",
+        "Year": 1974,
+        "url": "https://en.wikipedia.org/wiki/Volvo_200_Series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/1988-1991_Volvo_240_GL_station_wagon_%282011-06-15%29_01.jpg/960px-1988-1991_Volvo_240_GL_station_wagon_%282011-06-15%29_01.jpg",
+        "notes": "Defining boxy Swedish estate and saloon that served as the international benchmark for passenger crash safety for decades."
+    },
+    {
+        "Make": "Saab",
+        "Country": "Sweden",
+        "Model": "99 Turbo",
+        "Year": 1978,
+        "url": "https://en.wikipedia.org/wiki/Saab_99",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/1969-SAAB99.jpg/960px-1969-SAAB99.jpg",
+        "notes": "Massively influential sports saloon that democratised forced-induction turbocharging technology for everyday family cars."
+    },
+    {
+        "Make": "Saab",
+        "Country": "Sweden",
+        "Model": "900 Turbo",
+        "Year": 1979,
+        "url": "https://en.wikipedia.org/wiki/Saab_900",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/1993_Saab_900_SE_Turbo_2.0_Front.jpg/960px-1993_Saab_900_SE_Turbo_2.0_Front.jpg",
+        "notes": "Iconic executive car featuring aircraft-inspired ergonomics, a wrapped windscreen, and distinctive turbo performance."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "850 T-5R / R",
+        "Year": 1995,
+        "url": "https://en.wikipedia.org/wiki/Volvo_850",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Volvo-850.jpg",
+        "notes": "Shattered performance estate stereotypes with a high-output turbocharged five-cylinder engine and BTCC racing lineage."
+    },
+    {
+        "Make": "Koenigsegg",
+        "Country": "Sweden",
+        "Model": "CC8S",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/Koenigsegg_CC8S",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/2015-03-03_Geneva_Motor_Show_3305_%28cropped%29.JPG/960px-2015-03-03_Geneva_Motor_Show_3305_%28cropped%29.JPG",
+        "notes": "Inaugural production hypercar from Christian von Koenigsegg, introducing dihedral synchro-helix doors and record-breaking engineering."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "XC90 (1st Gen)",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/CarPlay",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Apple_CarPlay_Logo.svg/960px-Apple_CarPlay_Logo.svg.png",
+        "notes": "Benchmark luxury family SUV that pioneered advanced rollover protection systems and versatile seven-seat packaging."
+    },
+    {
+        "Make": "Th!nk",
+        "Country": "Norway",
+        "Model": "City",
+        "Year": 2008,
+        "url": "https://en.wikipedia.org/wiki/Think_City",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Think_City_2007.jpg/960px-Think_City_2007.jpg",
+        "notes": "Early Scandinavian pioneer of plastic-bodied, purpose-built urban electric vehicles."
+    },
+    {
+        "Make": "Koenigsegg",
+        "Country": "Sweden",
+        "Model": "Agera RS",
+        "Year": 2015,
+        "url": "https://en.wikipedia.org/wiki/Koenigsegg_Agera",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/2015_Koenigsegg_Agera_N_%2819886243212%29.jpg/960px-2015_Koenigsegg_Agera_N_%2819886243212%29.jpg",
+        "notes": "Land-speed record holder that cemented Sweden at the pinnacle of hypercar performance with a 277 mph top speed."
+    },
+    {
+        "Make": "Polestar",
+        "Country": "Sweden",
+        "Model": "2",
+        "Year": 2020,
+        "url": "https://en.wikipedia.org/wiki/Polestar_2",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Polestar_2_%E2%80%93_f_02042021.jpg/960px-Polestar_2_%E2%80%93_f_02042021.jpg",
+        "notes": "High-volume all-electric fastback that launched Volvo's standalone performance EV brand into global markets."
+    },
+    {
+        "Make": "Hindustan",
+        "Country": "India",
+        "Model": "Ambassador",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Hindustan_Ambassador",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/The_Classic_Ambassador_on_an_early_sunrise.jpg/960px-The_Classic_Ambassador_on_an_early_sunrise.jpg",
+        "notes": "Based on the Morris Oxford III, this iconic \"King of Indian Roads\" served politicians and public transport fleets for over five decades."
+    },
+    {
+        "Make": "Premier",
+        "Country": "India",
+        "Model": "Padmini",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Premier_Padmini",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Premier_Padmini.jpg/960px-Premier_Padmini.jpg",
+        "notes": "Licence-built derivative of the Fiat 1100 Delight that became the quintessential Mumbai taxi and a symbol of mid-century urban transport."
+    },
+    {
+        "Make": "Maruti",
+        "Country": "India",
+        "Model": "800",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Maruti_800",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/MHV_Maruti_Suzuki_800_01.jpg",
+        "notes": "Suzuki-derived compact hatchback that democratised personal car ownership and transformed India's automotive landscape."
+    },
+    {
+        "Make": "Maruti",
+        "Country": "India",
+        "Model": "Gypsy",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Maruti_Suzuki_Gypsy",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Maruti_Gypsy_MG_410_1992_%2812127002603%29.jpg/960px-Maruti_Gypsy_MG_410_1992_%2812127002603%29.jpg",
+        "notes": "Rugged, lightweight off-roader based on the Suzuki SJ410 that became a mainstay for the Indian Armed Forces and local rally sport."
+    },
+    {
+        "Make": "Tata",
+        "Country": "India",
+        "Model": "Sierra",
+        "Year": 1991,
+        "url": "https://en.wikipedia.org/wiki/Tata_Sierra",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Tata_Sierra_Turbo_GJ10DA0696_%28cropped%29.jpg/960px-Tata_Sierra_Turbo_GJ10DA0696_%28cropped%29.jpg",
+        "notes": "Pioneering sports utility vehicle that launched as India's first indigenously designed passenger SUV with signature rear alpine glass."
+    },
+    {
+        "Make": "Tata",
+        "Country": "India",
+        "Model": "Sumo",
+        "Year": 1994,
+        "url": "https://en.wikipedia.org/wiki/Tata_Sumo",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Tata_Sumo_EX_2.0_TDi_4x4_2001_%2815260028476%29.jpg/960px-Tata_Sumo_EX_2.0_TDi_4x4_2001_%2815260028476%29.jpg",
+        "notes": "Purpose-built multi-utility vehicle designed completely in-house, establishing market dominance across rural and commercial transport."
+    },
+    {
+        "Make": "Tata",
+        "Country": "India",
+        "Model": "Indica",
+        "Year": 1998,
+        "url": "https://en.wikipedia.org/wiki/Tata_Indica",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/2000_Tata_Indica_blue.JPG/960px-2000_Tata_Indica_blue.JPG",
+        "notes": "India's first fully home-grown passenger car, offering unprecedented interior space and launching Tata as a high-volume passenger brand."
+    },
+    {
+        "Make": "Mahindra",
+        "Country": "India",
+        "Model": "Scorpio",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/Mahindra_Scorpio",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mahindra_Scorpio_GLX_2.6_m-Hawk_2011_%2836756517492%29.jpg/960px-Mahindra_Scorpio_GLX_2.6_m-Hawk_2011_%2836756517492%29.jpg",
+        "notes": "Clean-sheet global SUV platform that successfully transitioned Mahindra from a tractor/utility maker into a modern SUV manufacturer."
+    },
+    {
+        "Make": "Tata",
+        "Country": "India",
+        "Model": "Nano",
+        "Year": 2008,
+        "url": "https://en.wikipedia.org/wiki/Tata_Nano",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tata_-_Nano_-_Kolkata_2011-09-15_5184.JPG/960px-Tata_-_Nano_-_Kolkata_2011-09-15_5184.JPG",
+        "notes": "Engineered as the world's most affordable production car to provide safer, weather-protected transport for families upgrading from motorcycles."
+    },
+    {
+        "Make": "Mahindra",
+        "Country": "India",
+        "Model": "Thar",
+        "Year": 2010,
+        "url": "https://en.wikipedia.org/wiki/Mahindra_Thar",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_02_%28cropped%29.jpg/960px-Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_02_%28cropped%29.jpg",
+        "notes": "Rugged off-roader rooted in early Jeep CJ assembly legacy that evolved into India’s primary mainstream lifestyle 4x4."
+    },
+    {
+        "Make": "DC",
+        "Country": "India",
+        "Model": "Avanti",
+        "Year": 2015,
+        "url": "https://en.wikipedia.org/wiki/DC_Avanti",
+        "imageurl": "",
+        "notes": "Developed and built in limited numbers as India's first indigenous mid-engined sports car."
+    },
+    {
+        "Make": "Hongqi",
+        "Country": "China",
+        "Model": "CA72",
+        "Year": 1958,
+        "url": "https://en.wikipedia.org/wiki/Hongqi_CA72",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Hongqi_CA72_1959.jpg/960px-Hongqi_CA72_1959.jpg",
+        "notes": "China’s first official state limousine, built specifically for government ceremonies and high-ranking political leadership."
+    },
+    {
+        "Make": "Shanghai",
+        "Country": "China",
+        "Model": "SH760",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Shanghai_SH760",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shanghai_SH760_front-left_2016_Shanghai_Auto_Museum.jpg/960px-Shanghai_SH760_front-left_2016_Shanghai_Auto_Museum.jpg",
+        "notes": "Served as the primary government official and taxi fleet passenger car across China for nearly three decades."
+    },
+    {
+        "Make": "Wuling",
+        "Country": "China",
+        "Model": "Sunshine",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/Wuling_Sunshine",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/2013_Wuling_New_Sunshine_%28LZW6390%29%2C_front_8.9.18.jpg/960px-2013_Wuling_New_Sunshine_%28LZW6390%29%2C_front_8.9.18.jpg",
+        "notes": "Ubiquitous microvan that mobilised small businesses across China, becoming one of the highest-selling vehicle platforms globally."
+    },
+    {
+        "Make": "Chery",
+        "Country": "China",
+        "Model": "QQ",
+        "Year": 2003,
+        "url": "https://en.wikipedia.org/wiki/Chery_QQ",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/en/7/70/QQ_%28Chery%29_logo.png",
+        "notes": "Ultra-affordable supermini that democratised private car ownership for millions of first-time Chinese buyers."
+    },
+    {
+        "Make": "BYD",
+        "Country": "China",
+        "Model": "F3DM",
+        "Year": 2008,
+        "url": "https://en.wikipedia.org/wiki/BYD_F3DM",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bilbao_05_2012_BYD_F3DM_2438.JPG/960px-Bilbao_05_2012_BYD_F3DM_2438.JPG",
+        "notes": "Groundbreaking saloon that debuted as the world's first mass-produced plug-in hybrid electric vehicle (PHEV)."
+    },
+    {
+        "Make": "Wuling",
+        "Country": "China",
+        "Model": "Hongguang",
+        "Year": 2010,
+        "url": "https://en.wikipedia.org/wiki/Wuling_Hongguang",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Wuling_Hongguang_II_IMG001.jpg/960px-Wuling_Hongguang_II_IMG001.jpg",
+        "notes": "Compact MPV that dominated domestic sales charts for a decade as China's ultimate multipurpose family and commercial workhorse."
+    },
+    {
+        "Make": "NIO",
+        "Country": "China",
+        "Model": "EP9",
+        "Year": 2016,
+        "url": "https://en.wikipedia.org/wiki/Nio_EP9",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Nio_EP9.jpg/960px-Nio_EP9.jpg",
+        "notes": "Electric supercar that set lap records at the Nürburgring, establishing China's capacity for high-performance EV engineering."
+    },
+    {
+        "Make": "Geely",
+        "Country": "China",
+        "Model": "Boyue",
+        "Year": 2016,
+        "url": "https://en.wikipedia.org/wiki/Geely_Boyue",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2023_Geely_Boyue_L_%282%29%2C_front_8.3.23.jpg/960px-2023_Geely_Boyue_L_%282%29%2C_front_8.3.23.jpg",
+        "notes": "Landmark SUV that showcased the rapid rise of Chinese domestic brands in design sophistication, safety, and technology integration."
+    },
+    {
+        "Make": "Wuling",
+        "Country": "China",
+        "Model": "Hongguang MINI EV",
+        "Year": 2020,
+        "url": "https://en.wikipedia.org/wiki/Wuling_Hongguang_Mini_EV",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/2022_Wuling_Hongguang_Mini_EV_GameBoy_Edition_%28front%29.jpg/960px-2022_Wuling_Hongguang_Mini_EV_GameBoy_Edition_%28front%29.jpg",
+        "notes": "Ultra-compact EV that spearheaded mass urban electrification through extreme affordability and minimalist packaging."
+    },
+    {
+        "Make": "BYD",
+        "Country": "China",
+        "Model": "Atto 3 (Yuan Plus)",
+        "Year": 2022,
+        "url": "https://en.wikipedia.org/wiki/BYD_Atto_3",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BYD_Atto_3_1X7A6491.jpg/960px-BYD_Atto_3_1X7A6491.jpg",
+        "notes": "Globally distributed electric crossover that marked the forefront of China's transformation into a major international vehicle exporter."
+    },
+    {
+        "Make": "BYD",
+        "Country": "China",
+        "Model": "Yangwang U8",
+        "Year": 2023,
+        "url": "https://en.wikipedia.org/wiki/Yangwang_U8",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/2024_Yangwang_U8_%28front%29.jpg/960px-2024_Yangwang_U8_%28front%29.jpg",
+        "notes": "High-tech luxury off-roader featuring independent quad-motor torque vectoring and emergency water-floating capability."
+    },
+    {
+        "Make": "Xiaomi",
+        "Country": "China",
+        "Model": "SU7",
+        "Year": 2024,
+        "url": "https://en.wikipedia.org/wiki/Xiaomi_SU7",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/%28CHN-Shanghai%29_Private_Xiaomi_SU7_%E6%B2%AAA7WE106_2024-11-24.jpg/960px-%28CHN-Shanghai%29_Private_Xiaomi_SU7_%E6%B2%AAA7WE106_2024-11-24.jpg",
+        "notes": "High-profile electric performance saloon that demonstrated the rapid entry of consumer tech giants into mainstream automotive manufacturing."
+    },
+    {
+        "Make": "Anasagasti",
+        "Country": "Argentina",
+        "Model": "12 HP",
+        "Year": 1912,
+        "url": "https://en.wikipedia.org/wiki/Horacio_Anasagasti",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Anasagasti_Horacio.jpg",
+        "notes": "Argentina's first indigenous series-produced automobile, designed and built by Horacio Anasagasti."
+    },
+    {
+        "Make": "Willys-Overland",
+        "Country": "Brazil",
+        "Model": "Rural Willys",
+        "Year": 1958,
+        "url": "https://en.wikipedia.org/wiki/Willys",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/PostcardToledoWillysOverlandFactoryAerial1915.jpg/960px-PostcardToledoWillysOverlandFactoryAerial1915.jpg",
+        "notes": "Rugged utility estate designed and manufactured specifically to meet the demands of rural South America."
+    },
+    {
+        "Make": "Siam Di Tella",
+        "Country": "Argentina",
+        "Model": "1500",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Siam_Di_Tella",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/0/08/SIAM2014.png",
+        "notes": "Licence-built derivative of the BMC Farina saloon that became the quintessential mid-century Argentine taxi icon."
+    },
+    {
+        "Make": "Brasinca",
+        "Country": "Brazil",
+        "Model": "Uirapuru",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Brasinca_Uirapuru",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Brasinca_Uirapuru.jpg",
+        "notes": "Advanced hand-built sports coupe featuring a hand-hammered steel body, serving as one of Brazil's earliest GT cars."
+    },
+    {
+        "Make": "IKA",
+        "Country": "Argentina",
+        "Model": "Torino",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/IKA-Renault_Torino",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/IKA_Torino_380_coup%C3%A9.jpg/960px-IKA_Torino_380_coup%C3%A9.jpg",
+        "notes": "Celebrated Argentine performance icon that adapted American underpinnings with Pininfarina styling and local engine engineering."
+    },
+    {
+        "Make": "Puma",
+        "Country": "Brazil",
+        "Model": "GT / GTE",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/Puma_(car_manufacturer)",
+        "imageurl": "",
+        "notes": "Iconic fibreglass-bodied sports car export that became Brazil's most famous independent automotive manufacturer."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "Brazil",
+        "Model": "SP2",
+        "Year": 1972,
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_SP2",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Volkswagen_SP2_June_2017_02.jpg/960px-Volkswagen_SP2_June_2017_02.jpg",
+        "notes": "Striking sports coupe designed entirely in Brazil to circumvent strict national restrictions on foreign imports."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "Brazil",
+        "Model": "Brasília",
+        "Year": 1973,
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Bras%C3%ADlia",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/VW_Brasilia.jpg/960px-VW_Brasilia.jpg",
+        "notes": "Indigenously designed Brazilian hatchback-estate hybrid that achieved massive commercial success across Latin America."
+    },
+    {
+        "Make": "Fiat",
+        "Country": "Brazil",
+        "Model": "147",
+        "Year": 1976,
+        "url": "https://en.wikipedia.org/wiki/Fiat_147",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Fiat_147_late.jpg/960px-Fiat_147_late.jpg",
+        "notes": "Adapted Fiat 127 derivative that pioneered the world’s first mass-produced ethanol-fuelled production engine in 1979."
+    },
+    {
+        "Make": "VAM",
+        "Country": "Mexico",
+        "Model": "Lerma",
+        "Year": 1981,
+        "url": "https://en.wikipedia.org/wiki/VAM_Lerma",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/1982_VAM_Lerma_620_two-door_liftback_with_4.6_L_at_2021_All_AMC_Day_Cecil_Dragway_32of32.jpg/960px-1982_VAM_Lerma_620_two-door_liftback_with_4.6_L_at_2021_All_AMC_Day_Cecil_Dragway_32of32.jpg",
+        "notes": "Unique Mexican hatchback-saloon hybrid developed locally by Vehículos Automotores Mexicanos using AMC components."
+    },
+    {
+        "Make": "Gurgel",
+        "Country": "Brazil",
+        "Model": "BR-800",
+        "Year": 1988,
+        "url": "https://en.wikipedia.org/wiki/Gurgel",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Gurgel_Motores.svg/960px-Gurgel_Motores.svg.png",
+        "notes": "Microcar engineered as the first fully indigenous, 100% Brazilian-designed and manufactured city vehicle."
+    },
+    {
+        "Make": "Mastretta",
+        "Country": "Mexico",
+        "Model": "MXT",
+        "Year": 2011,
+        "url": "https://en.wikipedia.org/wiki/Mastretta_MXT",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Mastretta_of_Mexico%2C_The_MXT_-_Flickr_-_Moto%40Club4AG.jpg/960px-Mastretta_of_Mexico%2C_The_MXT_-_Flickr_-_Moto%40Club4AG.jpg",
+        "notes": "Mexico's first internally designed and built lightweight sports car, constructed with an aluminium spaceframe."
+    },
+    {
+        "Make": "VUHL",
+        "Country": "Mexico",
+        "Model": "05",
+        "Year": 2013,
+        "url": "https://en.wikipedia.org/wiki/VUHL_05",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/2013_Goodwood_Festival_Of_Speed_-_VUHL_05_-_9272275066.jpg/960px-2013_Goodwood_Festival_Of_Speed_-_VUHL_05_-_9272275066.jpg",
+        "notes": "Ultra-lightweight track-focused supercar engineered in Mexico for high-performance international exports."
+    },
+    {
+        "Make": "Protea",
+        "Country": "South Africa",
+        "Model": "Car",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Protea_(car)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Protea_car-001.jpg/960px-Protea_car-001.jpg",
+        "notes": "Recognized as South Africa’s first commercially built production car, featuring a fibreglass body on a tubular frame."
+    },
+    {
+        "Make": "GSM",
+        "Country": "South Africa",
+        "Model": "Dart",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Glass_Sport_Motors",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Gsmdart.jpg",
+        "notes": "Lightweight fibreglass sports car developed by Glass Sport Motors that achieved notable racing success in Europe and Africa."
+    },
+    {
+        "Make": "Ramses",
+        "Country": "Egypt",
+        "Model": "Ramses",
+        "Year": 1960,
+        "url": "https://en.wikipedia.org/wiki/Ramesses_II",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ramses_II_British_Museum.jpg/960px-Ramses_II_British_Museum.jpg",
+        "notes": "Egypt’s first state-backed national automobile project, based on NSU Prinz underpinnings."
+    },
+    {
+        "Make": "Basil Green",
+        "Country": "South Africa",
+        "Model": "Capri Perana",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Basil_Green_Motors",
+        "imageurl": "",
+        "notes": "V8-powered homologation special created in South Africa that dominated local saloon car racing with factory approval from Ford."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "South Africa",
+        "Model": "Citi Golf",
+        "Year": 1984,
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Citi_Golf",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2006_Volkswagen_Citi_Golf_1.4_Front.jpg/960px-2006_Volkswagen_Citi_Golf_1.4_Front.jpg",
+        "notes": "Unique South African continuation of the Mk1 Golf platform that remained a dominant sales success for 25 years."
+    },
+    {
+        "Make": "BMW",
+        "Country": "South Africa",
+        "Model": "333i (E30)",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/BMW_3_Series_(E30)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg/960px-BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg",
+        "notes": "Rare, South Africa-exclusive E30 developed with Alpina, cramming a 3.2-litre 6-cylinder engine into a compact chassis."
+    },
+    {
+        "Make": "BMW",
+        "Country": "South Africa",
+        "Model": "325is \"Gusheshe\"",
+        "Year": 1990,
+        "url": "",
+        "imageurl": "",
+        "notes": "Bespoke South African Group N homologation special featuring aluminium body panels, evolving into a major national cultural icon."
+    },
+    {
+        "Make": "Laraki",
+        "Country": "Morocco",
+        "Model": "Fulgura",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/Laraki",
+        "imageurl": "",
+        "notes": "Morocco's first supercar, featuring a quad-turbocharged V12 engine and carbon-fibre construction."
+    },
+    {
+        "Make": "Wallyscar",
+        "Country": "Tunisia",
+        "Model": "Izis",
+        "Year": 2008,
+        "url": "https://en.wikipedia.org/wiki/Wallyscar",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/LOGO_WALLYSCAR.jpg/960px-LOGO_WALLYSCAR.jpg",
+        "notes": "Minimalist fibreglass utility vehicle that established Tunisia's modern indigenous motor manufacturing presence."
+    },
+    {
+        "Make": "Kiira",
+        "Country": "Uganda",
+        "Model": "EV",
+        "Year": 2011,
+        "url": "https://en.wikipedia.org/wiki/Kiira_Motors_Corporation",
+        "imageurl": "",
+        "notes": "Developed at Makerere University, serving as Africa’s first locally engineered electric vehicle prototype."
+    },
+    {
+        "Make": "Mobius",
+        "Country": "Kenya",
+        "Model": "Mobius II",
+        "Year": 2014,
+        "url": "https://en.wikipedia.org/wiki/M%C3%B6bius_strip",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/M%C3%B6bius_Strip.jpg/960px-M%C3%B6bius_Strip.jpg",
+        "notes": "Stripped-back, durable SUV purpose-built in Kenya to handle rough terrain and heavy loads at a low cost point."
+    },
+    {
+        "Make": "Innoson",
+        "Country": "Nigeria",
+        "Model": "IVM Fox",
+        "Year": 2014,
+        "url": "https://en.wikipedia.org/wiki/Innoson_Vehicle_Manufacturing",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Innoson_factory_entrance.jpg/960px-Innoson_factory_entrance.jpg",
+        "notes": "Launched as part of Nigeria's first fully indigenous vehicle manufacturing and mass-assembly enterprise."
     }
 ]
