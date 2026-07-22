@@ -1,16 +1,43 @@
 [
     {
+        "Make": "Benz",
+        "Country": "Germany",
+        "Model": "Patent-Motorwagen",
+        "Year": 1885,
+        "url": "https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Benz_Patent_Motorwagen_1886_%28Replica%29.jpg/960px-Benz_Patent_Motorwagen_1886_%28Replica%29.jpg",
+        "notes": "Considered the first practical, modern automobile and the first car to be put into series production"
+    },
+    {
+        "Make": "Mercedes",
+        "Country": "Germany",
+        "Model": "35 HP",
+        "Year": 1901,
+        "url": "https://en.wikipedia.org/wiki/Mercedes_35_hp",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mercedes_35hp_by_Wilhelm_Maybach.jpg/960px-Mercedes_35hp_by_Wilhelm_Maybach.jpg",
+        "notes": "A significant advancement over the previous generation of modified stagecoaches, the Mercedes 35 hp is regarded as the first modern car."
+    },
+    {
+        "Make": "Benz",
+        "Country": "Germany",
+        "Model": "Blitzen",
+        "Year": 1909,
+        "url": "https://en.wikipedia.org/wiki/Blitzen_Benz",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Benz_Patent_Motorwagen_1886_%28Replica%29.jpg/960px-Benz_Patent_Motorwagen_1886_%28Replica%29.jpg",
+        "notes": "The bird-beaked vehicle had a 21.5-litre, 200 hp engine, and set a land speed record of 141 mph, said to be \"faster than any plane, train, or automobile\" at the time, a record that was not exceeded for ten years by any other vehicle."
+    },
+    {
         "Make": "Bugatti",
-        "Country": "",
+        "Country": "Germany",
         "Model": "Type 13",
         "Year": 1910,
         "url": "https://en.wikipedia.org/wiki/Bugatti_Type_13",
-        "imageurl": "",
-        "notes": "Pioneered lightweight chassis design, high-rpm engineering, and multi-valve cylinder heads."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Bugatti_Typ_13_Brescia_Sport-Racing_1922.jpg",
+        "notes": "The first true 'Bugatti', built in German Alsace before the region became part of France. The car pioneered multivalve engines and was a racing success."
     },
     {
         "Make": "Vauxhall",
-        "Country": "",
+        "Country": "United Kingdom",
         "Model": "Prince Henry",
         "Year": 1911,
         "url": "https://en.wikipedia.org/wiki/Vauxhall_Prince_Henry",
@@ -18,179 +45,89 @@
         "notes": "Widely regarded as Britain’s first purpose-built sports car, designed for high-speed endurance trials."
     },
     {
-        "Make": "Mercer",
-        "Country": "",
-        "Model": "Type 35 Raceabout",
-        "Year": 1911,
-        "url": "https://en.wikipedia.org/wiki/Mercer_(automobile)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Mercer-motor_1917_logo.jpg",
-        "notes": "Minimalist American sports car that set early speed benchmarks and formed an intense rivalry with Stutz."
-    },
-    {
-        "Make": "Hispano-Suiza",
-        "Country": "",
-        "Model": "Alphonso XIII",
-        "Year": 1911,
-        "url": "https://en.wikipedia.org/wiki/Hispano-Suiza",
-        "imageurl": "",
-        "notes": "High-performance luxury sports car commissioned for the Spanish monarch, featuring an exceptional power-to-weight ratio."
-    },
-    {
-        "Make": "Cadillac",
-        "Country": "",
-        "Model": "Model 1912",
-        "Year": 1912,
-        "url": "https://en.wikipedia.org/wiki/Cadillac_Model_Thirty",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Cadillac_Model_30_Touring_1908_%286031928677%29.jpg/960px-Cadillac_Model_30_Touring_1908_%286031928677%29.jpg",
-        "notes": "Introduced the Delco electrical system with the world's first practical electric self-starter, eliminating the hand crank."
-    },
-    {
-        "Make": "Peugeot",
-        "Country": "",
-        "Model": "L76",
-        "Year": 1912,
-        "url": "https://en.wikipedia.org/wiki/Multi-valve",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Nissan_VQ35DE_005.jpg/960px-Nissan_VQ35DE_005.jpg",
-        "notes": "Revolutionised engine design by introducing the world’s first dual overhead camshaft (DOHC) four-valve-per-cylinder layout."
-    },
-    {
-        "Make": "Stutz",
-        "Country": "",
-        "Model": "Bearcat",
-        "Year": 1912,
-        "url": "https://en.wikipedia.org/wiki/Stutz_Bearcat",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Stutz_Bearcat.jpeg/960px-Stutz_Bearcat.jpeg",
-        "notes": "Iconic early American sports car renowned for stripped-back bodywork, speed, and endurance racing success."
-    },
-    {
         "Make": "Ford",
-        "Country": "",
+        "Country": "United States",
         "Model": "Model T",
-        "Year": 1913,
+        "Year": 1908,
         "url": "https://en.wikipedia.org/wiki/Ford_Model_T",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/1925_Ford_Model_T_touring.jpg/960px-1925_Ford_Model_T_touring.jpg",
-        "notes": "Transformed global manufacturing with the introduction of the world’s first moving assembly line for mass automotive production."
-    },
-    {
-        "Make": "Dodge",
-        "Country": "",
-        "Model": "Model 30",
-        "Year": 1914,
-        "url": "https://en.wikipedia.org/wiki/Dodge_30-35",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/1915-dodge-archives.jpg",
-        "notes": "Pioneered standard all-steel body construction in mass production, replacing traditional wooden-framed coachwork."
-    },
-    {
-        "Make": "Cadillac",
-        "Country": "",
-        "Model": "Type 51",
-        "Year": 1915,
-        "url": "https://en.wikipedia.org/wiki/Cadillac_Type_51",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/1915_Cadillac_51_%2810793180364%29.jpg/960px-1915_Cadillac_51_%2810793180364%29.jpg",
-        "notes": "Introduced the first mass-produced V8 engine, establishing the template for American multi-cylinder powertrains."
-    },
-    {
-        "Make": "Owen",
-        "Country": "",
-        "Model": "Magnetic",
-        "Year": 1915,
-        "url": "https://en.wikipedia.org/wiki/Owen_Magnetic",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Owen_magnetic_radiator_emblem.jpg",
-        "notes": "Tech innovator utilising an electromagnetic generator and drive system, functioning as an early precursor to modern hybrid drives."
+        "notes": "Transformed global manufacturing with the introduction of the world’s first moving assembly line for mass automotive production. Over almost 20 years, Ford produced some 15 million models."
     },
     {
         "Make": "Rolls-Royce",
-        "Country": "",
+        "Country": "United Kingdom",
         "Model": "Silver Ghost",
-        "Year": 1907,
+        "Year": 1906,
         "url": "https://en.wikipedia.org/wiki/Rolls-Royce_Silver_Ghost",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Rolls-Royce_Silver_Ghost_at_Centenary.jpg/960px-Rolls-Royce_Silver_Ghost_at_Centenary.jpg",
         "notes": "Earned the moniker \"The Best Car in the World\" during the 1910s via flawless reliability in gruelling trial events."
     },
     {
         "Make": "Rumpler",
-        "Country": "",
+        "Country": "Germany",
         "Model": "Tropfenwagen",
         "Year": 1921,
         "url": "https://en.wikipedia.org/wiki/Rumpler_Tropfenwagen",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Rumpler_Tropfenwagen.jpg/960px-Rumpler_Tropfenwagen.jpg",
-        "notes": "Pioneered aerodynamic teardrop bodywork and a mid-engine layout, heavily influencing future aerodynamic design."
+        "notes": "The Rumpler Tropfenwagen (\"Rumpler drop car\", named after its raindrop shape) was developed to be streamlined with a very low drag coefficient."
     },
     {
         "Make": "Austin",
-        "Country": "",
+        "Country": "United Kingdom",
         "Model": "Seven",
         "Year": 1922,
-        "url": "https://en.wikipedia.org/wiki/Austin_Seven",
-        "imageurl": "",
-        "notes": "Mass-marketed affordable motoring across Europe while popularising the standardized pedal control layout (clutch, brake, accelerator)."
+        "url": "https://en.wikipedia.org/wiki/Austin_7",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/1928_Austin_7_GE_Sunshine_Saloon_1.1.jpg/960px-1928_Austin_7_GE_Sunshine_Saloon_1.1.jpg",
+        "notes": "Britain's answer to the Ford Model T, an economic, mass-produced car, licensed and adapted across Europe, the US and Japan."
     },
     {
         "Make": "Lancia",
-        "Country": "",
+        "Country": "Italy",
         "Model": "Lambda",
         "Year": 1922,
         "url": "https://en.wikipedia.org/wiki/Lancia_Lambda",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/MHV_Lancia_Lambda_1923_01.jpg",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/1924_Lancia_Lambda_Serie_II_at_Greenwich_2021%2C_front_right.jpg/960px-1924_Lancia_Lambda_Serie_II_at_Greenwich_2021%2C_front_right.jpg",
         "notes": "World’s first production car to feature a load-bearing monocoque chassis and independent front suspension."
     },
     {
-        "Make": "Benz",
-        "Country": "",
-        "Model": "Tropfenwagen",
-        "Year": 1923,
-        "url": "https://en.wikipedia.org/wiki/Rumpler_Tropfenwagen",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Rumpler_Tropfenwagen.jpg/960px-Rumpler_Tropfenwagen.jpg",
-        "notes": "The world's first mid-engined, rear-wheel-drive Grand Prix car, laying the engineering blueprint for modern single-seater motorsport."
-    },
-    {
         "Make": "Bugatti",
-        "Country": "",
+        "Country": "France",
         "Model": "Type 35",
         "Year": 1924,
         "url": "https://en.wikipedia.org/wiki/Bugatti_Type_35",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bugatti_35%2C_Bj_1924%2C_M_Nicolosi_-_1976.jpg/960px-Bugatti_35%2C_Bj_1924%2C_M_Nicolosi_-_1976.jpg",
-        "notes": "Widely considered the most successful racing car in history, claiming thousands of victories with its lightweight chassis and cast-alloy wheels."
+        "notes": "A phenomenally successful racing car, winning over 1,000 races and pioneering the concept of a holistically conceived, race-ready car available for purchase"
     },
     {
         "Make": "Chrysler",
-        "Country": "",
+        "Country": "United States",
         "Model": "Six (B-70)",
         "Year": 1924,
         "url": "https://en.wikipedia.org/wiki/Chrysler_Six",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/V_Retro_Auto%26Moto_Galicia%2C_Chrysler_B70_Six%2C_1926%2C_wood_rims.JPG/960px-V_Retro_Auto%26Moto_Galicia%2C_Chrysler_B70_Six%2C_1926%2C_wood_rims.JPG",
-        "notes": "Brought four-wheel hydraulic brakes and a high-compression six-cylinder engine to the mass market at an affordable price point."
+        "notes": "The first Chrysler car, technically advanced and an affordable price point."
     },
     {
         "Make": "Ford",
-        "Country": "",
+        "Country": "United States",
         "Model": "Model A",
         "Year": 1927,
-        "url": "https://en.wikipedia.org/wiki/Ford_Model_T",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/1925_Ford_Model_T_touring.jpg/960px-1925_Ford_Model_T_touring.jpg",
+        "url": "https://en.wikipedia.org/wiki/Ford_Model_A_(1927%E2%80%931932)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/1928_Model_A_Ford.jpg/960px-1928_Model_A_Ford.jpg",
         "notes": "Successfully replaced the Model T by introducing modern driver controls, standard safety glass, and contemporary styling."
     },
     {
-        "Make": "LaSalle",
-        "Country": "",
-        "Model": "Series 303",
-        "Year": 1927,
-        "url": "https://en.wikipedia.org/wiki/LaSalle_(automobile)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lasalle_cars_logo.png",
-        "notes": "The first mass-produced car created by an automotive designer (Harley Earl), establishing the concept of factory car styling."
-    },
-    {
         "Make": "Bentley",
-        "Country": "",
-        "Model": "4½ Litre",
+        "Country": "United Kingdom",
+        "Model": "4½ Litre ('Blower')",
         "Year": 1927,
-        "url": "https://en.wikipedia.org/wiki/Bentley_4%C2%BD_Litre",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/1928_Bentley_Saloon_at_Toddington_Railway_Gala%2C_0513_8979023957.jpg/960px-1928_Bentley_Saloon_at_Toddington_Railway_Gala%2C_0513_8979023957.jpg",
-        "notes": "Iconic endurance sports car that defined British racing pedigree with victories at the 24 Hours of Le Mans."
+        "url": "https://en.wikipedia.org/wiki/Bentley_4%C2%BD_Litre#Blower_Bentley",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/1929_Bentley_front_34_right.jpg/960px-1929_Bentley_front_34_right.jpg",
+        "notes": "Iconic endurance sports car that defined British racing pedigree."
     },
     {
         "Make": "Mercedes-Benz",
-        "Country": "",
+        "Country": "Germany",
         "Model": "SSK",
         "Year": 1928,
         "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_SSK",
@@ -199,43 +136,34 @@
     },
     {
         "Make": "Duesenberg",
-        "Country": "",
+        "Country": "United States",
         "Model": "Model J",
         "Year": 1928,
         "url": "https://en.wikipedia.org/wiki/Duesenberg_Model_J",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/1930_Duesenberg_J_Murphy_Disappearing_Top_Torpedo_Convertible_Coupe_-_fvl_%284609844035%29.jpg/960px-1930_Duesenberg_J_Murphy_Disappearing_Top_Torpedo_Convertible_Coupe_-_fvl_%284609844035%29.jpg",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/1934_Duesenberg_Model_J_%28Warbirds_%26_Wheels_museum%29.jpg/960px-1934_Duesenberg_Model_J_%28Warbirds_%26_Wheels_museum%29.jpg",
         "notes": "The pinnacle of pre-war American luxury and power, featuring a DOHC 32-valve straight-eight engine capable of 116 mph."
     },
     {
         "Make": "Cadillac",
-        "Country": "",
+        "Country": "Switzerland",
         "Model": "V-16",
         "Year": 1930,
-        "url": "https://en.wikipedia.org/wiki/Cadillac_V-16",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/1931_Cadillac_V-16_Sport_Phaeton.jpg/960px-1931_Cadillac_V-16_Sport_Phaeton.jpg",
-        "notes": "Introduced the first mass-produced V16 engine, setting a new benchmark for multi-cylinder luxury engineering."
+        "url": "https://en.wikipedia.org/wiki/Cadillac_V-16#1937_Cadillac_V16_Hartmann_Cabriolet",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1937_Cadillac_Hartmann_Cabriolet_V-16_%289511176863%29.jpg/960px-1937_Cadillac_Hartmann_Cabriolet_V-16_%289511176863%29.jpg",
+        "notes": "The bespoke remodelling of the already luxury Cadillac V-16, ordered by by Philippe Barraud, a wealthy playboy of the 1930s, wanting an outrageous, bespoke automobile to suit his stylish lifestyle."
     },
     {
         "Make": "Alfa Romeo",
-        "Country": "",
+        "Country": "Italy",
         "Model": "8C 2300",
         "Year": 1931,
         "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_8C",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Alfa_romeo_8C.jpg/960px-Alfa_romeo_8C.jpg",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Alfa_Romeo_8C_2300_Spider_Corsa_1932_red_vr_TCE.jpg/960px-Alfa_Romeo_8C_2300_Spider_Corsa_1932_red_vr_TCE.jpg",
         "notes": "Dominant pre-war sports racer featuring a supercharged straight-eight engine and four consecutive Le Mans victories."
     },
     {
-        "Make": "Tatra",
-        "Country": "",
-        "Model": "T77",
-        "Year": 1934,
-        "url": "https://en.wikipedia.org/wiki/Tatra_77",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Tatra_T_77a.jpg",
-        "notes": "The world's first serial-produced aerodynamic car, featuring a rear-mounted air-cooled V8 and wind-tunnel-tested teardrop bodywork."
-    },
-    {
         "Make": "Citroën",
-        "Country": "",
+        "Country": "France",
         "Model": "Traction Avant",
         "Year": 1934,
         "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_Traction_Avant",
@@ -250,5 +178,896 @@
         "url": "https://en.wikipedia.org/wiki/Chrysler_Airflow",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1936-chrysler-archives.jpg/960px-1936-chrysler-archives.jpg",
         "notes": "Early commercial attempt to introduce aerodynamic teardrop styling and cab-forward weight distribution to mass production."
+    },
+    {
+        "Make": "Peugeot",
+        "Country": "",
+        "Model": "402 Eclipse",
+        "Year": 1935,
+        "url": "https://en.wikipedia.org/wiki/Peugeot_402",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2016-06-26_14-23-09_belfort-retro-festival.jpg/960px-2016-06-26_14-23-09_belfort-retro-festival.jpg",
+        "notes": "World’s first production car equipped with an electrically powered retractable hardtop roof."
+    },
+    {
+        "Make": "Cord",
+        "Country": "",
+        "Model": "810 / 812",
+        "Year": 1935,
+        "url": "https://en.wikipedia.org/wiki/Cord_810/812",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/1937_Cord_812.JPG/960px-1937_Cord_812.JPG",
+        "notes": "Groundbreaking American design featuring pop-up headlights, front-wheel drive, and a distinctive \"coffin-nose\" bonnet layout."
+    },
+    {
+        "Make": "Auto Union",
+        "Country": "",
+        "Model": "Type C",
+        "Year": 1936,
+        "url": "https://en.wikipedia.org/wiki/Auto_Union_racing_cars",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Auto_Union_Typ_C_-_1984-05-12.jpg",
+        "notes": "Pioneered the mid-engine layout for Grand Prix racing with a supercharged V16 engine designed by Ferdinand Porsche."
+    },
+    {
+        "Make": "Fiat",
+        "Country": "",
+        "Model": "500 \"Topolino\"",
+        "Year": 1936,
+        "url": "https://en.wikipedia.org/wiki/Fiat_500_%22Topolino%22",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/1936Fiat500CoupeTopolino.jpg/960px-1936Fiat500CoupeTopolino.jpg",
+        "notes": "Compact, highly efficient packaging that democratised affordable mass motoring across Italy and broader Europe."
+    },
+    {
+        "Make": "Mercedes-Benz",
+        "Country": "",
+        "Model": "540K",
+        "Year": 1936,
+        "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_540K",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Mercedes_540K_side_20020707.jpg/960px-Mercedes_540K_side_20020707.jpg",
+        "notes": "Apex of pre-war German luxury grand touring, featuring a supercharged straight-eight engine and bespoke coachwork."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "",
+        "Model": "KdF-Wagen (Beetle)",
+        "Year": 1938,
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Kommandeurswagen",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/VW_Typ_87-1.JPG/960px-VW_Typ_87-1.JPG",
+        "notes": "Commissioned as an affordable rear-engined \"people's car\", laying the groundwork for one of the most produced vehicles in history."
+    },
+    {
+        "Make": "Willys-Overland",
+        "Country": "",
+        "Model": "MB (Jeep)",
+        "Year": 1941,
+        "url": "https://en.wikipedia.org/wiki/Willys_MB",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Covered_Willy%27s_jeep_Wings_Over_Wine_Country_2007.JPG/960px-Covered_Willy%27s_jeep_Wings_Over_Wine_Country_2007.JPG",
+        "notes": "Standardised light four-wheel-drive military vehicle that established the blueprint for all modern off-road vehicles."
+    },
+    {
+        "Make": "Cisitalia",
+        "Country": "",
+        "Model": "202 GT",
+        "Year": 1947,
+        "url": "https://en.wikipedia.org/wiki/Cisitalia",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Emblem_Cisitalia.JPG/960px-Emblem_Cisitalia.JPG",
+        "notes": "Masterpiece of Pininfarina design that established the modern pontoon body shape with fully integrated wings and bonnet."
+    },
+    {
+        "Make": "Tucker",
+        "Country": "",
+        "Model": "48",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Tucker_48",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/1948_Tucker_Torpedo_%28no._51%29_in_Maroon%2C_front_left.jpg/960px-1948_Tucker_Torpedo_%28no._51%29_in_Maroon%2C_front_left.jpg",
+        "notes": "Advanced post-war safety pioneer featuring a central directional headlight, perimeter frame, and pop-out windscreen."
+    },
+    {
+        "Make": "Jaguar",
+        "Country": "",
+        "Model": "XK120",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Jaguar_XK120",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Paris_-_RM_Sotheby%E2%80%99s_2016_-_Jaguar_XK_120_Roadster_-_1954_-_001.jpg/960px-Paris_-_RM_Sotheby%E2%80%99s_2016_-_Jaguar_XK_120_Roadster_-_1954_-_001.jpg",
+        "notes": "Introduced the legendary XK twin-cam engine and debuted as the fastest production car in the world."
+    },
+    {
+        "Make": "Land Rover",
+        "Country": "",
+        "Model": "Series I",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Land_Rover_series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Land_Rover_Series_I_1948_%28HUE_166%29.jpg/960px-Land_Rover_Series_I_1948_%28HUE_166%29.jpg",
+        "notes": "Defined British civilian four-wheel-drive capability with its utilitarian aluminium bodywork and rugged chassis."
+    },
+    {
+        "Make": "Morris",
+        "Country": "",
+        "Model": "Minor",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Morris_Minor",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Morris_Minor_1000_in_New_Square_first_registered_February_1963_948cc_and_an_icon.jpg/960px-Morris_Minor_1000_in_New_Square_first_registered_February_1963_948cc_and_an_icon.jpg",
+        "notes": "Alec Issigonis-designed family car that democratised post-war British motoring and became the first British vehicle to exceed one million sales."
+    },
+    {
+        "Make": "Porsche",
+        "Country": "",
+        "Model": "356",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Porsche_356",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/2007-07-08_Porsche_356_C_%2801_kl_ret%29.jpg/960px-2007-07-08_Porsche_356_C_%2801_kl_ret%29.jpg",
+        "notes": "The first production model to bear the Porsche name, establishing the brand's lightweight, rear-engine sports car identity."
+    },
+    {
+        "Make": "Cadillac",
+        "Country": "",
+        "Model": "Series 62",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Series_62",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/1963_Cadillac_Series_62_Convertible_%2835566724566%29.jpg/960px-1963_Cadillac_Series_62_Convertible_%2835566724566%29.jpg",
+        "notes": "Introduced aircraft-inspired tailfins and Cadillac's revolutionary high-compression overhead-valve V8 engine."
+    },
+    {
+        "Make": "Hudson",
+        "Country": "",
+        "Model": "Commodore (\"Step-Down\")",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Hudson_Commodore",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Hudson_Commodore_Eight_Convertible_1947.jpg",
+        "notes": "Pioneered \"step-down\" perimeter frame construction, creating an exceptionally low centre of gravity and sleek profile."
+    },
+    {
+        "Make": "Oldsmobile",
+        "Country": "",
+        "Model": "88",
+        "Year": 1949,
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_88",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/1996_Oldsmobile_Eighty_Eight_LS_in_Light_Gray_Metallic%2C_front_left.jpg/960px-1996_Oldsmobile_Eighty_Eight_LS_in_Light_Gray_Metallic%2C_front_left.jpg",
+        "notes": "Paired a lightweight body with the high-compression Rocket V8 engine, establishing the blueprint for the American muscle car."
+    },
+    {
+        "Make": "Saab",
+        "Country": "",
+        "Model": "92",
+        "Year": 1949,
+        "url": "https://en.wikipedia.org/wiki/Saab_92",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/2/29/SAAB_92_De_Luxe_1951.jpg",
+        "notes": "Aircraft-inspired front-wheel-drive compact car featuring an exceptionally low aerodynamic drag coefficient for its era."
+    },
+    {
+        "Make": "Lincoln",
+        "Country": "",
+        "Model": "Futura (Batmobile)",
+        "Year": 1955,
+        "url": "https://en.wikipedia.org/wiki/Lincoln_Futura",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Lincoln_futura_concept.jpg",
+        "notes": "Customised concept car that became television's first iconic superhero vehicle in the 1966 Batman series."
+    },
+    {
+        "Make": "Aston Martin",
+        "Country": "",
+        "Model": "DB5",
+        "Year": 1963,
+        "url": "https://en.wikipedia.org/wiki/Aston_Martin_DB5",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Aston_Martin_DB5_%28Skyfall%29.jpg/960px-Aston_Martin_DB5_%28Skyfall%29.jpg",
+        "notes": "Established the archetype of the gadget-laden cinema \"spy car\" through its debut in Goldfinger."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "",
+        "Model": "Beetle (\"Herbie\")",
+        "Year": 1963,
+        "url": "https://en.wikipedia.org/wiki/Herbie",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Herbie_car.jpg/960px-Herbie_car.jpg",
+        "notes": "Transformed a utilitarian mass-market vehicle into a beloved, sentient film franchise star in The Love Bug."
+    },
+    {
+        "Make": "Austin",
+        "Country": "",
+        "Model": "Mini Cooper S",
+        "Year": 1963,
+        "url": "https://en.wikipedia.org/wiki/Mini",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Morris_Mini-Minor_1959_%28621_AOK%29.jpg/960px-Morris_Mini-Minor_1959_%28621_AOK%29.jpg",
+        "notes": "Immortalised in pop culture via the iconic bank-heist getaway chase through Turin in The Italian Job."
+    },
+    {
+        "Make": "Ford",
+        "Country": "",
+        "Model": "Mustang GT 390",
+        "Year": 1968,
+        "url": "https://en.wikipedia.org/wiki/Ford_Mustang_(fifth_generation)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shelby_Mustang_GT500_Goodwood_001.jpg/960px-Shelby_Mustang_GT500_Goodwood_001.jpg",
+        "notes": "Revolutionised Hollywood stunt filming and set the gold standard for cinematic car chases in Bullitt."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "",
+        "Model": "Charger",
+        "Year": 1968,
+        "url": "https://en.wikipedia.org/wiki/Dodge_Charger",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg/960px-1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg",
+        "notes": "Became Hollywood's definitive anti-hero muscle car in Bullitt and a prime-time TV icon as the \"General Lee\" in The Dukes of Hazzard."
+    },
+    {
+        "Make": "Ford",
+        "Country": "",
+        "Model": "Gran Torino",
+        "Year": 1974,
+        "url": "https://en.wikipedia.org/wiki/Ford_Torino",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/1970_ford_torino_cobra_sportsroof_chiolero.jpg/960px-1970_ford_torino_cobra_sportsroof_chiolero.jpg",
+        "notes": "Defined 1970s television cop culture with its distinctive \"striped tomato\" paint scheme in Starsky & Hutch."
+    },
+    {
+        "Make": "Lotus",
+        "Country": "",
+        "Model": "Esprit S1",
+        "Year": 1976,
+        "url": "https://en.wikipedia.org/wiki/Lotus_Esprit",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/1999_Lotus_Esprit_V8_type_918.jpg/960px-1999_Lotus_Esprit_V8_type_918.jpg",
+        "notes": "Famous for its film transformation into a fully functional submarine in The Spy Who Loved Me."
+    },
+    {
+        "Make": "Pontiac",
+        "Country": "",
+        "Model": "Firebird Trans Am",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Pontiac_Firebird",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/TransAm1970.jpg",
+        "notes": "Dominator of screen transport, starring in Smokey and the Bandit (1977) and as the AI-driven KITT in Knight Rider (1982)."
+    },
+    {
+        "Make": "Cadillac",
+        "Country": "",
+        "Model": "Miller-Meteor (Ecto-1)",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Ectomobile",
+        "imageurl": "",
+        "notes": "Converted end-loading ambulance/hearse modified into the gadget-laden, siren-wailing transport for Ghostbusters."
+    },
+    {
+        "Make": "DeLorean",
+        "Country": "",
+        "Model": "DMC-12",
+        "Year": 1981,
+        "url": "https://en.wikipedia.org/wiki/DMC_DeLorean",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Delorean_DMC-12_side.jpg",
+        "notes": "Elevated an obscure, commercially failed sports car into an enduring global pop-culture legend via Back to the Future."
+    },
+    {
+        "Make": "Ferrari",
+        "Country": "",
+        "Model": "250 GT California Spyder",
+        "Year": 1961,
+        "url": "https://en.wikipedia.org/wiki/Ferrari_250_GT_California_Spyder",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Ferrari_250_California_Spyder_SWB.jpg/960px-Ferrari_250_California_Spyder_SWB.jpg",
+        "notes": "Immortalised as the ultimate symbol of automotive desire and teenage rebellion in Ferris Bueller’s Day Off."
+    },
+    {
+        "Make": "GMC Chevrolet",
+        "Country": "United States",
+        "Model": "Vandura",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_van",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/1983_GMC_G-Series_panel_van_-_A_Team_%2812403754775%29.jpg/960px-1983_GMC_G-Series_panel_van_-_A_Team_%2812403754775%29.jpg",
+        "notes": "A-Team"
+    },
+    {
+        "Make": "Reliant",
+        "Country": "United Kingdom",
+        "Model": "Regal Supervan",
+        "Year": 1969,
+        "url": "https://en.wikipedia.org/wiki/Reliant_Regal",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Reliant_Regal_as_used_in_OFAH_%28cropped%29.jpg/960px-Reliant_Regal_as_used_in_OFAH_%28cropped%29.jpg",
+        "notes": "Only Fools and Horses"
+    },
+    {
+        "Make": "Cadillac",
+        "Country": "United States",
+        "Model": "Miller-Meteor",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Ectomobile",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ghostbusters_ECTO-1_-_Flickr_-_relux..jpg/960px-Ghostbusters_ECTO-1_-_Flickr_-_relux..jpg",
+        "notes": "Ghostbusters' Ectomobile"
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Charger",
+        "Year": 1969,
+        "url": "https://en.wikipedia.org/wiki/General_Lee_(car)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/19/General_Lee.JPG",
+        "notes": "Dukes of Hazzard"
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Monaco",
+        "Year": 1974,
+        "url": "https://en.wikipedia.org/wiki/Bluesmobile",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Bluesmobile_at_House_of_Blues_Dallas_-_3-4_view.jpg",
+        "notes": "Blues Brothers' Bluesmobile"
+    },
+    {
+        "Make": "Ferrari",
+        "Country": "Italy",
+        "Model": "308 GTS Quattrovalvole",
+        "Year": null,
+        "url": "https://en.wikipedia.org/wiki/Ferrari_308_GTB/GTS",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/LBCC_2013_-_Magnum_P.I._Ferrari_308_GTSI_%2811028091104%29.jpg/960px-LBCC_2013_-_Magnum_P.I._Ferrari_308_GTSI_%2811028091104%29.jpg",
+        "notes": "Magnum PI"
+    },
+    {
+        "Make": "Ferrari",
+        "Country": "",
+        "Model": "Miami Vice",
+        "Year": null,
+        "url": "https://en.wikipedia.org/wiki/Cars_in_Miami_Vice",
+        "imageurl": "",
+        "notes": ""
+    },
+    {
+        "Make": "Jaguar",
+        "Country": "",
+        "Model": "Austin Powers",
+        "Year": 1967,
+        "url": "https://en.wikipedia.org/wiki/Austin_Powers",
+        "imageurl": "",
+        "notes": ""
+    },
+    {
+        "Make": "Ford",
+        "Country": "",
+        "Model": "Explorer",
+        "Year": null,
+        "url": "https://en.wikipedia.org/wiki/Ford_Explorer",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ford_Explorer_%28sixth_generation%29_IMG_6063.jpg/960px-Ford_Explorer_%28sixth_generation%29_IMG_6063.jpg",
+        "notes": "Jurassic Park"
+    },
+    {
+        "Make": "AMC",
+        "Country": "",
+        "Model": "Pacer",
+        "Year": 1976,
+        "url": "https://en.wikipedia.org/wiki/AMC_Pacer",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/1975_AMC_Pacer_base_model_frontleftside.jpg/960px-1975_AMC_Pacer_base_model_frontleftside.jpg",
+        "notes": "Wayne's World Mirthmobile"
+    },
+    {
+        "Make": "Lamborghini",
+        "Country": "",
+        "Model": "Countach LP400S",
+        "Year": 1980,
+        "url": "https://en.wikipedia.org/wiki/Lamborghini_Countach",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lamborghini_Countach_-_Flickr_-_exfordy_%282%29_%28cropped-2%29.jpg/960px-Lamborghini_Countach_-_Flickr_-_exfordy_%282%29_%28cropped-2%29.jpg",
+        "notes": "Cannonball Run"
+    },
+    {
+        "Make": "Ford",
+        "Country": "",
+        "Model": "Deluxe",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/De_Luxe_Ford",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ford-Vairogs-V8-front.jpg/960px-Ford-Vairogs-V8-front.jpg",
+        "notes": "Grease Lightning"
+    },
+    {
+        "Make": "Pontiac",
+        "Country": "",
+        "Model": "Trans Am",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Pontiac_Firebird",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/TransAm1970.jpg",
+        "notes": "Smokey and the Bandit"
+    },
+    {
+        "Make": "Ford",
+        "Country": "",
+        "Model": "Falcon",
+        "Year": null,
+        "url": "https://en.wikipedia.org/wiki/Ford_Falcon",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/1960-Ford-Falcon-4dr-Sed.jpg/960px-1960-Ford-Falcon-4dr-Sed.jpg",
+        "notes": "Mad Max's Interceptor"
+    },
+    {
+        "Make": "AC",
+        "Country": "United Kingdom",
+        "Model": "Ace",
+        "Year": 1953,
+        "url": "https://en.wikipedia.org/wiki/AC_Ace",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/1955_AC_Ace.jpg/960px-1955_AC_Ace.jpg",
+        "notes": "Lightweight John Tojeiro-designed sports car featuring all-independent suspension, forming the engineering base for the Cobra."
+    },
+    {
+        "Make": "(Shelby) AC",
+        "Country": "United Kingdom",
+        "Model": "Cobra",
+        "Year": 1962,
+        "url": "https://en.wikipedia.org/wiki/AC_Cobra",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg/960px-AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg",
+        "notes": "Iconic hybrid created by mating a small-block Ford V8 to the lightweight Ace chassis, dominating 1960s sports car racing."
+    },
+    {
+        "Make": "AC",
+        "Country": "United Kingdom",
+        "Model": "428 (Frua)",
+        "Year": 1965,
+        "url": "https://en.wikipedia.org/wiki/AC_428",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/AC428CPEFRTRIGHT.jpg/960px-AC428CPEFRTRIGHT.jpg",
+        "notes": "Combined elegant Pietro Frua Italian coachwork with a 7.0-litre Ford V8 built upon an extended Cobra Mk III chassis."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "24 HP",
+        "Year": 1910,
+        "url": "https://en.wikipedia.org/wiki/ALFA_24_HP",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/ALFA-24-HP.jpg/960px-ALFA-24-HP.jpg",
+        "notes": "The first vehicle produced by A.L.F.A., featuring advanced multi-valve head engineering and immediate racing success."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "6C 1750",
+        "Year": 1929,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_6C",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1931_Alfa_Romeo_6C_1750_Super_Gran_Sport_Testa_Fissa_p1.JPG/960px-1931_Alfa_Romeo_6C_1750_Super_Gran_Sport_Testa_Fissa_p1.JPG",
+        "notes": "Vittorio Jano-designed sports racer that dominated pre-war sports car racing, including multiple Mille Miglia victories."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "8C 2900B",
+        "Year": 1937,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_8C",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Alfa_romeo_8C.jpg/960px-Alfa_romeo_8C.jpg",
+        "notes": "Pinnacle of pre-war grand touring engineering, combining a twin-supercharged straight-eight engine with advanced independent suspension."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "158/159 \"Alfetta\"",
+        "Year": 1938,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_158/159_Alfetta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Alfa-Romeo-159-%281951%29.jpg/960px-Alfa-Romeo-159-%281951%29.jpg",
+        "notes": "Dominant Grand Prix car that secured victory in the inaugural Formula 1 World Championship race and back-to-back world titles."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "1900",
+        "Year": 1950,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_1900",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Alfa_Romeo_museum_-_Alfa_Romeo_1900.jpg/960px-Alfa_Romeo_museum_-_Alfa_Romeo_1900.jpg",
+        "notes": "Alfa Romeo’s first left-hand-drive car and first unitary chassis, marking the company's transition to mass assembly line manufacturing."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Giulietta",
+        "Year": 1954,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Giulietta_(2010)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/2013_Alfa_Romeo_Giulietta_%28940_MY13%29_Distinctive_hatchback_%282015-07-09%29.jpg/960px-2013_Alfa_Romeo_Giulietta_%28940_MY13%29_Distinctive_hatchback_%282015-07-09%29.jpg",
+        "notes": "Lightweight compact sports car family that democratised race-derived twin-cam engine performance for mass motoring."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Giulia Saloon",
+        "Year": 1962,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Giulia_(2015)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Alfa_952_26.06.19_JM_%281%29_%28cropped%29.jpg/960px-Alfa_952_26.06.19_JM_%281%29_%28cropped%29.jpg",
+        "notes": "Pioneered the sports saloon segment by housing a twin-cam engine and five-speed gearbox inside a aerodynamic body shell."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Giulia Sprint GTA",
+        "Year": 1965,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_GTA",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Arese_Museo_Storico_Alfa_Romeo_1965_Giulia_Sprint_GTA_1.jpg/960px-Arese_Museo_Storico_Alfa_Romeo_1965_Giulia_Sprint_GTA_1.jpg",
+        "notes": "Lightweight, aluminium-panelled homologation special that achieved dominant success in touring car racing worldwide."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Spider",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Spider",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Alfa_Romeo_%283568179480%29.jpg/960px-Alfa_Romeo_%283568179480%29.jpg",
+        "notes": "Iconic Pininfarina-designed roadster that remained in production across four distinct generations over nearly three decades."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "33 Stradale",
+        "Year": 1967,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_33_Stradale",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/1968_Alfa_Romeo_33_Stradale%2C_front_right_%28Miller%29.jpg/960px-1968_Alfa_Romeo_33_Stradale%2C_front_right_%28Miller%29.jpg",
+        "notes": "Ultra-exclusive road-going derivative of the Tipo 33 racer featuring butterfly doors and an ultra-high-revving mid-mounted V8."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Alfasud",
+        "Year": 1972,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Alfasud",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Alfasud_orange.jpg",
+        "notes": "Groundbreaking front-wheel-drive compact hatchback praised for its boxer engine layout and exceptional dynamic handling."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "SZ \"Il Mostro\"",
+        "Year": 1989,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_SZ",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/1991_Alfa_Romeo_SZ_1.jpg/960px-1991_Alfa_Romeo_SZ_1.jpg",
+        "notes": "Avant-garde Zagato-styled sports coupe engineered with race-derived suspension capable of extreme cornering forces."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "156",
+        "Year": 1997,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_156",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Alfa_156_berlina_932.jpg/960px-Alfa_156_berlina_932.jpg",
+        "notes": "European Car of the Year winner that revitalised the brand and introduced common-rail direct-injection diesel engines to production cars."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Giulia Quadrifoglio",
+        "Year": 2016,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Quadrifoglio",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Alfa-romeo-quadrifoglio-logo.png",
+        "notes": "Benchmark high-performance sports saloon featuring a Ferrari-developed twin-turbo V6 engine and advanced active aerodynamics."
+    },
+    {
+        "Make": "Alpine",
+        "Country": "France",
+        "Model": "A110",
+        "Year": 1961,
+        "url": "https://en.wikipedia.org/wiki/Alpine_A110",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Renault_Alpine_A_110_%28Sp%29.JPG/960px-Renault_Alpine_A_110_%28Sp%29.JPG",
+        "notes": "Agile rear-engined sports car that won the inaugural World Rally Championship for Manufacturers in 1973."
+    },
+    {
+        "Make": "Audi",
+        "Country": "Germany",
+        "Model": "Quattro / Sport Quattro S1",
+        "Year": 1980,
+        "url": "https://en.wikipedia.org/wiki/Audi_Quattro",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Audi_Quattro_green.jpg/960px-Audi_Quattro_green.jpg",
+        "notes": "Revolutionised motorsport by introducing permanent all-wheel drive and turbocharged power to rallying."
+    },
+    {
+        "Make": "Austin / Morris",
+        "Country": "United Kingdom",
+        "Model": "Mini Cooper S",
+        "Year": 1963,
+        "url": "https://en.wikipedia.org/wiki/Mini",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Morris_Mini-Minor_1959_%28621_AOK%29.jpg/960px-Morris_Mini-Minor_1959_%28621_AOK%29.jpg",
+        "notes": "Giant-killing lightweight saloon that famously won the Monte Carlo Rally three times in the 1960s."
+    },
+    {
+        "Make": "Citroën",
+        "Country": "France",
+        "Model": "Xsara WRC / C4 WRC",
+        "Year": 2001,
+        "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_C4_WRC",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/S%C3%A9bastien_Loeb_-_2008_Rally_Catalunya.jpg/960px-S%C3%A9bastien_Loeb_-_2008_Rally_Catalunya.jpg",
+        "notes": "Key machinery behind Citroën's era of total WRC dominance, securing the first seven of Sébastien Loeb's driver titles."
+    },
+    {
+        "Make": "Citroën",
+        "Country": "France",
+        "Model": "BX 4TC",
+        "Year": 1986,
+        "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_BX",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Citroen_BX_19_Digit_1985_Montlhery_Juin_12%27.jpg/960px-Citroen_BX_19_Digit_1985_Montlhery_Juin_12%27.jpg",
+        "notes": "Unconventional entry featuring a front-overhang engine layout and hydropneumatic suspension that proved notoriously uncompetitive."
+    },
+    {
+        "Make": "Fiat",
+        "Country": "Italy",
+        "Model": "131 Abarth",
+        "Year": 1976,
+        "url": "https://en.wikipedia.org/wiki/Fiat_131",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/1976_Fiat_131_S_1600_%2813939009329%29.jpg/960px-1976_Fiat_131_S_1600_%2813939009329%29.jpg",
+        "notes": "Three-time WRC Manufacturers' Champion that proved a family saloon could be turned into a rally giant-killer."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United Kingdom",
+        "Model": "Escort RS1800 (Mk2)",
+        "Year": 1975,
+        "url": "https://en.wikipedia.org/wiki/Ford_Fiesta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ford_Fiesta_ST-Line_%28VII%2C_Facelift%29_%E2%80%93_f_30012023.jpg/960px-Ford_Fiesta_ST-Line_%28VII%2C_Facelift%29_%E2%80%93_f_30012023.jpg",
+        "notes": "The definitive rear-wheel-drive gravel car of the 1970s, securing multiple driver and manufacturer world titles."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United Kingdom",
+        "Model": "RS200",
+        "Year": 1984,
+        "url": "https://en.wikipedia.org/wiki/Ford_RS200",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/White_Ford_RS200.jpg/960px-White_Ford_RS200.jpg",
+        "notes": "Purpose-built mid-engined spaceframe special created exclusively to maximize Group B technical regulations."
+    },
+    {
+        "Make": "Lancia",
+        "Country": "Italy",
+        "Model": "Stratos HF",
+        "Year": 1973,
+        "url": "https://en.wikipedia.org/wiki/Lancia_Stratos",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/1974_Lancia_Stratos_Stradale_at_Greenwich_2021%2C_front_left.jpg/960px-1974_Lancia_Stratos_Stradale_at_Greenwich_2021%2C_front_left.jpg",
+        "notes": "The world's first purpose-built rally supercar, winning three consecutive WRC manufacturers' titles."
+    },
+    {
+        "Make": "Lancia",
+        "Country": "Italy",
+        "Model": "037 Rally",
+        "Year": 1982,
+        "url": "https://en.wikipedia.org/wiki/Lancia_Rally_037",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/LanciaRally037.jpg/960px-LanciaRally037.jpg",
+        "notes": "The last rear-wheel-drive car to defeat four-wheel-drive competitors and win the WRC Manufacturers' Championship."
+    },
+    {
+        "Make": "Lancia",
+        "Country": "Italy",
+        "Model": "Delta HF Integrale",
+        "Year": 1987,
+        "url": "https://en.wikipedia.org/wiki/Lancia_Delta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lancia_Delta_LX_2012_02.jpg/960px-Lancia_Delta_LX_2012_02.jpg",
+        "notes": "Group A icon that achieved an unprecedented six consecutive WRC Manufacturers' Championships."
+    },
+    {
+        "Make": "Lancia",
+        "Country": "Italy",
+        "Model": "Delta S4",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Lancia_Delta_S4",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/R%C3%A9tromobile_2017_-_Lancia_Delta_S4_-_circa_1986_-_001.jpg/960px-R%C3%A9tromobile_2017_-_Lancia_Delta_S4_-_circa_1986_-_001.jpg",
+        "notes": "Pioneered twincharging by integrating both a supercharger and a turbocharger to deliver instantaneous power."
+    },
+    {
+        "Make": "MG",
+        "Country": "United Kingdom",
+        "Model": "Metro 6R4",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Austin_Metro",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Austin_Metro_Mk2_5-door_1275cc_registered_August_1989_photographed_Knebworth_August_2018.jpg/960px-Austin_Metro_Mk2_5-door_1275cc_registered_August_1989_photographed_Knebworth_August_2018.jpg",
+        "notes": "Eschewed turbocharging in favour of a bespoke, naturally aspirated 3.0-litre V6 engine mated to four-wheel drive."
+    },
+    {
+        "Make": "Mitsubishi",
+        "Country": "Japan",
+        "Model": "Lancer Evolution",
+        "Year": 1996,
+        "url": "https://en.wikipedia.org/wiki/Mitsubishi_Lancer_Evolution",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg",
+        "notes": "Highly developed Group A special that carried Tommi Mäkinen to four consecutive Drivers' Championships."
+    },
+    {
+        "Make": "Nissan",
+        "Country": "Japan",
+        "Model": "240RS",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Nissan_240RS",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nissan_240RS_front-left_2015_Motorsport_Japan.jpg/960px-Nissan_240RS_front-left_2015_Motorsport_Japan.jpg",
+        "notes": "Simple and robust rear-wheel-drive machine that offered privateers high reliability in tough terrain."
+    },
+    {
+        "Make": "Opel",
+        "Country": "Germany",
+        "Model": "Manta 400",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Opel_Manta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Opel_Manta_A_at_Schaffen-Diest_in_2018.jpg/960px-Opel_Manta_A_at_Schaffen-Diest_in_2018.jpg",
+        "notes": "Lightweight rear-wheel-drive contender utilizing extensive Kevlar bodywork to maintain high competitive speed."
+    },
+    {
+        "Make": "Peugeot",
+        "Country": "France",
+        "Model": "205 Turbo 16",
+        "Year": 1984,
+        "url": "https://en.wikipedia.org/wiki/Peugeot_205",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Peugeot_205_front_20080121.jpg/960px-Peugeot_205_front_20080121.jpg",
+        "notes": "Mid-engined, all-wheel-drive Group B masterpiece that claimed back-to-back WRC titles in 1985 and 1986."
+    },
+    {
+        "Make": "Porsche",
+        "Country": "Germany",
+        "Model": "959",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Porsche_959",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Porsche_959_%E2%80%93_Frontansicht_%282%29%2C_21._M%C3%A4rz_2013%2C_D%C3%BCsseldorf.jpg/960px-Porsche_959_%E2%80%93_Frontansicht_%282%29%2C_21._M%C3%A4rz_2013%2C_D%C3%BCsseldorf.jpg",
+        "notes": "Advanced technological platform featuring computer-controlled four-wheel drive developed for Group B homologation."
+    },
+    {
+        "Make": "Renault",
+        "Country": "France",
+        "Model": "5 Maxi Turbo",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Renault_5_Turbo",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/1981_Renault_5_Turbo_LC23.jpg/960px-1981_Renault_5_Turbo_LC23.jpg",
+        "notes": "The ultimate tarmac-focused iteration of the mid-engined 5 Turbo, extracting massive power from a 1.5-litre engine."
+    },
+    {
+        "Make": "Subaru",
+        "Country": "Japan",
+        "Model": "Impreza 555 / WRC",
+        "Year": 1993,
+        "url": "https://en.wikipedia.org/wiki/Subaru_Impreza_WRC",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/2000_Subaru_Impreza_WRC_-_Flickr_-_exfordy.jpg/960px-2000_Subaru_Impreza_WRC_-_Flickr_-_exfordy.jpg",
+        "notes": "Iconic all-wheel-drive performer that defined 1990s WRC culture and propelled Colin McRae to his 1995 world title."
+    },
+    {
+        "Make": "Toyota",
+        "Country": "Japan",
+        "Model": "GR Yaris Rally1",
+        "Year": 2022,
+        "url": "https://en.wikipedia.org/wiki/Toyota_GR_Yaris_Rally1",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kalle_Rovanper%C3%A4_Rally_Finland_2025_Ouninpohja_%28cropped%29.jpg/960px-Kalle_Rovanper%C3%A4_Rally_Finland_2025_Ouninpohja_%28cropped%29.jpg",
+        "notes": "Modern benchmark for hybrid-era WRC technology, continuing Toyota's long lineage of championship success."
+    },
+    {
+        "Make": "Toyota",
+        "Country": "Japan",
+        "Model": "Celica Twin Cam Turbo",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Toyota_Celica",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/1994_Toyota_Celica_GT-4_2.0.jpg/960px-1994_Toyota_Celica_GT-4_2.0.jpg",
+        "notes": "Earned the nickname \"King of Africa\" by dominating brutal endurance events like the Safari Rally through sheer durability."
+    },
+    {
+        "Make": "Volkswagen",
+        "Country": "Germany",
+        "Model": "Polo R WRC",
+        "Year": 2013,
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Polo_R_WRC",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Sebastien_Ogier_Baiao_Rally_de_portugal_2016.jpg/960px-Sebastien_Ogier_Baiao_Rally_de_portugal_2016.jpg",
+        "notes": "Defined the 1.6-litre turbo era by winning four consecutive driver and manufacturer championship doubles."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "158/159 \"Alfetta\"",
+        "Year": 1950,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_158/159_Alfetta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Alfa-Romeo-159-%281951%29.jpg/960px-Alfa-Romeo-159-%281951%29.jpg",
+        "notes": "Dominated the inaugural World Championship season, winning every Grand Prix it entered in 1950."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "250F",
+        "Year": 1954,
+        "url": "",
+        "imageurl": "",
+        "notes": "Iconic front-engined racer driven to legendary victories by Juan Manuel Fangio and Stirling Moss."
+    },
+    {
+        "Make": "Mercedes-Benz",
+        "Country": "Germany",
+        "Model": "W196",
+        "Year": 1954,
+        "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_W196",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/KlingK-MB-W196-1976.jpg/960px-KlingK-MB-W196-1976.jpg",
+        "notes": "Introduced desmodromic valves, direct fuel injection, and streamlined bodywork options to Formula 1."
+    },
+    {
+        "Make": "Cooper",
+        "Country": "United Kingdom",
+        "Model": "T51",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Cooper_T51",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cooper_T51_Rob_Walker_Donington.jpg/960px-Cooper_T51_Rob_Walker_Donington.jpg",
+        "notes": "The first mid-engined car to win the Formula 1 World Championship, triggering an engine-placement revolution."
+    },
+    {
+        "Make": "Lotus",
+        "Country": "United Kingdom",
+        "Model": "25",
+        "Year": 1962,
+        "url": "https://en.wikipedia.org/wiki/Lotus_25",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/1964_Lotus-Climax_25.jpg/960px-1964_Lotus-Climax_25.jpg",
+        "notes": "Revolutionised F1 chassis design by introducing the fully integrated monocoque structure."
+    },
+    {
+        "Make": "Lotus",
+        "Country": "United Kingdom",
+        "Model": "49",
+        "Year": 1967,
+        "url": "https://en.wikipedia.org/wiki/Lotus_49",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/HillGraham19690801Lotus-Nordkehre.jpg/960px-HillGraham19690801Lotus-Nordkehre.jpg",
+        "notes": "Pioneered using the engine (Ford Cosworth DFV) as a fully stressed structural chassis member."
+    },
+    {
+        "Make": "Lotus",
+        "Country": "United Kingdom",
+        "Model": "72",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Lotus_72",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/1971_Emerson_Fittipaldi%2C_Lotus_72_%28kl%29.JPG/960px-1971_Emerson_Fittipaldi%2C_Lotus_72_%28kl%29.JPG",
+        "notes": "Introduced side-mounted radiators, inboard front brakes, and wedge aerodynamics that shaped the modern F1 silhouette."
+    },
+    {
+        "Make": "Lotus",
+        "Country": "United Kingdom",
+        "Model": "79",
+        "Year": 1978,
+        "url": "https://en.wikipedia.org/wiki/Lotus_79",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ronnie_Peterson_-_Lotus_79_at_Druids_at_the_1978_British_Grand_Prix_%2850050520537%29.jpg/960px-Ronnie_Peterson_-_Lotus_79_at_Druids_at_the_1978_British_Grand_Prix_%2850050520537%29.jpg",
+        "notes": "The definitive ground-effect F1 car that exploited underbody Venturi tunnels for unprecedented cornering speeds."
+    },
+    {
+        "Make": "McLaren",
+        "Country": "United Kingdom",
+        "Model": "MP4/1",
+        "Year": 1981,
+        "url": "https://en.wikipedia.org/wiki/McLaren_MP4/1",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_%2848557916077%29.jpg/960px-John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_%2848557916077%29.jpg",
+        "notes": "Pioneered the use of a lightweight, ultra-rigid carbon-fibre composite monocoque chassis."
+    },
+    {
+        "Make": "Brabham",
+        "Country": "United Kingdom",
+        "Model": "BT52",
+        "Year": 1983,
+        "url": "https://en.wikipedia.org/wiki/Brabham_BT52",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg/960px-Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg",
+        "notes": "The first turbocharged car to win the Formula 1 Drivers' World Championship."
+    },
+    {
+        "Make": "McLaren",
+        "Country": "United Kingdom",
+        "Model": "MP4/4",
+        "Year": 1988,
+        "url": "https://en.wikipedia.org/wiki/McLaren_MP4/4",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg/960px-McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg",
+        "notes": "One of the most dominant cars in F1 history, claiming victory in 15 out of 16 races during the 1988 season."
+    },
+    {
+        "Make": "Williams",
+        "Country": "United Kingdom",
+        "Model": "FW14B",
+        "Year": 1992,
+        "url": "https://en.wikipedia.org/wiki/Williams_FW14",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Williams_FW14B.jpg/960px-Williams_FW14B.jpg",
+        "notes": "Technologically supreme machine equipped with active suspension, traction control, and semi-automatic transmission."
+    },
+    {
+        "Make": "Ferrari",
+        "Country": "Italy",
+        "Model": "F2004",
+        "Year": 2004,
+        "url": "https://en.wikipedia.org/wiki/Ferrari_F2004",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Michael_Schumacher_Ferrari_2004.jpg/960px-Michael_Schumacher_Ferrari_2004.jpg",
+        "notes": "The apex of the V10 era that set longstanding lap records during Michael Schumacher's seventh title season."
+    },
+    {
+        "Make": "Brawn",
+        "Country": "United Kingdom",
+        "Model": "BGP 001",
+        "Year": 2009,
+        "url": "https://en.wikipedia.org/wiki/Brawn_BGP_001",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/2009_Brawn_Mercedes_BGP_001_chassis_02_%2849379464488%29.jpg/960px-2009_Brawn_Mercedes_BGP_001_chassis_02_%2849379464488%29.jpg",
+        "notes": "Fairytale championship winner famous for its game-changing double diffuser aerodynamic innovation."
+    },
+    {
+        "Make": "Mercedes-AMG",
+        "Country": "United Kingdom",
+        "Model": "F1 W07 Hybrid",
+        "Year": 2016,
+        "url": "https://en.wikipedia.org/wiki/Mercedes_F1_W07_Hybrid",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nico_Rosberg_2016_Malaysia_FP2.jpg/960px-Nico_Rosberg_2016_Malaysia_FP2.jpg",
+        "notes": "Benchmark of the early turbo-hybrid era, securing 19 victories and 20 pole positions out of 21 races."
+    },
+    {
+        "Make": "Red Bull",
+        "Country": "United Kingdom",
+        "Model": "RB19",
+        "Year": 2023,
+        "url": "https://en.wikipedia.org/wiki/Red_Bull_Racing_RB19",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/FIA_F1_Austria_2023_Nr._1_%281%29.jpg/960px-FIA_F1_Austria_2023_Nr._1_%281%29.jpg",
+        "notes": "Statistically the most dominant F1 car ever built, winning 21 out of 22 Grand Prix races in a single season."
     }
 ]
