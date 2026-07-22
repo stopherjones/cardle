@@ -1069,5 +1069,230 @@
         "url": "https://en.wikipedia.org/wiki/Red_Bull_Racing_RB19",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/FIA_F1_Austria_2023_Nr._1_%281%29.jpg/960px-FIA_F1_Austria_2023_Nr._1_%281%29.jpg",
         "notes": "Statistically the most dominant F1 car ever built, winning 21 out of 22 Grand Prix races in a single season."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "48",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Holden_48-215",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/1949_Holden_48-215_sedan_01.jpg/960px-1949_Holden_48-215_sedan_01.jpg",
+        "notes": "Australia’s first mass-produced car, establishing the domestic automotive manufacturing industry."
+    },
+    {
+        "Make": "Goggomobil",
+        "Country": "Australia",
+        "Model": "Dart",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Goggomobil",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Goggomobil_250_Limousine.jpg/960px-Goggomobil_250_Limousine.jpg",
+        "notes": "Unique Australian-designed fibreglass micro-sports car built on an imported German chassis."
+    },
+    {
+        "Make": "Ford",
+        "Country": "Australia",
+        "Model": "Falcon (XR)",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/Ford_Falcon_(XR)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Ford_Falcon_500_Sedan_%28XR%29.JPG/960px-Ford_Falcon_500_Sedan_%28XR%29.JPG",
+        "notes": "Introduced the American V8 muscle car concept to Australian family saloons, launching the Aussie V8 era."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "Monaro (HK)",
+        "Year": 1968,
+        "url": "https://en.wikipedia.org/wiki/Holden_Monaro",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Wikipedia_Final_v3.png/960px-Wikipedia_Final_v3.png",
+        "notes": "Holden’s first purpose-built hardtop coupe, claiming victory at the Bathurst 500 on its race debut."
+    },
+    {
+        "Make": "Bolwell",
+        "Country": "Australia",
+        "Model": "Nagari",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Bolwell_Nagari",
+        "imageurl": "",
+        "notes": "Australia's premier home-grown V8 sports car, pairing a lightweight fibreglass body with Ford V8 power."
+    },
+    {
+        "Make": "Ford",
+        "Country": "Australia",
+        "Model": "Falcon GT-HO Phase III",
+        "Year": 1971,
+        "url": "https://en.wikipedia.org/wiki/Ford_XY_Falcon_GT",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/GT-HO-Phase3-b.jpg",
+        "notes": "Peak of early Australian muscle, famously claiming the title of the world’s fastest production four-door sedan upon release."
+    },
+    {
+        "Make": "Chrysler",
+        "Country": "Australia",
+        "Model": "Valiant Charger R/T E49",
+        "Year": 1972,
+        "url": "https://en.wikipedia.org/wiki/Chrysler_Valiant_Charger",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg/960px-1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg",
+        "notes": "Iconic short-wheelbase muscle car featuring a potent 265 cu in \"Hemi\" straight-six with triple Weber carburettors."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "Torana A9X",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Holden_Torana",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg/960px-1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg",
+        "notes": "Dominant V8 Touring Car homologation special that achieved legendary motorsport dominance at Bathurst."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "Commodore (VB)",
+        "Year": 1978,
+        "url": "https://en.wikipedia.org/wiki/Holden_Commodore_(VB)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/1979_Holden_VB_Commodore_Sedan_%2822623854399%29.jpg/960px-1979_Holden_VB_Commodore_Sedan_%2822623854399%29.jpg",
+        "notes": "Launched Holden’s longest-running nameplate by adapting a European Opel platform for harsh Australian conditions."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "Commodore (VE)",
+        "Year": 2006,
+        "url": "https://en.wikipedia.org/wiki/Holden_Commodore_(VE)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2008_Holden_Calais_%28VE_MY09%29_V_sedan_%282010-06-17%29_01.jpg/960px-2008_Holden_Calais_%28VE_MY09%29_V_sedan_%282010-06-17%29_01.jpg",
+        "notes": "The first Commodore designed, engineered, and built entirely in-house in Australia from a clean-sheet platform."
+    },
+    {
+        "Make": "Ford",
+        "Country": "Australia",
+        "Model": "Falcon (FG X)",
+        "Year": 2014,
+        "url": "https://en.wikipedia.org/wiki/Ford_Falcon_(FG_X)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2015_Ford_Falcon_%28FG_X%29_G6E_Turbo_%282017-11-18%29_01.jpg/960px-2015_Ford_Falcon_%28FG_X%29_G6E_Turbo_%282017-11-18%29_01.jpg",
+        "notes": "The final generation of the legendary Australian Falcon line before domestic Ford manufacturing ceased."
+    },
+    {
+        "Make": "HSV",
+        "Country": "Australia",
+        "Model": "GTSR W1",
+        "Year": 2017,
+        "url": "https://en.wikipedia.org/wiki/Holden_Special_Vehicles_GTS",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2010_HSV_GTS_%28E_Series_3_MY11%29_sedan_01.jpg/960px-2010_HSV_GTS_%28E_Series_3_MY11%29_sedan_01.jpg",
+        "notes": "The ultimate and most powerful Australian-built muscle car, fitted with a supercharged 6.2-litre Corvette ZR1 V8 engine."
+    },
+    {
+        "Make": "GAZ",
+        "Country": "USSR",
+        "Model": "21 Volga",
+        "Year": 1956,
+        "url": "https://en.wikipedia.org/wiki/GAZ-21",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/2018-08-26._%D0%90%D0%B2%D1%82%D0%BE-%D0%BC%D0%BE%D1%82%D0%BE_%D1%8D%D0%BA%D0%B7%D0%BE%D1%82%D0%B8%D0%BA%D0%B0_20.jpg/960px-2018-08-26._%D0%90%D0%B2%D1%82%D0%BE-%D0%BC%D0%BE%D1%82%D0%BE_%D1%8D%D0%BA%D0%B7%D0%BE%D1%82%D0%B8%D0%BA%D0%B0_20.jpg",
+        "notes": "Rugged executive saloon built to withstand harsh climate conditions, serving as the primary Soviet official and taxi vehicle."
+    },
+    {
+        "Make": "Tatra",
+        "Country": "Czechoslovakia",
+        "Model": "T603",
+        "Year": 1956,
+        "url": "https://en.wikipedia.org/wiki/Tatra_603",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Tatra_603.jpg/960px-Tatra_603.jpg",
+        "notes": "Distinctive aerodynamic rear-engined V8 luxury car reserved exclusively for high-ranking party officials and foreign dignitaries."
+    },
+    {
+        "Make": "Trabant",
+        "Country": "East Germany",
+        "Model": "601",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Trabant_601",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/1988_VEB_Sachenring_Trabant_P601S_Beige_%281_bearb_Sp%29_%28cropped%29.jpg/960px-1988_VEB_Sachenring_Trabant_P601S_Beige_%281_bearb_Sp%29_%28cropped%29.jpg",
+        "notes": "Duroplast-bodied \"people's car\" that became an enduring cultural icon of East German motoring."
+    },
+    {
+        "Make": "Škoda",
+        "Country": "Czechoslovakia",
+        "Model": "1000 MB",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/%C5%A0koda_1000_MB",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-121.jpg/960px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-121.jpg",
+        "notes": "Introduced rear-engine, unibody construction to the brand, produced in a purpose-built state-of-the-art facility."
+    },
+    {
+        "Make": "Polski Fiat",
+        "Country": "Poland",
+        "Model": "125p",
+        "Year": 1967,
+        "url": "https://en.wikipedia.org/wiki/Polski_Fiat_125p",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Fiat120_TrojaPalace_G09._Polski_Fiat_125p_%281300%29_cutted.jpg/960px-Fiat120_TrojaPalace_G09._Polski_Fiat_125p_%281300%29_cutted.jpg",
+        "notes": "License-built modification of the Fiat 124/125 that formed the backbone of Polish post-war passenger transport."
+    },
+    {
+        "Make": "Dacia",
+        "Country": "Romania",
+        "Model": "1300",
+        "Year": 1969,
+        "url": "https://en.wikipedia.org/wiki/Dacia_1300",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dacia_1300_%28cropped%29.JPG/960px-Dacia_1300_%28cropped%29.JPG",
+        "notes": "License-built variant of the Renault 12 that served as Romania’s primary national family car for over three decades."
+    },
+    {
+        "Make": "VAZ / Lada",
+        "Country": "USSR",
+        "Model": "2101 \"Zhiguli\"",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Zhiguli_(car_brand)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/VAZ_Zhiguli_-_UMMC_Museum_Complex.jpg/960px-VAZ_Zhiguli_-_UMMC_Museum_Complex.jpg",
+        "notes": "Heavy-duty Soviet adaptation of the Fiat 124 chassis that mobilised millions across Eastern Europe and export markets."
+    },
+    {
+        "Make": "Lada",
+        "Country": "USSR",
+        "Model": "Niva (VAZ-2121)",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Lada_Niva",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/1987_Lada_Niva_1600.jpg/960px-1987_Lada_Niva_1600.jpg",
+        "notes": "Pioneered the modern compact crossover layout by combining a unibody structure with permanent four-wheel drive and coil springs."
+    },
+    {
+        "Make": "FSO",
+        "Country": "Poland",
+        "Model": "Polonez",
+        "Year": 1978,
+        "url": "https://en.wikipedia.org/wiki/FSO_Polonez",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/FSO_Polonez_Caro_green_LF.jpg/960px-FSO_Polonez_Caro_green_LF.jpg",
+        "notes": "Hatchback family car engineered with emphasis on passive crash safety, remaining a Polish staple for decades."
+    },
+    {
+        "Make": "Zastava",
+        "Country": "Yugoslavia",
+        "Model": "Koral / Yugo",
+        "Year": 1980,
+        "url": "https://en.wikipedia.org/wiki/Yugo",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/1988_Yugo_GV_in_Blue%2C_front_left.jpg/960px-1988_Yugo_GV_in_Blue%2C_front_left.jpg",
+        "notes": "Fiat 127-derived supermini that became Yugoslavia's most famous international automotive export."
+    },
+    {
+        "Make": "Škoda",
+        "Country": "Czechoslovakia",
+        "Model": "Favorit",
+        "Year": 1987,
+        "url": "https://en.wikipedia.org/wiki/%C5%A0koda_Favorit",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Favorit_1994_corp.jpg/960px-Favorit_1994_corp.jpg",
+        "notes": "Bertone-styled front-wheel-drive hatchback that modernized the brand and paved the way for its Volkswagen acquisition."
+    },
+    {
+        "Make": "Dacia",
+        "Country": "Romania",
+        "Model": "Logan",
+        "Year": 2004,
+        "url": "https://en.wikipedia.org/wiki/Dacia_Logan",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Dacia_Logan_2023_Front_2_%28cropped%29.jpg/960px-Dacia_Logan_2023_Front_2_%28cropped%29.jpg",
+        "notes": "Revolutionised the modern global budget car market through ultra-low-cost, robust Renault platform engineering."
+    },
+    {
+        "Make": "Rimac",
+        "Country": "Croatia",
+        "Model": "Nevera",
+        "Year": 2021,
+        "url": "https://en.wikipedia.org/wiki/Rimac_Nevera",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rimac_Nevera.jpg/960px-Rimac_Nevera.jpg",
+        "notes": "All-electric hypercar that set global acceleration records and redefined electric vehicle performance limits."
     }
 ]
