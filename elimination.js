@@ -117,10 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         inputContainer.insertBefore(headerBar, inputContainer.firstChild);
 
-        headerBar.querySelector('.close-search-btn').addEventListener('click', (e) => {
-          e.stopPropagation();
-          closeAllTypeaheads();
-        });
+        const closeBtn = headerBar.querySelector('.close-search-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+          });
+          closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllTypeaheads();
+          });
+        }
       }
 
       const triggerPicker = () => {
@@ -524,13 +530,29 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }).join('');
 
-    resultsSummary.innerHTML = `Total Score: <strong>${totalScore} / 10</strong>`;
+    const isDaily = currentMode === 'daily';
+    const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
+    resultsSummary.innerHTML = `I scored <strong>${totalScore} / 10</strong> on Cardle Multi${dateSuffix}!`;
     resultsModal.classList.add('active');
+  }
+
+  function getFormattedDate(dateStr) {
+    let d = new Date();
+    if (dateStr && typeof dateStr === 'string' && !dateStr.startsWith('random')) {
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      }
+    }
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
   }
 
   function getMultiShareText() {
     const indexUrl = 'https://stopherjones.github.io/cardle/index.html';
-    const text = `I scored ${lastTotalScore}/10 on Cardle Multi! 🚗`;
+    const isDaily = currentMode === 'daily';
+    const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
+    const text = `I scored ${lastTotalScore}/10 on Cardle Multi${dateSuffix}! 🚗`;
     return {
       title: 'Cardle Multi',
       text: text,

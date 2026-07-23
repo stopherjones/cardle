@@ -412,6 +412,19 @@ function processGuess() {
     localStorage.setItem('cardle_session', JSON.stringify(currentGameState));
 }
 
+// Date formatting helper for daily games (e.g., "23 July 2026")
+function getFormattedDate(dateStr) {
+    let d = new Date();
+    if (dateStr && typeof dateStr === 'string' && !dateStr.startsWith('random')) {
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+            d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        }
+    }
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
 // 6. Game Termination Evaluation Display
 function displayTerminationState() {
     const inputControls = document.getElementById('input-controls');
@@ -434,10 +447,13 @@ function displayTerminationState() {
     titleEl.textContent = isWin ? 'Splendid!' : 'Game Over';
     titleEl.style.color = isWin ? 'var(--colour-correct)' : 'var(--danger)';
 
+    const isDaily = currentGameState.mode === 'daily';
+    const dateSuffix = isDaily ? ` for ${getFormattedDate(currentGameState.date)}` : '';
+
     const badgeClass = isWin ? 'victory' : 'defeat';
     const badgeText = isWin
-        ? `Guessed in ${currentGameState.guesses.length}/${MAX_GUESSES} tries!`
-        : `Out of guesses (${MAX_GUESSES}/${MAX_GUESSES})`;
+        ? `I got Cardle in ${currentGameState.guesses.length}/${MAX_GUESSES} guesses${dateSuffix}!`
+        : `I played Cardle (${MAX_GUESSES}/${MAX_GUESSES} guesses${dateSuffix})`;
 
     bodyEl.innerHTML = `
         <div class="result-card">
@@ -462,9 +478,12 @@ function getStandardShareText() {
     const count = currentGameState.guesses.length;
     const indexUrl = 'https://stopherjones.github.io/cardle/index.html';
 
+    const isDaily = currentGameState.mode === 'daily';
+    const dateSuffix = isDaily ? ` for ${getFormattedDate(currentGameState.date)}` : '';
+
     let shareMessage = isWin
-        ? `I got Cardle in ${count}/${MAX_GUESSES} guesses! 🚗`
-        : `I played Cardle (${MAX_GUESSES}/${MAX_GUESSES} guesses) 🚗`;
+        ? `I got Cardle in ${count}/${MAX_GUESSES} guesses${dateSuffix}! 🚗`
+        : `I played Cardle (${MAX_GUESSES}/${MAX_GUESSES} guesses${dateSuffix}) 🚗`;
 
     return {
         title: 'Cardle',
@@ -586,6 +605,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 const closeButton = document.getElementById('close-search-btn');
                 if (closeButton) {
+                    closeButton.addEventListener('mousedown', (e) => {
+                        e.preventDefault();
+                    });
                     closeButton.addEventListener('click', (e) => {
                         e.stopPropagation();
                         closeSearchOverlay();
