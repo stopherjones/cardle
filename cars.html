@@ -15,7 +15,7 @@
 
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 16px;
         }
 
@@ -77,6 +77,13 @@
         .car-model {
             font-size: 0.95rem;
             color: var(--text-primary);
+        }
+
+        .car-notes {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin: 6px 0 8px 0;
         }
 
         .car-footer {
@@ -142,6 +149,10 @@
                         ? `<a href="${car.url}" target="_blank" rel="noopener noreferrer" class="car-make">${car.Make}</a>` 
                         : `<span class="car-make">${car.Make}</span>`;
 
+                    const notesHTML = car.notes 
+                        ? `<p class="car-notes">${car.notes}</p>` 
+                        : '';
+
                     let imageHTML = `<div class="car-thumb-placeholder">No Image Available</div>`;
                     if (car.imageurl) {
                         imageHTML = `<img src="${car.imageurl}" alt="${car.Make} ${car.Model}" class="car-thumb" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'car-thumb-placeholder\\'>Image Unavailable</div>';">`;
@@ -154,6 +165,7 @@
                         <div class="car-details">
                             <div>${makeHTML}</div>
                             <div class="car-model">${car.Model}</div>
+                            ${notesHTML}
                             <div class="car-footer">
                                 <span>${displayYear}</span>
                                 <span>${flagEmoji}</span>
