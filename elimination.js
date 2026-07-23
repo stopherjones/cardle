@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameLocked = false;
   let roundNumber = 1;
   let score = 0;
+  let lastTotalScore = 0;
   let currentMode = 'daily';
   const assignments = { make: null, model: null, country: null, year: null };
   const optionsPool = { make: [], model: [], country: [], year: [] };
@@ -489,6 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showResults(results, totalScore) {
     if (!resultsModal || !resultsList || !resultsSummary) return;
+    lastTotalScore = totalScore;
 
     resultsList.innerHTML = results.map(result => {
       let statusClass = 'incorrect';
@@ -526,9 +528,70 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsModal.classList.add('active');
   }
 
+  function getMultiShareText() {
+    const indexUrl = 'https://stopherjones.github.io/cardle/index.html';
+    const text = `I scored ${lastTotalScore}/10 on Cardle Multi! 🚗`;
+    return {
+      title: 'Cardle Multi',
+      text: text,
+      url: indexUrl,
+      fullText: `${text}\n${indexUrl}`
+    };
+  }
+
+  async function handleShareResult(shareInfo, shareBtn, toastEl) {
+    let copied = false;
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(shareInfo.fullText);
+        copied = true;
+      } else {
+        throw new Error("Clipboard API unavailable");
+      }
+    } catch (e) {
+      const textarea = document.createElement('textarea');
+      textarea.value = shareInfo.fullText;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        copied = true;
+      } catch (err) {
+        console.error("Copy failed", err);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    if (copied) {
+      if (shareBtn) {
+        const origHTML = shareBtn.innerHTML;
+        shareBtn.classList.add('copied');
+        shareBtn.innerHTML = 'Copied! 📋';
+        setTimeout(() => {
+          shareBtn.classList.remove('copied');
+          shareBtn.innerHTML = origHTML;
+        }, 2000);
+      }
+      if (toastEl) {
+        toastEl.textContent = 'Copied results to clipboard!';
+        toastEl.classList.remove('hidden');
+        setTimeout(() => {
+          toastEl.classList.add('hidden');
+        }, 3000);
+      }
+    }
+  }
+
   function closeResultsModal() {
     if (resultsModal) {
       resultsModal.classList.remove('active');
+    }
+    const toast = document.getElementById('share-toast');
+    if (toast) {
+      toast.classList.add('hidden');
     }
   }
 
@@ -591,6 +654,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const modalPlayDailyBtn = document.getElementById('modal-play-daily-btn');
   const modalPlayRandomBtn = document.getElementById('modal-play-random-btn');
+  const modalShareBtn = document.getElementById('modal-share-btn');
+  const shareToast = document.getElementById('share-toast');
+
+  if (modalShareBtn) {
+    modalShareBtn.addEventListener('click', () => {
+      const shareInfo = getMultiShareText();
+      handleShareResult(shareInfo, modalShareBtn, shareToast);
+    });
+  }
 
   if (modalPlayDailyBtn) {
     modalPlayDailyBtn.addEventListener('click', () => {

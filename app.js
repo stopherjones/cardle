@@ -457,6 +457,69 @@ function displayTerminationState() {
     modal.classList.add('active');
 }
 
+function getStandardShareText() {
+    const isWin = currentGameState.victory;
+    const count = currentGameState.guesses.length;
+    const indexUrl = 'https://stopherjones.github.io/cardle/index.html';
+
+    let shareMessage = isWin
+        ? `I got Cardle in ${count}/${MAX_GUESSES} guesses! 🚗`
+        : `I played Cardle (${MAX_GUESSES}/${MAX_GUESSES} guesses) 🚗`;
+
+    return {
+        title: 'Cardle',
+        text: shareMessage,
+        url: indexUrl,
+        fullText: `${shareMessage}\n${indexUrl}`
+    };
+}
+
+async function handleShareResult(shareInfo, shareBtn, toastEl) {
+    let copied = false;
+
+    try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(shareInfo.fullText);
+            copied = true;
+        } else {
+            throw new Error("Clipboard API unavailable");
+        }
+    } catch (e) {
+        const textarea = document.createElement('textarea');
+        textarea.value = shareInfo.fullText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            copied = true;
+        } catch (err) {
+            console.error("Copy failed", err);
+        }
+        document.body.removeChild(textarea);
+    }
+
+    if (copied) {
+        if (shareBtn) {
+            const origHTML = shareBtn.innerHTML;
+            shareBtn.classList.add('copied');
+            shareBtn.innerHTML = 'Copied! 📋';
+            setTimeout(() => {
+                shareBtn.classList.remove('copied');
+                shareBtn.innerHTML = origHTML;
+            }, 2000);
+        }
+        if (toastEl) {
+            toastEl.textContent = 'Copied results to clipboard!';
+            toastEl.classList.remove('hidden');
+            setTimeout(() => {
+                toastEl.classList.add('hidden');
+            }, 3000);
+        }
+    }
+}
+
 // 7. Local Storage Session Hydration Engine
 function hydrateSession() {
     const cache = localStorage.getItem('cardle_session');
@@ -603,6 +666,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const modalPlayDailyBtn = document.getElementById('modal-play-daily-btn');
             const modalPlayRandomBtn = document.getElementById('modal-play-random-btn');
+            const modalShareBtn = document.getElementById('modal-share-btn');
+            const shareToast = document.getElementById('share-toast');
+
+            if (modalShareBtn) {
+                modalShareBtn.addEventListener('click', () => {
+                    const shareInfo = getStandardShareText();
+                    handleShareResult(shareInfo, modalShareBtn, shareToast);
+                });
+            }
 
             if (modalPlayDailyBtn) {
                 modalPlayDailyBtn.addEventListener('click', () => {
