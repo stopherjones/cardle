@@ -21,14 +21,15 @@
       <div class="status-item" id="round-indicator">Round 1</div>
     </div>
 
-    <section class="pool-section">
-      <h2 class="section-title">Vehicle Pool (Drag or tap to select)</h2>
-      <div class="grid-2x2" id="vehicle-pool"></div>
-    </section>
+    <div class="game-board">
+      <section class="pool-section">
+        <h2 class="section-title">Vehicle Pool (Drag or tap to select)</h2>
+        <div class="grid-2x2" id="vehicle-pool"></div>
+      </section>
 
-    <section class="zones-section">
-      <h2 class="section-title">Categories</h2>
-      <div class="grid-2x2" id="category-zones">
+      <section class="zones-section">
+        <h2 class="section-title">Categories</h2>
+        <div class="grid-2x2" id="category-zones">
         <div class="category-zone" data-category="make">
           <div class="zone-header">🏷️ MAKE</div>
           <div class="dock-slot"></div>
@@ -60,8 +61,9 @@
             <input class="picker-input" type="text" inputmode="numeric" placeholder="e.g. 1885" disabled data-input="year" autocomplete="off">
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
 
     <button class="submit-btn" id="submit-btn" disabled>Submit All Guesses</button>
   </main>
@@ -71,6 +73,16 @@
     <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
   </div>
 
-  <script src="elimination.js?v=2" defer></script>
+  <div class="modal results-modal" id="results-modal" role="dialog" aria-modal="true" aria-labelledby="results-title">
+    <div class="results-panel">
+      <button class="modal-close" id="results-close" aria-label="Close results">✕</button>
+      <h2 id="results-title">Round Results</h2>
+      <div class="results-list" id="results-list"></div>
+      <p class="results-summary" id="results-summary"></p>
+      <button type="button" class="submit-btn results-next-btn" id="next-round-btn">Next Round</button>
+    </div>
+  </div>
+
+  <script src="elimination.js?v=3" defer></script>
 </body>
 </html>

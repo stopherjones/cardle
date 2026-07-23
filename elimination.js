@@ -2,15 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameDatabase = [];
   let roundVehicles = [];
   let selectedCarId = null;
+  let gameLocked = false;
+  let roundNumber = 1;
+  let score = 0;
   const assignments = { make: null, model: null, country: null, year: null };
   const optionsPool = { make: [], model: [], country: [], year: [] };
+  const CATEGORY_LABELS = { make: 'Make', model: 'Model', country: 'Country', year: 'Year' };
 
   const vehiclePool = document.getElementById('vehicle-pool');
   const categoryZones = document.querySelectorAll('.category-zone');
   const submitBtn = document.getElementById('submit-btn');
+  const scoreEl = document.getElementById('score');
+  const roundIndicator = document.getElementById('round-indicator');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const modalClose = document.getElementById('modal-close');
+  const resultsModal = document.getElementById('results-modal');
+  const resultsList = document.getElementById('results-list');
+  const resultsSummary = document.getElementById('results-summary');
+  const resultsClose = document.getElementById('results-close');
+  const nextRoundBtn = document.getElementById('next-round-btn');
 
   // Shared Data Normalisation Pipeline
   function normaliseData(rawItems) {
@@ -226,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         card.addEventListener('click', (e) => {
-          if (e.target.classList.contains('zoom-btn')) return;
+          if (gameLocked || e.target.classList.contains('zoom-btn')) return;
           selectedCarId = selectedCarId === car.labelId ? null : car.labelId;
           renderPool();
         });
@@ -252,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
 
     zone.addEventListener('drop', (e) => {
+      if (gameLocked) return;
       e.preventDefault();
       zone.classList.remove('drag-over');
       const carId = e.dataTransfer.getData('text/plain');
@@ -259,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     zone.addEventListener('click', (e) => {
+      if (gameLocked) return;
       if (selectedCarId && !assignments[category] && !e.target.closest('input, button')) {
         assignCar(selectedCarId, category);
         selectedCarId = null;
@@ -267,6 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function assignCar(carId, category) {
+    if (gameLocked) return;
+
     for (let cat in assignments) {
       if (assignments[cat] === carId) assignments[cat] = null;
     }
@@ -275,6 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function ejectCar(category) {
+    if (gameLocked) return;
+
     assignments[category] = null;
     const input = document.querySelector(`[data-input="${category}"]`);
     if (input) input.value = '';
@@ -326,7 +343,153 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    submitBtn.disabled = !(allAssigned && allInputsFilled);
+    submitBtn.disabled = gameLocked || !(allAssigned && allInputsFilled);
+  }
+
+  function normaliseForCompare(value, category) {
+    const trimmed = String(value ?? '').trim();
+    if (category === 'year') {
+      const num = parseInt(trimmed, 10);
+      return Number.isNaN(num) ? trimmed.toLowerCase() : num;
+    }
+    return trimmed.toLowerCase();
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function formatActualValue(car, category) {
+    return category === 'year' ? String(car.year) : car[category];
+  }
+
+  function processSubmission() {
+    if (gameLocked || submitBtn.disabled) return;
+
+    const results = [];
+    let correctCount = 0;
+
+    categoryZones.forEach(zone => {
+      const category = zone.dataset.category;
+      const carId = assignments[category];
+      const car = roundVehicles.find(v => v.labelId === carId);
+      const input = zone.querySelector(`[data-input="${category}"]`);
+      const guess = input ? input.value.trim() : '';
+      const actual = car[category];
+      const isCorrect = normaliseForCompare(guess, category) === normaliseForCompare(actual, category);
+
+      if (isCorrect) correctCount += 1;
+
+      results.push({
+        category,
+        label: CATEGORY_LABELS[category],
+        carLabel: car.displayLabel,
+        carImage: car.image,
+        guess,
+        actual: formatActualValue(car, category),
+        isCorrect
+      });
+    });
+
+    score += correctCount;
+    if (scoreEl) scoreEl.textContent = String(score);
+
+    showResults(results, correctCount);
+    lockGame();
+  }
+
+  function showResults(results, correctCount) {
+    if (!resultsModal || !resultsList || !resultsSummary) return;
+
+    resultsList.innerHTML = results.map(result => `
+      <div class="result-row ${result.isCorrect ? 'correct' : 'incorrect'}">
+        <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.carLabel)}">
+        <div class="result-body">
+          <div class="result-header">
+            <span class="result-category">${result.label}</span>
+            <span class="result-car">${escapeHtml(result.carLabel)}</span>
+            <span class="result-status ${result.isCorrect ? 'correct' : 'incorrect'}">
+              ${result.isCorrect ? '✓ Correct' : '✗ Incorrect'}
+            </span>
+          </div>
+          <div class="result-guess">Your guess: ${escapeHtml(result.guess)}</div>
+          ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: ${escapeHtml(result.actual)}</div>`}
+        </div>
+      </div>
+    `).join('');
+
+    resultsSummary.textContent = `You got ${correctCount} out of ${results.length} correct.`;
+    resultsModal.classList.add('active');
+  }
+
+  function closeResultsModal() {
+    if (resultsModal) {
+      resultsModal.classList.remove('active');
+    }
+  }
+
+  function lockGame() {
+    gameLocked = true;
+    submitBtn.disabled = true;
+    selectedCarId = null;
+
+    categoryZones.forEach(zone => {
+      const input = zone.querySelector('[data-input]');
+      if (input) input.disabled = true;
+    });
+
+    renderPool();
+  }
+
+  function startNextRound() {
+    closeResultsModal();
+    gameLocked = false;
+    selectedCarId = null;
+
+    for (const category in assignments) {
+      assignments[category] = null;
+    }
+
+    categoryZones.forEach(zone => {
+      const category = zone.dataset.category;
+      const input = zone.querySelector(`[data-input="${category}"]`);
+      if (input) {
+        input.value = '';
+        input.disabled = true;
+      }
+    });
+
+    roundNumber += 1;
+    if (roundIndicator) {
+      roundIndicator.textContent = `Round ${roundNumber}`;
+    }
+
+    setupRound();
+    checkSubmissionState();
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', processSubmission);
+  }
+
+  if (resultsClose) {
+    resultsClose.addEventListener('click', closeResultsModal);
+  }
+
+  if (nextRoundBtn) {
+    nextRoundBtn.addEventListener('click', startNextRound);
+  }
+
+  if (resultsModal) {
+    resultsModal.addEventListener('click', (e) => {
+      if (e.target === resultsModal) {
+        closeResultsModal();
+      }
+    });
   }
 
   document.querySelectorAll('[data-input]').forEach(input => {
