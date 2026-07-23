@@ -1,0 +1,11 @@
+.page-standard .game-container {
+  border-top: 2px solid rgba(110, 168, 255, 0.2);
+}
+
+.page-standard .status-overlay {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.page-standard .controls-panel button#submit-btn {
+  box-shadow: inset 0 0 0 1px rgba(18, 18, 20, 0.08);
+}

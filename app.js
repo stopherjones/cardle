@@ -90,12 +90,42 @@ function createRandomRevealOrder(cellCount = 6) {
 }
 
 function updateModeButtons(activeMode) {
-    document.getElementById('daily-play-btn').classList.toggle('active', activeMode === 'daily');
-    document.getElementById('random-play-btn').classList.toggle('active', activeMode === 'random');
+    const dailyButton = document.getElementById('daily-play-btn');
+    const randomButton = document.getElementById('random-play-btn');
+
+    if (dailyButton) {
+        dailyButton.classList.toggle('active', activeMode === 'daily');
+    }
+
+    if (randomButton) {
+        randomButton.classList.toggle('active', activeMode === 'random');
+    }
 }
 
 function getCarDisplayLabel(car) {
     return `${car.make} ${car.model} (${car.country}, ${car.year})`;
+}
+
+// Search Overlay Controls
+function openSearchOverlay() {
+    const wrapper = document.querySelector('.input-wrapper');
+    if (wrapper) {
+        wrapper.classList.add('overlay-open');
+        document.body.classList.add('search-overlay-active');
+    }
+}
+
+function closeSearchOverlay() {
+    const wrapper = document.querySelector('.input-wrapper');
+    const input = document.getElementById('user-input');
+    if (wrapper) {
+        wrapper.classList.remove('overlay-open');
+        document.body.classList.remove('search-overlay-active');
+    }
+    if (input) {
+        input.blur();
+    }
+    clearSuggestions();
 }
 
 function clearSuggestions() {
@@ -111,18 +141,18 @@ function renderSuggestions(query) {
     if (!suggestions) return;
 
     const normalizedQuery = query.trim().toLowerCase();
-    if (!normalizedQuery) {
-        clearSuggestions();
-        return;
+    
+    // In overlay mode, show popular/all top results if query is empty
+    let matches = searchableCars;
+    if (normalizedQuery) {
+        matches = searchableCars.filter(car => {
+            const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
+            return searchableText.includes(normalizedQuery);
+        });
     }
 
-    const matches = searchableCars.filter(car => {
-        const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
-        return searchableText.includes(normalizedQuery);
-    });
-
     if (!matches.length) {
-        suggestions.innerHTML = '<div class="suggestion-empty">No matches</div>';
+        suggestions.innerHTML = '<div class="suggestion-empty">No matching vehicles found</div>';
         suggestions.classList.remove('hidden');
         return;
     }
@@ -163,13 +193,38 @@ function findCarByInput(inputString) {
 }
 
 function resetGameUI() {
-    document.getElementById('guess-matrix').innerHTML = '';
-    document.getElementById('user-input').value = '';
-    clearSuggestions();
-    document.getElementById('input-controls').classList.remove('hidden');
-    document.getElementById('game-status').classList.add('hidden');
-    document.getElementById('status-message').textContent = '';
-    document.getElementById('solution-reveal').textContent = '';
+    const guessMatrix = document.getElementById('guess-matrix');
+    const userInput = document.getElementById('user-input');
+    const inputControls = document.getElementById('input-controls');
+    const gameStatus = document.getElementById('game-status');
+    const statusMessage = document.getElementById('status-message');
+    const solutionReveal = document.getElementById('solution-reveal');
+
+    if (guessMatrix) {
+        guessMatrix.innerHTML = '';
+    }
+
+    if (userInput) {
+        userInput.value = '';
+    }
+
+    closeSearchOverlay();
+
+    if (inputControls) {
+        inputControls.classList.remove('hidden');
+    }
+
+    if (gameStatus) {
+        gameStatus.classList.add('hidden');
+    }
+
+    if (statusMessage) {
+        statusMessage.textContent = '';
+    }
+
+    if (solutionReveal) {
+        solutionReveal.textContent = '';
+    }
 }
 
 function startGame(mode = 'daily') {
@@ -203,7 +258,6 @@ function drawFeedbackRow(guessObj) {
     const row = document.createElement('div');
     row.className = 'guess-row';
 
-    // Evaluation Logic Matrices
     const makeMatch = guessObj.make === targetCar.make;
     const modelMatch = guessObj.model === targetCar.model;
     const countryMatch = guessObj.country === targetCar.country;
@@ -317,12 +371,13 @@ function processGuess() {
         return;
     }
 
-    inputField.value = ""; // Clear input buffer
+    inputField.value = "";
+    closeSearchOverlay();
+
     currentGameState.guesses.push(selectedCar);
     drawFeedbackRow(selectedCar);
 
     const isVictory = selectedCar.id === targetCar.id;
-    const isExhausted = currentGameState.guesses.length >= MAX_GUESSES;
 
     if (isVictory) {
         currentGameState.completed = true;
@@ -344,10 +399,18 @@ function processGuess() {
 
 // 6. Game Termination Evaluation Display
 function displayTerminationState() {
-    document.getElementById('input-controls').classList.add('hidden');
+    const inputControls = document.getElementById('input-controls');
     const panel = document.getElementById('game-status');
     const msg = document.getElementById('status-message');
     const reveal = document.getElementById('solution-reveal');
+
+    if (inputControls) {
+        inputControls.classList.add('hidden');
+    }
+
+    if (!panel || !msg || !reveal) {
+        return;
+    }
 
     panel.classList.remove('hidden');
     if (currentGameState.victory) {
@@ -416,38 +479,81 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const input = document.getElementById('user-input');
             const suggestions = document.getElementById('car-suggestions');
+            const inputWrapper = document.querySelector('.input-wrapper');
+            const submitButton = document.getElementById('submit-btn');
+            const dailyButton = document.getElementById('daily-play-btn');
+            const randomButton = document.getElementById('random-play-btn');
 
-            input.addEventListener('input', () => renderSuggestions(input.value));
-            input.addEventListener('focus', () => renderSuggestions(input.value));
-            input.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
+            if (inputWrapper && !document.querySelector('.search-header-bar')) {
+                const headerBar = document.createElement('div');
+                headerBar.className = 'search-header-bar';
+                headerBar.innerHTML = `
+                    <span class="search-header-title">Search Vehicles</span>
+                    <button type="button" class="close-search-btn" id="close-search-btn">Close</button>
+                `;
+                inputWrapper.insertBefore(headerBar, inputWrapper.firstChild);
+
+                const closeButton = document.getElementById('close-search-btn');
+                if (closeButton) {
+                    closeButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeSearchOverlay();
+                    });
+                }
+            }
+
+            if (input) {
+                input.addEventListener('focus', () => {
+                    openSearchOverlay();
+                    renderSuggestions(input.value);
+                });
+
+                input.addEventListener('input', () => renderSuggestions(input.value));
+
+                input.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        processGuess();
+                    } else if (event.key === 'Escape') {
+                        closeSearchOverlay();
+                    }
+                });
+            }
+
+            if (suggestions) {
+                suggestions.addEventListener('click', (event) => {
+                    const suggestionButton = event.target.closest('.suggestion-item');
+                    if (!suggestionButton) return;
+
+                    input.value = suggestionButton.dataset.label;
                     processGuess();
-                }
-            });
+                });
+            }
 
-            suggestions.addEventListener('click', (event) => {
-                const suggestionButton = event.target.closest('.suggestion-item');
-                if (!suggestionButton) return;
-
-                input.value = suggestionButton.dataset.label;
-                clearSuggestions();
-            });
-
-            document.addEventListener('click', (event) => {
-                if (!input.contains(event.target) && !suggestions.contains(event.target)) {
-                    clearSuggestions();
-                }
-            });
+            if (inputWrapper) {
+                document.addEventListener('click', (event) => {
+                    if (!inputWrapper.contains(event.target)) {
+                        closeSearchOverlay();
+                    }
+                });
+            }
 
             hydrateSession();
             if (!currentGameState.completed) {
                 refreshImageDisplay();
             }
 
-            document.getElementById('submit-btn').addEventListener('click', processGuess);
-            document.getElementById('daily-play-btn').addEventListener('click', () => startGame('daily'));
-            document.getElementById('random-play-btn').addEventListener('click', () => startGame('random'));
+            if (submitButton) {
+                submitButton.addEventListener('click', processGuess);
+            }
+
+            if (dailyButton) {
+                dailyButton.addEventListener('click', () => startGame('daily'));
+            }
+
+            if (randomButton) {
+                randomButton.addEventListener('click', () => startGame('random'));
+            }
         })
         .catch(err => console.error("Critical database fetch failure:", err));
 });

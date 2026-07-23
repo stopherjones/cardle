@@ -1,57 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardle - Daily Classic Car Guessing Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardle - Home</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="daily.css">
 </head>
-<body>
-    <header>
-        <h1>CARDLE</h1>
-        <p>Guess the 20th-century classic car of the day.</p>
-        <div class="mode-switcher" role="group" aria-label="Game mode">
-            <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
-            <button id="random-play-btn" class="mode-btn" type="button">Random Play</button>
-        </div>
-    </header>
+<body class="page-home">
+  <main class="home-shell">
+    <section class="hero-card" aria-labelledby="home-title">
+      <header>
+        <h1 id="home-title">CARDLE</h1>
+        <p>Choose your classic-car guessing experience.</p>
+      </header>
 
-    <main class="game-container">
-        <div class="image-wrapper">
-            <img id="target-image" src="" alt="Car of the day" class="blurred-image">
-            <div id="image-overlay" class="image-overlay" aria-hidden="true">
-                <div class="overlay-cell"></div>
-                <div class="overlay-cell"></div>
-                <div class="overlay-cell"></div>
-                <div class="overlay-cell"></div>
-                <div class="overlay-cell"></div>
-                <div class="overlay-cell"></div>
-            </div>
-        </div>
+      <div class="mode-choice-grid">
+        <a class="mode-card" href="standard.html">
+          <span class="mode-pill">Standard</span>
+          <h3>Standard Game</h3>
+          <p>Play the daily or random one-shot challenge with image reveals and clue feedback.</p>
+        </a>
 
-        <div class="feedback-grid-header">
-            <div>Make</div>
-            <div>Model</div>
-            <div>Country</div>
-            <div>Year</div>
-        </div>
-
-        <div id="guess-matrix" class="matrix-container"></div>
-
-        <div id="input-controls" class="controls-panel">
-            <div class="input-wrapper">
-                <input type="text" id="user-input" placeholder="Type a make, model, year or country..." autocomplete="off" aria-label="Search cars">
-                <div id="car-suggestions" class="suggestions-list hidden" role="listbox"></div>
-            </div>
-            <button id="submit-btn">Guess</button>
-        </div>
-
-        <div id="game-status" class="status-overlay hidden">
-            <h2 id="status-message"></h2>
-            <p id="solution-reveal"></p>
-        </div>
-    </main>
-
-    <script src="app.js?v=2"></script>
+        <a class="mode-card" href="multi.html">
+          <span class="mode-pill">Multi</span>
+          <h3>Multi Game</h3>
+          <p>Try the strategic elimination experience with a vehicle pool and category-based guesses.</p>
+        </a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

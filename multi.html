@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardle - Multi Game</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="elimination.css">
+</head>
+<body class="page-multi">
+  <header>
+    <a class="page-link" href="index.html">← Back home</a>
+    <h1>CARDLE</h1>
+    <p>Strategic Elimination</p>
+  </header>
+
+  <main class="game-container">
+    <div class="status-bar">
+      <div class="status-item">Score: <span id="score">0</span></div>
+      <div class="status-item" id="round-indicator">Round 1</div>
+    </div>
+
+    <section class="pool-section">
+      <h2 class="section-title">Vehicle Pool (Drag or tap to select)</h2>
+      <div class="grid-2x2" id="vehicle-pool"></div>
+    </section>
+
+    <section class="zones-section">
+      <h2 class="section-title">Categories</h2>
+      <div class="grid-2x2" id="category-zones">
+        <div class="category-zone" data-category="make">
+          <div class="zone-header">🏷️ MAKE</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Benz" disabled data-input="make" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="category-zone" data-category="model">
+          <div class="zone-header">🚗 MODEL</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Patent-Motorwagen" disabled data-input="model" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="category-zone" data-category="country">
+          <div class="zone-header">🌍 COUNTRY</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Germany" disabled data-input="country" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="category-zone" data-category="year">
+          <div class="zone-header">📅 YEAR</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" inputmode="numeric" placeholder="e.g. 1885" disabled data-input="year" autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button class="submit-btn" id="submit-btn" disabled>Submit All Guesses</button>
+  </main>
+
+  <div class="modal" id="lightbox">
+    <button class="modal-close" id="modal-close" aria-label="Close image preview">✕</button>
+    <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
+  </div>
+
+  <script src="elimination.js?v=2" defer></script>
+</body>
+</html>
