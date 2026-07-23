@@ -348,6 +348,10 @@
   border-color: var(--colour-correct);
 }
 
+.result-row.partial {
+  border-color: var(--colour-directional);
+}
+
 .result-row.incorrect {
   border-color: var(--danger);
 }
@@ -382,6 +386,10 @@
 
 .result-status.correct {
   color: var(--colour-correct);
+}
+
+.result-status.partial {
+  color: var(--colour-directional);
 }
 
 .result-status.incorrect {

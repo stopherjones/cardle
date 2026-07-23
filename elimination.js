@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameLocked = false;
   let roundNumber = 1;
   let score = 0;
+  let currentMode = 'daily';
   const assignments = { make: null, model: null, country: null, year: null };
   const optionsPool = { make: [], model: [], country: [], year: [] };
   const CATEGORY_LABELS = { make: 'Make', model: 'Model', country: 'Country', year: 'Year' };
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultsSummary = document.getElementById('results-summary');
   const resultsClose = document.getElementById('results-close');
   const nextRoundBtn = document.getElementById('next-round-btn');
+  const dailyPlayBtn = document.getElementById('daily-play-btn');
+  const randomPlayBtn = document.getElementById('random-play-btn');
 
   // Shared Data Normalisation Pipeline
   function normaliseData(rawItems) {
@@ -75,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gameDatabase = normaliseData(dataset);
       populateOptionsPool();
       setupTypeahead();
-      setupRound();
+      updateModeButtons('daily');
+      setupRound('daily');
     } catch (err) {
       console.error('Data load error:', err);
       if (vehiclePool) {
@@ -203,11 +207,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function setupRound() {
+  function getDateStamp(date = new Date()) {
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  }
+
+  function getDailyVehicles() {
+    if (gameDatabase.length < 4) return [];
+    const dateStamp = getDateStamp();
+    let computationHash = 0;
+    for (let i = 0; i < dateStamp.length; i++) {
+      computationHash = dateStamp.charCodeAt(i) + ((computationHash << 5) - computationHash);
+    }
+    const startIndex = Math.abs(computationHash) % gameDatabase.length;
+    const selected = [];
+    const step = 7;
+    for (let i = 0; i < gameDatabase.length && selected.length < 4; i++) {
+      const idx = (startIndex + i * step) % gameDatabase.length;
+      if (!selected.includes(gameDatabase[idx])) {
+        selected.push(gameDatabase[idx]);
+      }
+    }
+    return selected;
+  }
+
+  function updateModeButtons(mode) {
+    currentMode = mode;
+    if (dailyPlayBtn) dailyPlayBtn.classList.toggle('active', mode === 'daily');
+    if (randomPlayBtn) randomPlayBtn.classList.toggle('active', mode === 'random');
+  }
+
+  function setupRound(mode = currentMode) {
     if (gameDatabase.length < 4) return;
 
-    const shuffled = [...gameDatabase].sort(() => 0.5 - Math.random());
-    roundVehicles = shuffled.slice(0, 4).map((car, idx) => ({
+    let selectedCars = [];
+    if (mode === 'daily') {
+      selectedCars = getDailyVehicles();
+    } else {
+      const shuffled = [...gameDatabase].sort(() => 0.5 - Math.random());
+      selectedCars = shuffled.slice(0, 4);
+    }
+
+    roundVehicles = selectedCars.map((car, idx) => ({
       ...car,
       labelId: car.id,
       displayLabel: `Car ${String.fromCharCode(65 + idx)}`
@@ -287,6 +327,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     assignments[category] = carId;
     updateUI();
+
+    const zone = document.querySelector(`.category-zone[data-category="${category}"]`);
+    if (zone) {
+      const inputContainer = zone.querySelector('.picker-shell');
+      const input = zone.querySelector(`[data-input="${category}"]`);
+      const resultsDiv = zone.querySelector('.suggestions-list');
+      if (inputContainer && input && resultsDiv) {
+        setTimeout(() => {
+          openSearchOverlay(inputContainer);
+          renderTypeahead(category, input.value, resultsDiv, input);
+          input.focus();
+        }, 10);
+      }
+    }
   }
 
   function ejectCar(category) {
@@ -371,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gameLocked || submitBtn.disabled) return;
 
     const results = [];
-    let correctCount = 0;
+    let totalScore = 0;
 
     categoryZones.forEach(zone => {
       const category = zone.dataset.category;
@@ -380,9 +434,38 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = zone.querySelector(`[data-input="${category}"]`);
       const guess = input ? input.value.trim() : '';
       const actual = car[category];
-      const isCorrect = normaliseForCompare(guess, category) === normaliseForCompare(actual, category);
 
-      if (isCorrect) correctCount += 1;
+      let points = 0;
+      let maxPoints = 1;
+      let isCorrect = false;
+
+      if (category === 'country') {
+        maxPoints = 1;
+        isCorrect = normaliseForCompare(guess, 'country') === normaliseForCompare(actual, 'country');
+        points = isCorrect ? 1 : 0;
+      } else if (category === 'make') {
+        maxPoints = 1;
+        isCorrect = normaliseForCompare(guess, 'make') === normaliseForCompare(actual, 'make');
+        points = isCorrect ? 1 : 0;
+      } else if (category === 'model') {
+        maxPoints = 3;
+        isCorrect = normaliseForCompare(guess, 'model') === normaliseForCompare(actual, 'model');
+        points = isCorrect ? 3 : 0;
+      } else if (category === 'year') {
+        maxPoints = 5;
+        const guessYear = parseInt(guess, 10);
+        const actualYear = parseInt(actual, 10);
+        if (!isNaN(guessYear) && !isNaN(actualYear)) {
+          const diff = Math.abs(guessYear - actualYear);
+          points = Math.max(0, 5 - diff);
+          isCorrect = (diff === 0);
+        } else {
+          isCorrect = normaliseForCompare(guess, 'year') === normaliseForCompare(actual, 'year');
+          points = isCorrect ? 5 : 0;
+        }
+      }
+
+      totalScore += points;
 
       results.push({
         category,
@@ -391,38 +474,55 @@ document.addEventListener('DOMContentLoaded', () => {
         carImage: car.image,
         guess,
         actual: formatActualValue(car, category),
+        points,
+        maxPoints,
         isCorrect
       });
     });
 
-    score += correctCount;
+    score += totalScore;
     if (scoreEl) scoreEl.textContent = String(score);
 
-    showResults(results, correctCount);
+    showResults(results, totalScore);
     lockGame();
   }
 
-  function showResults(results, correctCount) {
+  function showResults(results, totalScore) {
     if (!resultsModal || !resultsList || !resultsSummary) return;
 
-    resultsList.innerHTML = results.map(result => `
-      <div class="result-row ${result.isCorrect ? 'correct' : 'incorrect'}">
-        <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.carLabel)}">
-        <div class="result-body">
-          <div class="result-header">
-            <span class="result-category">${result.label}</span>
-            <span class="result-car">${escapeHtml(result.carLabel)}</span>
-            <span class="result-status ${result.isCorrect ? 'correct' : 'incorrect'}">
-              ${result.isCorrect ? '✓ Correct' : '✗ Incorrect'}
-            </span>
-          </div>
-          <div class="result-guess">Your guess: ${escapeHtml(result.guess)}</div>
-          ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: ${escapeHtml(result.actual)}</div>`}
-        </div>
-      </div>
-    `).join('');
+    resultsList.innerHTML = results.map(result => {
+      let statusClass = 'incorrect';
+      let statusText = '✗ Incorrect';
 
-    resultsSummary.textContent = `You got ${correctCount} out of ${results.length} correct.`;
+      if (result.isCorrect) {
+        statusClass = 'correct';
+        statusText = '✓ Correct';
+      } else if (result.points > 0) {
+        statusClass = 'partial';
+        statusText = '~ Close';
+      }
+
+      const pointsBadge = `${result.points} / ${result.maxPoints} ${result.maxPoints === 1 ? 'point' : 'points'}`;
+
+      return `
+        <div class="result-row ${statusClass}">
+          <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.carLabel)}">
+          <div class="result-body">
+            <div class="result-header">
+              <span class="result-category">${result.label}</span>
+              <span class="result-car">${escapeHtml(result.carLabel)}</span>
+              <span class="result-status ${statusClass}">
+                ${statusText} (${pointsBadge})
+              </span>
+            </div>
+            <div class="result-guess">Your guess: ${escapeHtml(result.guess)}</div>
+            ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: ${escapeHtml(result.actual)}</div>`}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    resultsSummary.innerHTML = `Total Score: <strong>${totalScore} / 10</strong>`;
     resultsModal.classList.add('active');
   }
 
@@ -445,8 +545,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPool();
   }
 
-  function startNextRound() {
+  function startNewGame(mode = currentMode) {
     closeResultsModal();
+    updateModeButtons(mode);
     gameLocked = false;
     selectedCarId = null;
 
@@ -463,13 +564,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    roundNumber += 1;
-    if (roundIndicator) {
-      roundIndicator.textContent = `Round ${roundNumber}`;
-    }
-
-    setupRound();
+    closeAllTypeaheads();
+    setupRound(mode);
     checkSubmissionState();
+  }
+
+  function startNextRound() {
+    startNewGame(currentMode === 'daily' ? 'random' : 'random');
+  }
+
+  if (dailyPlayBtn) {
+    dailyPlayBtn.addEventListener('click', () => startNewGame('daily'));
+  }
+
+  if (randomPlayBtn) {
+    randomPlayBtn.addEventListener('click', () => startNewGame('random'));
   }
 
   if (submitBtn) {
@@ -480,8 +589,19 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsClose.addEventListener('click', closeResultsModal);
   }
 
-  if (nextRoundBtn) {
-    nextRoundBtn.addEventListener('click', startNextRound);
+  const modalPlayDailyBtn = document.getElementById('modal-play-daily-btn');
+  const modalPlayRandomBtn = document.getElementById('modal-play-random-btn');
+
+  if (modalPlayDailyBtn) {
+    modalPlayDailyBtn.addEventListener('click', () => {
+      startNewGame('daily');
+    });
+  }
+
+  if (modalPlayRandomBtn) {
+    modalPlayRandomBtn.addEventListener('click', () => {
+      startNewGame('random');
+    });
   }
 
   if (resultsModal) {

@@ -192,6 +192,16 @@ function findCarByInput(inputString) {
     });
 }
 
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 function resetGameUI() {
     const guessMatrix = document.getElementById('guess-matrix');
     const userInput = document.getElementById('user-input');
@@ -199,6 +209,7 @@ function resetGameUI() {
     const gameStatus = document.getElementById('game-status');
     const statusMessage = document.getElementById('status-message');
     const solutionReveal = document.getElementById('solution-reveal');
+    const resultsModal = document.getElementById('results-modal');
 
     if (guessMatrix) {
         guessMatrix.innerHTML = '';
@@ -224,6 +235,10 @@ function resetGameUI() {
 
     if (solutionReveal) {
         solutionReveal.textContent = '';
+    }
+
+    if (resultsModal) {
+        resultsModal.classList.remove('active');
     }
 }
 
@@ -401,32 +416,45 @@ function processGuess() {
 function displayTerminationState() {
     const inputControls = document.getElementById('input-controls');
     const panel = document.getElementById('game-status');
-    const msg = document.getElementById('status-message');
-    const reveal = document.getElementById('solution-reveal');
+    const modal = document.getElementById('results-modal');
+    const titleEl = document.getElementById('results-title');
+    const bodyEl = document.getElementById('results-body');
 
     if (inputControls) {
         inputControls.classList.add('hidden');
     }
 
-    if (!panel || !msg || !reveal) {
-        return;
+    if (panel) {
+        panel.classList.remove('hidden');
     }
 
-    panel.classList.remove('hidden');
-    if (currentGameState.victory) {
-        msg.textContent = `${targetCar.make} ${targetCar.model}, ${targetCar.year}, ${targetCar.country || 'Unknown'}`;
-        msg.style.color = "var(--colour-correct)";
-        reveal.innerHTML = `
-            <div class="solution-details">
-                <div>${targetCar.notes || 'No notes available.'}</div>
-                ${targetCar.url ? `<div><a href="${targetCar.url}" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a></div>` : ''}
+    if (!modal || !titleEl || !bodyEl || !targetCar) return;
+
+    const isWin = currentGameState.victory;
+    titleEl.textContent = isWin ? 'Splendid!' : 'Game Over';
+    titleEl.style.color = isWin ? 'var(--colour-correct)' : 'var(--danger)';
+
+    const badgeClass = isWin ? 'victory' : 'defeat';
+    const badgeText = isWin
+        ? `Guessed in ${currentGameState.guesses.length}/${MAX_GUESSES} tries!`
+        : `Out of guesses (${MAX_GUESSES}/${MAX_GUESSES})`;
+
+    bodyEl.innerHTML = `
+        <div class="result-card">
+            <div class="result-card-header">
+                <img class="result-card-img" src="${escapeHtml(targetCar.image)}" alt="${escapeHtml(targetCar.make + ' ' + targetCar.model)}">
+                <div class="result-card-info">
+                    <div class="result-card-title">${escapeHtml(targetCar.make)} ${escapeHtml(targetCar.model)}</div>
+                    <div class="result-card-sub">${escapeHtml(targetCar.country || 'Unknown')}, ${targetCar.year}</div>
+                    <span class="result-card-badge ${badgeClass}">${badgeText}</span>
+                </div>
             </div>
-        `;
-    } else {
-        msg.textContent = "Game Over";
-        msg.style.color = "#d32f2f";
-        reveal.textContent = `Target Car: ${targetCar.make} ${targetCar.model} (${targetCar.year})`;
-    }
+            ${targetCar.notes ? `<div class="result-card-notes">${escapeHtml(targetCar.notes)}</div>` : ''}
+            ${targetCar.url ? `<div class="result-card-link"><a href="${escapeHtml(targetCar.url)}" target="_blank" rel="noopener noreferrer">Read more on Wikipedia →</a></div>` : ''}
+        </div>
+    `;
+
+    modal.classList.add('active');
 }
 
 // 7. Local Storage Session Hydration Engine
@@ -553,6 +581,53 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (randomButton) {
                 randomButton.addEventListener('click', () => startGame('random'));
+            }
+
+            const resultsClose = document.getElementById('results-close');
+            const resultsModal = document.getElementById('results-modal');
+            const nextGameBtn = document.getElementById('next-game-btn');
+            const viewResultsBtn = document.getElementById('view-results-btn');
+            const inlinePlayAgainBtn = document.getElementById('inline-play-again-btn');
+
+            if (resultsClose && resultsModal) {
+                resultsClose.addEventListener('click', () => {
+                    resultsModal.classList.remove('active');
+                });
+
+                resultsModal.addEventListener('click', (event) => {
+                    if (event.target === resultsModal) {
+                        resultsModal.classList.remove('active');
+                    }
+                });
+            }
+
+            const modalPlayDailyBtn = document.getElementById('modal-play-daily-btn');
+            const modalPlayRandomBtn = document.getElementById('modal-play-random-btn');
+
+            if (modalPlayDailyBtn) {
+                modalPlayDailyBtn.addEventListener('click', () => {
+                    if (resultsModal) resultsModal.classList.remove('active');
+                    startGame('daily');
+                });
+            }
+
+            if (modalPlayRandomBtn) {
+                modalPlayRandomBtn.addEventListener('click', () => {
+                    if (resultsModal) resultsModal.classList.remove('active');
+                    startGame('random');
+                });
+            }
+
+            if (viewResultsBtn && resultsModal) {
+                viewResultsBtn.addEventListener('click', () => {
+                    resultsModal.classList.add('active');
+                });
+            }
+
+            if (inlinePlayAgainBtn) {
+                inlinePlayAgainBtn.addEventListener('click', () => {
+                    startGame('random');
+                });
             }
         })
         .catch(err => console.error("Critical database fetch failure:", err));

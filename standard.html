@@ -50,10 +50,27 @@
     </div>
 
     <div id="game-status" class="status-overlay hidden">
-      <h2 id="status-message"></h2>
-      <p id="solution-reveal"></p>
+      <div id="status-message"></div>
+      <div id="solution-reveal"></div>
+      <div class="status-actions">
+        <button type="button" id="view-results-btn" class="mode-btn active">View Results</button>
+        <button type="button" id="inline-play-again-btn" class="mode-btn">Play Random</button>
+      </div>
     </div>
   </main>
+
+  <div class="modal results-modal" id="results-modal" role="dialog" aria-modal="true" aria-labelledby="results-title">
+    <div class="results-panel">
+      <button class="modal-close" id="results-close" aria-label="Close results">✕</button>
+      <h2 id="results-title">Game Results</h2>
+      <div id="results-body"></div>
+      <div class="modal-actions">
+        <a href="index.html" class="mode-btn">Home</a>
+        <button type="button" class="mode-btn" id="modal-play-daily-btn">Play Daily</button>
+        <button type="button" class="mode-btn active" id="modal-play-random-btn">Play Random</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js?v=3"></script>
 </body>

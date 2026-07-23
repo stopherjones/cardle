@@ -422,6 +422,191 @@ header p {
     color: #dfe6f0;
 }
 
+.status-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Modal Popup Styles */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1100;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--text-primary);
+    color: #000000;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: #e0e0e0;
+}
+
+.results-modal {
+    padding: 1rem;
+}
+
+.results-panel {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem 1.25rem;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.results-panel h2 {
+    margin: 0 2rem 1rem 0;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+}
+
+.result-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.result-card-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.result-card-img {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.result-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.result-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.result-card-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.result-card-badge {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.result-card-badge.victory {
+    background: rgba(46, 125, 50, 0.2);
+    color: #4caf50;
+    border: 1px solid var(--colour-correct);
+}
+
+.result-card-badge.defeat {
+    background: rgba(211, 47, 47, 0.2);
+    color: #ef5350;
+    border: 1px solid var(--danger);
+}
+
+.result-card-notes {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 0.6rem;
+}
+
+.result-card-link {
+    margin-top: 0.2rem;
+}
+
+.result-card-link a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-size: 0.85rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.modal-actions .mode-btn {
+    flex: 1 1 auto;
+    min-width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+}
+
+.results-next-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--text-primary);
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.results-next-btn:hover {
+    background-color: #e0e0e0;
+}
+
 .hidden { display: none !important; }
 
 @media (max-width: 640px) {

@@ -1,0 +1,15 @@
+{
+  "name": "cardle",
+  "version": "1.0.0",
+  "description": "Classic car guessing game featuring standard daily/random challenges and multi-vehicle strategic elimination.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Build complete'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

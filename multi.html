@@ -13,14 +13,13 @@
     <a class="page-link" href="index.html">← Back home</a>
     <h1>CARDLE</h1>
     <p>Strategic Elimination</p>
+    <div class="mode-switcher" role="group" aria-label="Game mode">
+      <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
+      <button id="random-play-btn" class="mode-btn" type="button">Random Play</button>
+    </div>
   </header>
 
   <main class="game-container">
-    <div class="status-bar">
-      <div class="status-item">Score: <span id="score">0</span></div>
-      <div class="status-item" id="round-indicator">Round 1</div>
-    </div>
-
     <div class="game-board">
       <section class="pool-section">
         <h2 class="section-title">Vehicle Pool (Drag or tap to select)</h2>
@@ -79,7 +78,11 @@
       <h2 id="results-title">Round Results</h2>
       <div class="results-list" id="results-list"></div>
       <p class="results-summary" id="results-summary"></p>
-      <button type="button" class="submit-btn results-next-btn" id="next-round-btn">Next Round</button>
+      <div class="modal-actions">
+        <a href="index.html" class="mode-btn">Home</a>
+        <button type="button" class="mode-btn" id="modal-play-daily-btn">Play Daily</button>
+        <button type="button" class="mode-btn active" id="modal-play-random-btn">Play Random</button>
+      </div>
     </div>
   </div>
 
