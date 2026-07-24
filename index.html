@@ -1,68 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardle - Home</title>
+import csv
+import json
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="daily.css">
-</head>
-<body class="page-home">
-  <main class="home-shell">
-    <section class="hero-card" aria-labelledby="home-title">
-      <header>
-        <h1 id="home-title">CARDLE</h1>
-        <p>Choose which game to play.</p>
-      </header>
+def convert_cardle_csv_to_json(input_file='cardle.csv', output_file='cardle.json'):
+    formatted_data = []
 
-      <div class="mode-choice-grid">
-        <a class="mode-card" href="standard.html">
-          <div class="mode-card-preview standard-preview" aria-hidden="true">
-            <div class="preview-tile-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg/960px-AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg" alt="" class="preview-car-img" />
-              <div class="preview-tile-overlay">
-                <div class="preview-tile obscured">1</div>
-                <div class="preview-tile revealed"></div>
-                <div class="preview-tile obscured">3</div>
-                <div class="preview-tile obscured">4</div>
-                <div class="preview-tile revealed"></div>
-                <div class="preview-tile obscured">6</div>
-              </div>
-            </div>
-          </div>
-          <span class="mode-pill">Cardle</span>
-          <h3>Play Cardle</h3>
-          <p>Guess the car as it is revealed, tile-by-tile. Use feedback to narrow in on the right car. Daily or random options.</p>
-        </a>
+    with open(input_file, mode='r', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        
+        for row in reader:
+            # Create a case-insensitive lookup dictionary for the row
+            row_normalized = {k.strip().lower(): v for k, v in row.items() if k}
 
-        <a class="mode-card" href="cartegories.html">
-          <div class="mode-card-preview cartegories-preview multi-preview" aria-hidden="true">
-            <div class="preview-category-grid">
-              <div class="preview-cat-box">
-                <span class="preview-cat-label">MAKE</span>
-                <span class="preview-cat-value">Ford</span>
-              </div>
-              <div class="preview-cat-box">
-                <span class="preview-cat-label">COUNTRY</span>
-                <span class="preview-cat-value">USA</span>
-              </div>
-              <div class="preview-cat-box">
-                <span class="preview-cat-label">MODEL</span>
-                <span class="preview-cat-value">Mustang</span>
-              </div>
-              <div class="preview-cat-box">
-                <span class="preview-cat-label">YEAR</span>
-                <span class="preview-cat-value">1965</span>
-              </div>
-            </div>
-          </div>
-          <span class="mode-pill">CARtegories</span>
-          <h3>Play CARtegories</h3>
-          <p>Place each car in one of the four categories where you think you can score the most points. Daily or random options.</p>
-        </a>
-      </div>
-    </section>
-  </main>
-</body>
-</html>
+            # Safely parse the year
+            raw_year = row_normalized.get('year', row_normalized.get('start_year', '')).strip()
+            year_value = int(raw_year) if raw_year.isdigit() else None
+
+            # Construct record matching target JSON format
+            record = {
+                "Make": row_normalized.get('make', '').strip(),
+                "Country": row_normalized.get('country', '').strip(),
+                "Model": row_normalized.get('model', '').strip(),
+                "Year": year_value,
+                "url": row_normalized.get('url', '').strip(),
+                "imageurl": row_normalized.get('imageurl', row_normalized.get('image_url', '')).strip(),
+                "notes": row_normalized.get('notes', '').strip()
+            }
+            formatted_data.append(record)
+
+    # Export to JSON
+    with open(output_file, mode='w', encoding='utf-8') as json_file:
+        json.dump(formatted_data, json_file, indent=4, ensure_ascii=False)
+
+    print(f"Successfully converted {len(formatted_data)} records to {output_file}")
+
+if __name__ == '__main__':
+    convert_cardle_csv_to_json()

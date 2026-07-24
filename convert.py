@@ -1,94 +1,94 @@
-import json
-import time
-import requests
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardle - CARtegories Game</title>
 
-def fetch_wikipedia_data(search_term):
-    """
-    Queries the Wikipedia API for a search term and returns the 
-    page URL and the main original image URL if found.
-    """
-    url = "https://en.wikipedia.org/w/api.php"
-    headers = {
-        "User-Agent": "VehicleDataConverter/1.0 (contact: your_email@example.com)"
-    }
-    params = {
-        "action": "query",
-        "generator": "search",
-        "gsrsearch": search_term,
-        "gsrlimit": "1",
-        "prop": "pageimages|info",
-        "inprop": "url",
-        "piprop": "thumbnail", 
-        "pithumbsize": "900",
-        "format": "json"
-    }
-    
-    try:
-        response = requests.get(url, headers=headers, params=params, timeout=10)
-        response.raise_for_status()
-        data = response.json()
-        
-        if "query" in data and "pages" in data["query"]:
-            pages = data["query"]["pages"]
-            page_id = list(pages.keys())[0]
-            page_info = pages[page_id]
-            
-            wiki_url = page_info.get("fullurl", "")
-            image_url = page_info.get("thumbnail", {}).get("source", "")
-            
-            return wiki_url, image_url
-            
-    except Exception as e:
-        print(f"Error fetching data for '{search_term}': {e}")
-        
-    return "", ""
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cartegories.css">
+</head>
+<body class="page-cartegories page-multi">
+  <header>
+    <a class="page-link" href="index.html">← Back home</a>
+    <h1>CARDLE</h1>
+    <p>CARtegories game</p>
+    <div class="mode-switcher" role="group" aria-label="Game mode">
+      <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
+      <button id="random-play-btn" class="mode-btn" type="button">Random Play</button>
+    </div>
+  </header>
 
-def update_existing_json(json_file):
-    # Try to load the existing JSON file
-    try:
-        with open(json_file, mode='r', encoding='utf-8') as f:
-            vehicles_list = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: The file '{json_file}' could not be found.")
-        return
-    except json.JSONDecodeError:
-        print(f"Error: '{json_file}' does not appear to be valid JSON.")
-        return
+  <main class="game-container">
+    <div class="game-board">
+      <section class="pool-section">
+        <h2 class="section-title">Vehicle Pool</h2>
+        <p>Select a car and place it into a category to start your guessing</p>
+        <div class="grid-2x2" id="vehicle-pool"></div>
+      </section>
 
-    print(f"Loaded {len(vehicles_list)} entries from '{json_file}'. Analysing data...")
-    updated_count = 0
+      <section class="zones-section">
+        <h2 class="section-title">Categories</h2>
+        <div class="grid-2x2" id="category-zones">
+        <div class="category-zone" data-category="make">
+          <div class="zone-header">🏷️ MAKE</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Benz" disabled data-input="make" autocomplete="off">
+          </div>
+        </div>
 
-    for row in vehicles_list:
-        # Normalise strings and extract keys safely
-        make = str(row.get('Make', '')).strip()
-        model = str(row.get('Model', '')).strip()
-        search_term = f"{make} {model}".strip()
-        
-        # Ensure the keys exist in the dictionary
-        if 'url' not in row:
-            row['url'] = ""
-        if 'imageurl' not in row:
-            row['imageurl'] = ""
-            
-        # Only query Wikipedia if the fields are currently empty
-        if search_term and (not row['url'] or not row['imageurl']):
-            print(f"Updating missing data for: {search_term}")
-            wiki_url, image_url = fetch_wikipedia_data(search_term)
-    
-            # Only update if the current field is empty
-            if wiki_url and not row['url']:
-                row['url'] = wiki_url
-            if image_url and not row['imageurl']:
-                row['imageurl'] = image_url
-                
-            updated_count += 1
-            time.sleep(0.5)  # Courteous delay for API rate limits
+        <div class="category-zone" data-category="model">
+          <div class="zone-header">🚗 MODEL</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Patent-Motorwagen" disabled data-input="model" autocomplete="off">
+          </div>
+        </div>
 
-    # Save the updated data back into the original file
-    with open(json_file, mode='w', encoding='utf-8') as f:
-        json.dump(vehicles_list, f, indent=4, ensure_ascii=False)
+        <div class="category-zone" data-category="country">
+          <div class="zone-header">🌍 COUNTRY</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" placeholder="e.g. Germany" disabled data-input="country" autocomplete="off">
+          </div>
+        </div>
 
-    print(f"\nProcessing complete. Updated {updated_count} records directly in '{json_file}'.")
+        <div class="category-zone" data-category="year">
+          <div class="zone-header">📅 YEAR</div>
+          <div class="dock-slot"></div>
+          <div class="input-container picker-shell">
+            <input class="picker-input" type="text" inputmode="numeric" placeholder="e.g. 1885" disabled data-input="year" autocomplete="off">
+          </div>
+        </div>
+        </div>
+      </section>
+    </div>
 
-if __name__ == "__main__":
-    update_existing_json('vehicles.json')
+    <button class="submit-btn" id="submit-btn" disabled>Submit All Guesses</button>
+  </main>
+
+  <div class="modal" id="lightbox">
+    <button class="modal-close" id="modal-close" aria-label="Close image preview">✕</button>
+    <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
+  </div>
+
+  <div class="modal results-modal" id="results-modal" role="dialog" aria-modal="true" aria-labelledby="results-title">
+    <div class="results-panel">
+      <button class="modal-close" id="results-close" aria-label="Close results">✕</button>
+      <h2 id="results-title">Round Results</h2>
+      <div class="results-list" id="results-list"></div>
+      <p class="results-summary" id="results-summary"></p>
+      <div id="share-toast" class="share-toast hidden">Copied results to clipboard!</div>
+      <div class="modal-actions">
+        <a href="index.html" class="mode-btn">Home</a>
+        <button type="button" class="mode-btn share-btn" id="modal-share-btn">Share 🔗</button>
+        <button type="button" class="mode-btn" id="modal-play-daily-btn">Play Daily</button>
+        <button type="button" class="mode-btn active" id="modal-play-random-btn">Play Random</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="cartegories.js?v=3" defer></script>
+</body>
+</html>
