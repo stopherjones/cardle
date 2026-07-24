@@ -1,16 +1,79 @@
-{
-  "name": "cardle",
-  "version": "1.0.0",
-  "description": "Classic car guessing game featuring standard daily/random challenges and CARtegories strategic placement.",
-  "type": "module",
-  "main": "server.js",
-  "scripts": {
-    "dev": "node server.js",
-    "build": "echo 'Build complete'",
-    "start": "node server.js",
-    "lint": "echo 'No lint specified'"
-  },
-  "dependencies": {
-    "express": "^4.19.2"
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardle - Standard game</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="daily.css">
+</head>
+<body class="page-standard">
+  <header>
+    <a class="page-link" href="index.html">← Back home</a>
+    <h1>CARDLE</h1>
+    <p>Standard game.</p>
+    <div class="mode-switcher" role="group" aria-label="Game mode">
+      <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
+      <button id="random-play-btn" class="mode-btn" type="button">Random Play</button>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <div class="image-wrapper">
+      <img id="target-image" src="" alt="Car of the day" class="blurred-image">
+      <div id="image-overlay" class="image-overlay" aria-hidden="true">
+        <div class="overlay-cell"></div>
+        <div class="overlay-cell"></div>
+        <div class="overlay-cell"></div>
+        <div class="overlay-cell"></div>
+        <div class="overlay-cell"></div>
+        <div class="overlay-cell"></div>
+      </div>
+    </div>
+
+    <div class="feedback-grid-header">
+      <div>Make</div>
+      <div>Model</div>
+      <div>Country</div>
+      <div>Year</div>
+    </div>
+
+    <div id="guess-matrix" class="matrix-container"></div>
+
+    <div id="input-controls" class="controls-panel">
+      <div class="input-wrapper">
+        <input type="text" id="user-input" placeholder="Type a make, model, year or country..." autocomplete="off" aria-label="Search cars">
+        <div id="car-suggestions" class="suggestions-list hidden" role="listbox"></div>
+      </div>
+      <button id="submit-btn">Guess</button>
+    </div>
+
+    <div id="game-status" class="status-overlay hidden">
+      <div id="status-message"></div>
+      <div id="solution-reveal"></div>
+      <div class="status-actions">
+        <button type="button" id="view-results-btn" class="mode-btn active">View Results</button>
+        <button type="button" id="inline-play-again-btn" class="mode-btn">Play Random</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal results-modal" id="results-modal" role="dialog" aria-modal="true" aria-labelledby="results-title">
+    <div class="results-panel">
+      <button class="modal-close" id="results-close" aria-label="Close results">✕</button>
+      <h2 id="results-title">Game Results</h2>
+      <div id="results-body"></div>
+      <div id="share-toast" class="share-toast hidden">Copied results to clipboard!</div>
+      <div class="modal-actions">
+        <a href="index.html" class="mode-btn">Home</a>
+        <button type="button" class="mode-btn share-btn" id="modal-share-btn">Share 🔗</button>
+        <button type="button" class="mode-btn" id="modal-play-daily-btn">Play Daily</button>
+        <button type="button" class="mode-btn active" id="modal-play-random-btn">Play Random</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>

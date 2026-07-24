@@ -1,14 +1,26 @@
-// save as sync.js in your project
-const express = require('express');
-const fs = require('fs');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
+const PORT = 3000;
 
-app.use(express.json());
-
-app.post('/update', (req, res) => {
-  fs.writeFileSync('data.json', JSON.stringify(req.body, null, 2));
-  console.log('data.json updated successfully!');
-  res.sendStatus(200);
+// Serve vehicles.json specifically
+app.get('/vehicles.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'cardle.json'));
 });
 
-app.listen(3000, () => console.log('Local sync server running on port 3000'));
+// Serve static files with .html fallback
+app.use(express.static(__dirname, { extensions: ['html'] }));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${PORT}`);
+});
+

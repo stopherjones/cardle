@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Significant Cars</title>
+    <!-- Link to external styles.css -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cars-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .car-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--text-muted);
+        }
+
+        .car-thumb-wrapper {
+            width: 100%;
+            height: 140px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .car-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-thumb-placeholder {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .car-details {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex-grow: 1;
+        }
+
+        .car-make {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .car-make:hover {
+            text-decoration: underline;
+        }
+
+        .car-model {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .car-notes {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin: 6px 0 8px 0;
+        }
+
+        .car-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .error-message {
+            color: var(--text-primary);
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LOCAL CSV VERSION</h1>
+        <p>Landmark vehicles in automotive history</p>
+    </header>
+
+    <main class="cars-container">
+        <div id="cars-grid" class="cars-grid"></div>
+    </main>
+
+    <!-- PapaParse CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<script>
+    const countryFlags = {
+        "Germany": "🇩🇪",
+        "United Kingdom": "🇬🇧",
+        "United States": "🇺🇸",
+        "Italy": "🇮🇹",
+        "France": "🇫🇷",
+        "Switzerland": "🇨🇭",
+        "Japan": "🇯🇵"
+    };
+
+    // Paste your Google Sheet Published CSV URL here:
+    const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjkk6pJVuMxvb7AGZyDpnVOrnlFzlyX3KkbfnHJQx6jc-atkjkRez6TXe3nxa8CNwceSpV-QsEJ7cN/pub?output=csv';
+
+    async function loadCars() {
+        const grid = document.getElementById('cars-grid');
+
+        Papa.parse(GOOGLE_SHEET_CSV_URL, {
+            download: true,
+            header: true,          // Treats the first row of your sheet as keys (Make, Model, Year, etc.)
+            skipEmptyLines: true,
+            complete: function(results) {
+                const cars = results.data;
+                grid.innerHTML = ''; // Clear existing content
+
+                cars.forEach(car => {
+                    const card = document.createElement('article');
+                    card.className = 'car-card';
+
+                    const countryList = (car.Country || '').split(/,|\/|&|\band\b/i).map(c => c.trim()).filter(Boolean);
+                    const flagEmoji = countryList.map(c => countryFlags[c] || '').join('');
+                    const displayYear = car.Year ? car.Year : 'N/A';
+                    
+                    const makeHTML = car.url 
+                        ? `<a href="${car.url}" target="_blank" rel="noopener noreferrer" class="car-make">${car.Make}</a>` 
+                        : `<span class="car-make">${car.Make}</span>`;
+
+                    const notesHTML = car.notes 
+                        ? `<p class="car-notes">${car.notes}</p>` 
+                        : '';
+
+                    let imageHTML = `<div class="car-thumb-placeholder">No Image Available</div>`;
+                    if (car.imageurl) {
+                        imageHTML = `<img src="${car.imageurl}" alt="${car.Make} ${car.Model}" class="car-thumb" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'car-thumb-placeholder\\'>Image Unavailable</div>';">`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="car-thumb-wrapper">
+                            ${imageHTML}
+                        </div>
+                        <div class="car-details">
+                            <div>${makeHTML}</div>
+                            <div class="car-model">${car.Model}</div>
+                            ${notesHTML}
+                            <div class="car-footer">
+                                <span>${displayYear}</span>
+                                <span>${flagEmoji}</span>
+                            </div>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+            },
+            error: function(error) {
+                console.error('Failed to load vehicle data:', error);
+                grid.innerHTML = `<div class="error-message">Unable to load car data. Please check your Google Sheet CSV URL.</div>`;
+            }
+        });
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', loadCars);
+</script>
+</body>
+</html>
