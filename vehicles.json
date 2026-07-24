@@ -388,7 +388,7 @@
     },
     {
         "Make": "DeLorean",
-        "Country": "United Kingdom, United States",
+        "Country": "United Kingdom; United States",
         "Model": "DMC-12",
         "Year": 1985,
         "url": "https://en.wikipedia.org/wiki/DeLorean_time_machine",
@@ -495,8 +495,8 @@
         "notes": "Lightweight John Tojeiro-designed sports car featuring all-independent suspension, forming the engineering base for the Cobra."
     },
     {
-        "Make": "Shelby AC",
-        "Country": "United Kingdom, United States",
+        "Make": "AC (Shelby)",
+        "Country": "United Kingdom; United States",
         "Model": "Cobra",
         "Year": 1962,
         "url": "https://en.wikipedia.org/wiki/AC_Cobra",
@@ -569,15 +569,6 @@
     {
         "Make": "Alfa Romeo",
         "Country": "Italy",
-        "Model": "Giulia Saloon",
-        "Year": 1962,
-        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Giulia_(2015)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Alfa_952_26.06.19_JM_%281%29_%28cropped%29.jpg/960px-Alfa_952_26.06.19_JM_%281%29_%28cropped%29.jpg",
-        "notes": "Pioneered the sports saloon segment by housing a twin-cam engine and five-speed gearbox inside a aerodynamic body shell."
-    },
-    {
-        "Make": "Alfa Romeo",
-        "Country": "Italy",
         "Model": "Giulia Sprint GTA",
         "Year": 1965,
         "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_GTA",
@@ -630,40 +621,31 @@
         "notes": "European Car of the Year winner that revitalised the brand and introduced common-rail direct-injection diesel engines to production cars."
     },
     {
-        "Make": "Alfa Romeo",
-        "Country": "Italy",
-        "Model": "Giulia Quadrifoglio",
-        "Year": 2016,
-        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Quadrifoglio",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Alfa-romeo-quadrifoglio-logo.png",
-        "notes": "Benchmark high-performance sports saloon featuring a Ferrari-developed twin-turbo V6 engine and advanced active aerodynamics."
-    },
-    {
         "Make": "Alpine",
         "Country": "France",
         "Model": "A110",
         "Year": 1961,
         "url": "https://en.wikipedia.org/wiki/Alpine_A110",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Renault_Alpine_A_110_%28Sp%29.JPG/960px-Renault_Alpine_A_110_%28Sp%29.JPG",
-        "notes": "Agile rear-engined sports car that won the inaugural World Rally Championship for Manufacturers in 1973."
+        "notes": "The definitive Alpine model, spanning two distinct eras: the legendary 1960s/70s rally champion and the highly acclaimed modern mid-engined sports car revived in 2017"
+    },
+    {
+        "Make": "Alpine",
+        "Country": "France",
+        "Model": "GTA / A610",
+        "Year": 1984,
+        "url": "https://en.wikipedia.org/wiki/Renault_Alpine_GTA/A610",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Renault_Alpine_V6_GT_Gen3_D500_1984-1991_frontright_2011-04-10_A.jpg/960px-Renault_Alpine_V6_GT_Gen3_D500_1984-1991_frontright_2011-04-10_A.jpg",
+        "notes": "The Renault Alpine GTA (Gran Tourisme Alpine) is a lightweight, rear-engined sports coupé, designed as a sleek, aerodynamic alternative to contemporary sports cars like the Porsche 944 and Porsche 911"
     },
     {
         "Make": "Audi",
         "Country": "Germany",
-        "Model": "Quattro / Sport Quattro S1",
-        "Year": 1980,
-        "url": "https://en.wikipedia.org/wiki/Audi_Quattro",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Audi_Quattro_green.jpg/960px-Audi_Quattro_green.jpg",
-        "notes": "Revolutionised motorsport by introducing permanent all-wheel drive and turbocharged power to rallying."
-    },
-    {
-        "Make": "Austin / Morris",
-        "Country": "United Kingdom",
-        "Model": "Mini Cooper S",
-        "Year": 1963,
-        "url": "https://en.wikipedia.org/wiki/Mini",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Morris_Mini-Minor_1959_%28621_AOK%29.jpg/960px-Morris_Mini-Minor_1959_%28621_AOK%29.jpg",
-        "notes": "Giant-killing lightweight saloon that famously won the Monte Carlo Rally three times in the 1960s."
+        "Model": "Quattro S1",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Audi_Quattro#Sport_Quattro_S1_E2",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/1985_Audi_Sport_Quattro_S1_E2_HCC23.jpg/960px-1985_Audi_Sport_Quattro_S1_E2_HCC23.jpg",
+        "notes": "The legendary Audi Quattro introduced four-wheel drive and revolutionized rallying forever."
     },
     {
         "Make": "Citroën",
@@ -675,31 +657,22 @@
         "notes": "Key machinery behind Citroën's era of total WRC dominance, securing the first seven of Sébastien Loeb's driver titles."
     },
     {
-        "Make": "Citroën",
-        "Country": "France",
-        "Model": "BX 4TC",
-        "Year": 1986,
-        "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_BX",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Citroen_BX_19_Digit_1985_Montlhery_Juin_12%27.jpg/960px-Citroen_BX_19_Digit_1985_Montlhery_Juin_12%27.jpg",
-        "notes": "Unconventional entry featuring a front-overhang engine layout and hydropneumatic suspension that proved notoriously uncompetitive."
-    },
-    {
         "Make": "Fiat",
         "Country": "Italy",
         "Model": "131 Abarth",
-        "Year": 1976,
-        "url": "https://en.wikipedia.org/wiki/Fiat_131",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/1976_Fiat_131_S_1600_%2813939009329%29.jpg/960px-1976_Fiat_131_S_1600_%2813939009329%29.jpg",
+        "Year": 1980,
+        "url": "https://en.wikipedia.org/wiki/Fiat_131#Fiat_131_Abarth_Rally",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Walter_R%C3%B6hrls_Fiat_131_Abarth_%28Sponsor_Alitalia%29_aus_1978-1979.jpg/960px-Walter_R%C3%B6hrls_Fiat_131_Abarth_%28Sponsor_Alitalia%29_aus_1978-1979.jpg",
         "notes": "Three-time WRC Manufacturers' Champion that proved a family saloon could be turned into a rally giant-killer."
     },
     {
         "Make": "Ford",
         "Country": "United Kingdom",
-        "Model": "Escort RS1800 (Mk2)",
+        "Model": "Escort RS1600",
         "Year": 1975,
-        "url": "https://en.wikipedia.org/wiki/Ford_Fiesta",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ford_Fiesta_ST-Line_%28VII%2C_Facelift%29_%E2%80%93_f_30012023.jpg/960px-Ford_Fiesta_ST-Line_%28VII%2C_Facelift%29_%E2%80%93_f_30012023.jpg",
-        "notes": "The definitive rear-wheel-drive gravel car of the 1970s, securing multiple driver and manufacturer world titles."
+        "url": "https://en.wikipedia.org/wiki/Ford_Escort_(Europe)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Ford_Escort_RS1600_-_Race_Retro_2008_03.jpg/960px-Ford_Escort_RS1600_-_Race_Retro_2008_03.jpg",
+        "notes": "One of the most successful rally cars of all time. The Ford works team was practically unbeatable in the late 1960s and early 1970s."
     },
     {
         "Make": "Ford",
@@ -708,7 +681,7 @@
         "Year": 1984,
         "url": "https://en.wikipedia.org/wiki/Ford_RS200",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/White_Ford_RS200.jpg/960px-White_Ford_RS200.jpg",
-        "notes": "Purpose-built mid-engined spaceframe special created exclusively to maximize Group B technical regulations."
+        "notes": "The road-legal RS200 was the basis for Ford's Group B rally car and was designed to comply with FIA homologation regulations, which required 200 cars to be completed"
     },
     {
         "Make": "Lancia",
@@ -716,25 +689,16 @@
         "Model": "Stratos HF",
         "Year": 1973,
         "url": "https://en.wikipedia.org/wiki/Lancia_Stratos",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/1974_Lancia_Stratos_Stradale_at_Greenwich_2021%2C_front_left.jpg/960px-1974_Lancia_Stratos_Stradale_at_Greenwich_2021%2C_front_left.jpg",
-        "notes": "The world's first purpose-built rally supercar, winning three consecutive WRC manufacturers' titles."
-    },
-    {
-        "Make": "Lancia",
-        "Country": "Italy",
-        "Model": "037 Rally",
-        "Year": 1982,
-        "url": "https://en.wikipedia.org/wiki/Lancia_Rally_037",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/LanciaRally037.jpg/960px-LanciaRally037.jpg",
-        "notes": "The last rear-wheel-drive car to defeat four-wheel-drive competitors and win the WRC Manufacturers' Championship."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Lancia_Stratos_HF_02.jpg/960px-Lancia_Stratos_HF_02.jpg",
+        "notes": "The world's first purpose-built rally supercar, winning three consecutive WRC manufacturers' titles in 1974, 1975 and 1976 in the hands of Sandro Munari and Björn Waldegård"
     },
     {
         "Make": "Lancia",
         "Country": "Italy",
         "Model": "Delta HF Integrale",
         "Year": 1987,
-        "url": "https://en.wikipedia.org/wiki/Lancia_Delta",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lancia_Delta_LX_2012_02.jpg/960px-Lancia_Delta_LX_2012_02.jpg",
+        "url": "https://en.wikipedia.org/wiki/Lancia_Delta#Delta_HF_integrale_16v",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Lancia_Delta_Integrale_HF_16V_Rally_Moritz_Costa_Brava_2018.jpg/960px-Lancia_Delta_Integrale_HF_16V_Rally_Moritz_Costa_Brava_2018.jpg",
         "notes": "Group A icon that achieved an unprecedented six consecutive WRC Manufacturers' Championships."
     },
     {
@@ -747,12 +711,39 @@
         "notes": "Pioneered twincharging by integrating both a supercharger and a turbocharger to deliver instantaneous power."
     },
     {
+        "Make": "Porsche",
+        "Country": "Germany",
+        "Model": "911 SC RS",
+        "Year": 1982,
+        "url": "https://en.wikipedia.org/wiki/Porsche_911_(classic)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Porsche_911_SC_RS_001.jpg/960px-Porsche_911_SC_RS_001.jpg",
+        "notes": "The Porsche 911 SC RS is one of the most extreme factory rally cars ever built by Porsche. Developed for the FIA's fierce Group B category, the SC RS was an ultra-lightweight, rear-wheel-drive weapon, that dominate tarmac rallies, unlike the complex, all-wheel-drive monsters from rival manufacturers."
+    },
+    {
+        "Make": "Porsche",
+        "Country": "Germany",
+        "Model": "959",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Porsche_959",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Porsche_959_Rothmans_IMG_0677.jpg/960px-Porsche_959_Rothmans_IMG_0677.jpg",
+        "notes": "One of the most famous endurance rally cars ever constructed. Delays getting the car ready for Group B racing meant Porsche pivoted to the grueling sands of Africa, dominating the 1986 Paris-Dakar Rally with a legendary 1-2 finish"
+    },
+    {
+        "Make": "Peugeot",
+        "Country": "France",
+        "Model": "205 Turbo 16",
+        "Year": 1984,
+        "url": "https://en.wikipedia.org/wiki/Peugeot_205#205_Turbo_16_(T16)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/R%C3%A9tromobile_2017_-_Peugeot_205_T16_EVO2_-_1986_-_001.jpg/960px-R%C3%A9tromobile_2017_-_Peugeot_205_T16_EVO2_-_1986_-_001.jpg",
+        "notes": "The Peugeot Talbot Sport 205 T16 was the most successful car to compete in the last two years of the World Rally Championship's Group B era, winning the 1985 and 1986 Constructors' and Drivers' titles with Timo Salonen and Juha Kankkunen respectively."
+    },
+    {
         "Make": "MG",
         "Country": "United Kingdom",
         "Model": "Metro 6R4",
         "Year": 1985,
-        "url": "https://en.wikipedia.org/wiki/Austin_Metro",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Austin_Metro_Mk2_5-door_1275cc_registered_August_1989_photographed_Knebworth_August_2018.jpg/960px-Austin_Metro_Mk2_5-door_1275cc_registered_August_1989_photographed_Knebworth_August_2018.jpg",
+        "url": "https://en.wikipedia.org/wiki/Austin_Metro#MG_Metro_6R4_rally_car",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Metro6r4.jpg/960px-Metro6r4.jpg",
         "notes": "Eschewed turbocharging in favour of a bespoke, naturally aspirated 3.0-litre V6 engine mated to four-wheel drive."
     },
     {
@@ -761,52 +752,25 @@
         "Model": "Lancer Evolution",
         "Year": 1996,
         "url": "https://en.wikipedia.org/wiki/Mitsubishi_Lancer_Evolution",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg",
-        "notes": "Highly developed Group A special that carried Tommi Mäkinen to four consecutive Drivers' Championships."
-    },
-    {
-        "Make": "Nissan",
-        "Country": "Japan",
-        "Model": "240RS",
-        "Year": 1983,
-        "url": "https://en.wikipedia.org/wiki/Nissan_240RS",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nissan_240RS_front-left_2015_Motorsport_Japan.jpg/960px-Nissan_240RS_front-left_2015_Motorsport_Japan.jpg",
-        "notes": "Simple and robust rear-wheel-drive machine that offered privateers high reliability in tough terrain."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/1996_Mitsubishi_Lancer_Evolution_III.jpg/960px-1996_Mitsubishi_Lancer_Evolution_III.jpg",
+        "notes": "Highly developed Group A special that carried Tommi Mäkinen to four consecutive Drivers' Championships from 1996 to 1999."
     },
     {
         "Make": "Opel",
         "Country": "Germany",
         "Model": "Manta 400",
         "Year": 1983,
-        "url": "https://en.wikipedia.org/wiki/Opel_Manta",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Opel_Manta_A_at_Schaffen-Diest_in_2018.jpg/960px-Opel_Manta_A_at_Schaffen-Diest_in_2018.jpg",
-        "notes": "Lightweight rear-wheel-drive contender utilizing extensive Kevlar bodywork to maintain high competitive speed."
-    },
-    {
-        "Make": "Peugeot",
-        "Country": "France",
-        "Model": "205 Turbo 16",
-        "Year": 1984,
-        "url": "https://en.wikipedia.org/wiki/Peugeot_205",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Peugeot_205_front_20080121.jpg/960px-Peugeot_205_front_20080121.jpg",
-        "notes": "Mid-engined, all-wheel-drive Group B masterpiece that claimed back-to-back WRC titles in 1985 and 1986."
-    },
-    {
-        "Make": "Porsche",
-        "Country": "Germany",
-        "Model": "959",
-        "Year": 1985,
-        "url": "https://en.wikipedia.org/wiki/Porsche_959",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Porsche_959_%E2%80%93_Frontansicht_%282%29%2C_21._M%C3%A4rz_2013%2C_D%C3%BCsseldorf.jpg/960px-Porsche_959_%E2%80%93_Frontansicht_%282%29%2C_21._M%C3%A4rz_2013%2C_D%C3%BCsseldorf.jpg",
-        "notes": "Advanced technological platform featuring computer-controlled four-wheel drive developed for Group B homologation."
+        "url": "https://en.wikipedia.org/wiki/Opel_Manta#Rally_and_special_versions",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/R%C3%A9tromobile_2017_-_Opel_Manta_400_-_1983_-_002.jpg/960px-R%C3%A9tromobile_2017_-_Opel_Manta_400_-_1983_-_002.jpg",
+        "notes": "Developed in collaboration with performance specialists Cosworth and Irmscher, it was the last highly competitive rear-wheel-drive car built for Group B before turbocharged, all-wheel-drive giants completely took over the World Rally Championship"
     },
     {
         "Make": "Renault",
         "Country": "France",
         "Model": "5 Maxi Turbo",
         "Year": 1985,
-        "url": "https://en.wikipedia.org/wiki/Renault_5_Turbo",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/1981_Renault_5_Turbo_LC23.jpg/960px-1981_Renault_5_Turbo_LC23.jpg",
+        "url": "https://en.wikipedia.org/wiki/Renault_5_Turbo#Motorsport",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/R%C3%A9tromobile_2017_-_Renault_Maxi_5_Turbo_-_circa_1985_-_001.jpg/960px-R%C3%A9tromobile_2017_-_Renault_Maxi_5_Turbo_-_circa_1985_-_001.jpg",
         "notes": "The ultimate tarmac-focused iteration of the mid-engined 5 Turbo, extracting massive power from a 1.5-litre engine."
     },
     {
@@ -821,20 +785,11 @@
     {
         "Make": "Toyota",
         "Country": "Japan",
-        "Model": "GR Yaris Rally1",
-        "Year": 2022,
-        "url": "https://en.wikipedia.org/wiki/Toyota_GR_Yaris_Rally1",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Kalle_Rovanper%C3%A4_Rally_Finland_2025_Ouninpohja_%28cropped%29.jpg/960px-Kalle_Rovanper%C3%A4_Rally_Finland_2025_Ouninpohja_%28cropped%29.jpg",
-        "notes": "Modern benchmark for hybrid-era WRC technology, continuing Toyota's long lineage of championship success."
-    },
-    {
-        "Make": "Toyota",
-        "Country": "Japan",
-        "Model": "Celica Twin Cam Turbo",
-        "Year": 1983,
-        "url": "https://en.wikipedia.org/wiki/Toyota_Celica",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/1994_Toyota_Celica_GT-4_2.0.jpg/960px-1994_Toyota_Celica_GT-4_2.0.jpg",
-        "notes": "Earned the nickname \"King of Africa\" by dominating brutal endurance events like the Safari Rally through sheer durability."
+        "Model": "Celica GT-Four (ST185)",
+        "Year": 1992,
+        "url": "https://en.wikipedia.org/wiki/Toyota_Celica#Rallying",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Toyota_Celica_rally.jpg/960px-Toyota_Celica_rally.jpg",
+        "notes": "The iconic Toyota rally car of the mid-1990s, most famously associated with WRC champion, Carlos Sainz"
     },
     {
         "Make": "Volkswagen",
@@ -852,16 +807,16 @@
         "Year": 1950,
         "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_158/159_Alfetta",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Alfa-Romeo-159-%281951%29.jpg/960px-Alfa-Romeo-159-%281951%29.jpg",
-        "notes": "Dominated the inaugural World Championship season, winning every Grand Prix it entered in 1950."
+        "notes": "The car that launched Juan Manuel Fangio onto the Formula 1 stage, winning his very first World Championship in 1951 driving the evolution 159 variant."
     },
     {
         "Make": "Maserati",
         "Country": "Italy",
         "Model": "250F",
         "Year": 1954,
-        "url": "",
-        "imageurl": "",
-        "notes": "Iconic front-engined racer driven to legendary victories by Juan Manuel Fangio and Stirling Moss."
+        "url": "https://en.wikipedia.org/wiki/Maserati_250F",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Maserati_250_F%2C_Bj._1957_%281977-08-14%29_S%C3%BCdkehre.jpg",
+        "notes": "Widely considered the most beautiful and perfectly balanced Grand Prix car ever made, the 250F is forever tied to the 1957 German Grand Prix at the Nürburgring, in which Juan Manuel Fangio recovered from a botched pit-stop by breaking the track lap record ten times in a row, winning the race on the final lap and securing the F1 title."
     },
     {
         "Make": "Mercedes-Benz",
@@ -870,16 +825,7 @@
         "Year": 1954,
         "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_W196",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/KlingK-MB-W196-1976.jpg/960px-KlingK-MB-W196-1976.jpg",
-        "notes": "Introduced desmodromic valves, direct fuel injection, and streamlined bodywork options to Formula 1."
-    },
-    {
-        "Make": "Cooper",
-        "Country": "United Kingdom",
-        "Model": "T51",
-        "Year": 1959,
-        "url": "https://en.wikipedia.org/wiki/Cooper_T51",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cooper_T51_Rob_Walker_Donington.jpg/960px-Cooper_T51_Rob_Walker_Donington.jpg",
-        "notes": "The first mid-engined car to win the Formula 1 World Championship, triggering an engine-placement revolution."
+        "notes": "Built and  tailored specifically for Juan Manual Fangio, he used it to dominate and capture back-to-back F1 World Championships in 1954 and 1955"
     },
     {
         "Make": "Lotus",
@@ -888,7 +834,7 @@
         "Year": 1962,
         "url": "https://en.wikipedia.org/wiki/Lotus_25",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/1964_Lotus-Climax_25.jpg/960px-1964_Lotus-Climax_25.jpg",
-        "notes": "Revolutionised F1 chassis design by introducing the fully integrated monocoque structure."
+        "notes": "Lotus revolutionised F1 by making lighter, tighter, sleeker cars. Jim Clark weaponised the Lotus 25, taking 14 Grand Prix victories and capturing the 1963 F1 World Championship in dominant fashion"
     },
     {
         "Make": "Lotus",
@@ -897,7 +843,7 @@
         "Year": 1967,
         "url": "https://en.wikipedia.org/wiki/Lotus_49",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/HillGraham19690801Lotus-Nordkehre.jpg/960px-HillGraham19690801Lotus-Nordkehre.jpg",
-        "notes": "Pioneered using the engine (Ford Cosworth DFV) as a fully stressed structural chassis member."
+        "notes": "The Lotus 49 pioneered two massive structural design milestones: the fully integrated stressed-member engine and the dawn of aerodynamic wings. It won on its debut in 1967 with Jim Clark, carried Graham Hill to the 1968 title, and secured Lotus the 1968 and 1970 Constructors' Championships"
     },
     {
         "Make": "Lotus",
@@ -906,7 +852,7 @@
         "Year": 1970,
         "url": "https://en.wikipedia.org/wiki/Lotus_72",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/1971_Emerson_Fittipaldi%2C_Lotus_72_%28kl%29.JPG/960px-1971_Emerson_Fittipaldi%2C_Lotus_72_%28kl%29.JPG",
-        "notes": "Introduced side-mounted radiators, inboard front brakes, and wedge aerodynamics that shaped the modern F1 silhouette."
+        "notes": "The Lotus 72 looked like a spaceship compared to anything else on the grid, establishing the visual silhouette that modern Formula 1 cars still use today."
     },
     {
         "Make": "Lotus",
@@ -914,26 +860,8 @@
         "Model": "79",
         "Year": 1978,
         "url": "https://en.wikipedia.org/wiki/Lotus_79",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ronnie_Peterson_-_Lotus_79_at_Druids_at_the_1978_British_Grand_Prix_%2850050520537%29.jpg/960px-Ronnie_Peterson_-_Lotus_79_at_Druids_at_the_1978_British_Grand_Prix_%2850050520537%29.jpg",
-        "notes": "The definitive ground-effect F1 car that exploited underbody Venturi tunnels for unprecedented cornering speeds."
-    },
-    {
-        "Make": "McLaren",
-        "Country": "United Kingdom",
-        "Model": "MP4/1",
-        "Year": 1981,
-        "url": "https://en.wikipedia.org/wiki/McLaren_MP4/1",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_%2848557916077%29.jpg/960px-John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_%2848557916077%29.jpg",
-        "notes": "Pioneered the use of a lightweight, ultra-rigid carbon-fibre composite monocoque chassis."
-    },
-    {
-        "Make": "Brabham",
-        "Country": "United Kingdom",
-        "Model": "BT52",
-        "Year": 1983,
-        "url": "https://en.wikipedia.org/wiki/Brabham_BT52",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg/960px-Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg",
-        "notes": "The first turbocharged car to win the Formula 1 Drivers' World Championship."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Lotus_79_2009_Lime_Rock.jpg/960px-Lotus_79_2009_Lime_Rock.jpg",
+        "notes": "The iconic black and gold livery on the Lotus 79, a car which introduced 'Ground Effect' aerodynamics that created a vacuum literally sucking the car onto the track. The Lotus 79 was so vastly superior to the rest of the field in 1978 that Mario Andretti easily cruised to the World Championship, securing Lotus its final Constructors' title."
     },
     {
         "Make": "McLaren",
@@ -942,16 +870,16 @@
         "Year": 1988,
         "url": "https://en.wikipedia.org/wiki/McLaren_MP4/4",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg/960px-McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg",
-        "notes": "One of the most dominant cars in F1 history, claiming victory in 15 out of 16 races during the 1988 season."
+        "notes": "One of the most successful and dominant Formula One car designs of all time. The MP4/4 gave Ayrton Senna his first F1 World Championship in 1988 and laid the foundation for a fierce competition between Senna and teammate Alain Prost over the following years."
     },
     {
         "Make": "Williams",
         "Country": "United Kingdom",
         "Model": "FW14B",
         "Year": 1992,
-        "url": "https://en.wikipedia.org/wiki/Williams_FW14",
+        "url": "https://en.wikipedia.org/wiki/Williams_FW14#Williams_FW14B",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Williams_FW14B.jpg/960px-Williams_FW14B.jpg",
-        "notes": "Technologically supreme machine equipped with active suspension, traction control, and semi-automatic transmission."
+        "notes": "The Williams FW14B is arguably the most technologically advanced Formula 1 car ever built relative to its competition, dominating the 1992 season, and giving Nigel Mansell his only F1 World Championship in 1992"
     },
     {
         "Make": "Ferrari",
@@ -960,25 +888,16 @@
         "Year": 2004,
         "url": "https://en.wikipedia.org/wiki/Ferrari_F2004",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Michael_Schumacher_Ferrari_2004.jpg/960px-Michael_Schumacher_Ferrari_2004.jpg",
-        "notes": "The apex of the V10 era that set longstanding lap records during Michael Schumacher's seventh title season."
-    },
-    {
-        "Make": "Brawn",
-        "Country": "United Kingdom",
-        "Model": "BGP 001",
-        "Year": 2009,
-        "url": "https://en.wikipedia.org/wiki/Brawn_BGP_001",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/2009_Brawn_Mercedes_BGP_001_chassis_02_%2849379464488%29.jpg/960px-2009_Brawn_Mercedes_BGP_001_chassis_02_%2849379464488%29.jpg",
-        "notes": "Fairytale championship winner famous for its game-changing double diffuser aerodynamic innovation."
+        "notes": "The F2004 is widely recognized as Michael Schumacher's best and most dominant Formula 1 car, representing the peak of the Schumacher, Ross Brawn, and Jean Todt \"Dream Team\" era. During the 2004 season, it proved to be practically untouchable, securing Schumacher his seventh and final World Championship"
     },
     {
         "Make": "Mercedes-AMG",
         "Country": "United Kingdom",
-        "Model": "F1 W07 Hybrid",
-        "Year": 2016,
-        "url": "https://en.wikipedia.org/wiki/Mercedes_F1_W07_Hybrid",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nico_Rosberg_2016_Malaysia_FP2.jpg/960px-Nico_Rosberg_2016_Malaysia_FP2.jpg",
-        "notes": "Benchmark of the early turbo-hybrid era, securing 19 victories and 20 pole positions out of 21 races."
+        "Model": "F1 W11",
+        "Year": 2020,
+        "url": "https://en.wikipedia.org/wiki/Mercedes-AMG_F1_W11_EQ_Performance",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day_%28cropped%29.jpg/960px-Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day_%28cropped%29.jpg",
+        "notes": "Representing the peak of the ultra-high-downforce turbo-hybrid era, the W11 was famously described by Lewis Hamilton as \"the best F1 car the team has ever produced\", and propelled him to his record-equalling seventh World Championship"
     },
     {
         "Make": "Red Bull",
@@ -1002,19 +921,10 @@
         "Make": "Goggomobil",
         "Country": "Australia",
         "Model": "Dart",
-        "Year": 1959,
-        "url": "https://en.wikipedia.org/wiki/Goggomobil",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Goggomobil_250_Limousine.jpg/960px-Goggomobil_250_Limousine.jpg",
-        "notes": "Unique Australian-designed fibreglass micro-sports car built on an imported German chassis."
-    },
-    {
-        "Make": "Ford",
-        "Country": "Australia",
-        "Model": "Falcon (XR)",
-        "Year": 1966,
-        "url": "https://en.wikipedia.org/wiki/Ford_Falcon_(XR)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Ford_Falcon_500_Sedan_%28XR%29.JPG/960px-Ford_Falcon_500_Sedan_%28XR%29.JPG",
-        "notes": "Introduced the American V8 muscle car concept to Australian family saloons, launching the Aussie V8 era."
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Goggomobil#Dart",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Goggomobile_Dart.JPG/960px-Goggomobile_Dart.JPG",
+        "notes": "Unique Australian-designed fibreglass micro-sports car built on an imported German chassis, made famous in a 1990s Yellow Pages TV advert."
     },
     {
         "Make": "Holden",
@@ -1022,8 +932,8 @@
         "Model": "Monaro (HK)",
         "Year": 1968,
         "url": "https://en.wikipedia.org/wiki/Holden_Monaro",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Wikipedia_Final_v3.png/960px-Wikipedia_Final_v3.png",
-        "notes": "Holden’s first purpose-built hardtop coupe, claiming victory at the Bathurst 500 on its race debut."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Holden_Monaro_HK_GTS_%28cropped%29.jpg/960px-Holden_Monaro_HK_GTS_%28cropped%29.jpg",
+        "notes": "The Holden Monaro GTS 327 was Holden's first sports coupe, won the brand's first Bathurst 500 victory, and ignited the legendary \"Ford vs. Holden\" racetrack war."
     },
     {
         "Make": "Bolwell",
@@ -1031,13 +941,13 @@
         "Model": "Nagari",
         "Year": 1970,
         "url": "https://en.wikipedia.org/wiki/Bolwell_Nagari",
-        "imageurl": "",
-        "notes": "Australia's premier home-grown V8 sports car, pairing a lightweight fibreglass body with Ford V8 power."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Bolwell_Nagari_%2814792341560%29.jpg/960px-Bolwell_Nagari_%2814792341560%29.jpg",
+        "notes": "Celebrated as Australia’s greatest premier home-grown V8 sports car, pairing a lightweight fibreglass body with Ford V8 power. Unlike the mainstream heavy-iron muscle cars from Ford and Holden, the Nagari was a sleek, lightweight fiberglass boutique sports car designed to take on European marques like Lotus and TVR."
     },
     {
         "Make": "Ford",
         "Country": "Australia",
-        "Model": "Falcon GT-HO Phase III",
+        "Model": "XY Falcon GT",
         "Year": 1971,
         "url": "https://en.wikipedia.org/wiki/Ford_XY_Falcon_GT",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/GT-HO-Phase3-b.jpg",
@@ -1046,7 +956,7 @@
     {
         "Make": "Chrysler",
         "Country": "Australia",
-        "Model": "Valiant Charger R/T E49",
+        "Model": "Valiant Charger",
         "Year": 1972,
         "url": "https://en.wikipedia.org/wiki/Chrysler_Valiant_Charger",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg/960px-1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg",
@@ -1055,47 +965,11 @@
     {
         "Make": "Holden",
         "Country": "Australia",
-        "Model": "Torana A9X",
-        "Year": 1977,
-        "url": "https://en.wikipedia.org/wiki/Holden_Torana",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg/960px-1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg",
-        "notes": "Dominant V8 Touring Car homologation special that achieved legendary motorsport dominance at Bathurst."
-    },
-    {
-        "Make": "Holden",
-        "Country": "Australia",
-        "Model": "Commodore (VB)",
-        "Year": 1978,
-        "url": "https://en.wikipedia.org/wiki/Holden_Commodore_(VB)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/1979_Holden_VB_Commodore_Sedan_%2822623854399%29.jpg/960px-1979_Holden_VB_Commodore_Sedan_%2822623854399%29.jpg",
-        "notes": "Launched Holden’s longest-running nameplate by adapting a European Opel platform for harsh Australian conditions."
-    },
-    {
-        "Make": "Holden",
-        "Country": "Australia",
-        "Model": "Commodore (VE)",
-        "Year": 2006,
-        "url": "https://en.wikipedia.org/wiki/Holden_Commodore_(VE)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/2008_Holden_Calais_%28VE_MY09%29_V_sedan_%282010-06-17%29_01.jpg/960px-2008_Holden_Calais_%28VE_MY09%29_V_sedan_%282010-06-17%29_01.jpg",
-        "notes": "The first Commodore designed, engineered, and built entirely in-house in Australia from a clean-sheet platform."
-    },
-    {
-        "Make": "Ford",
-        "Country": "Australia",
-        "Model": "Falcon (FG X)",
-        "Year": 2014,
-        "url": "https://en.wikipedia.org/wiki/Ford_Falcon_(FG_X)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2015_Ford_Falcon_%28FG_X%29_G6E_Turbo_%282017-11-18%29_01.jpg/960px-2015_Ford_Falcon_%28FG_X%29_G6E_Turbo_%282017-11-18%29_01.jpg",
-        "notes": "The final generation of the legendary Australian Falcon line before domestic Ford manufacturing ceased."
-    },
-    {
-        "Make": "HSV",
-        "Country": "Australia",
-        "Model": "GTSR W1",
-        "Year": 2017,
-        "url": "https://en.wikipedia.org/wiki/Holden_Special_Vehicles_GTS",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2010_HSV_GTS_%28E_Series_3_MY11%29_sedan_01.jpg/960px-2010_HSV_GTS_%28E_Series_3_MY11%29_sedan_01.jpg",
-        "notes": "The ultimate and most powerful Australian-built muscle car, fitted with a supercharged 6.2-litre Corvette ZR1 V8 engine."
+        "Model": "Commodore (3rd gen)",
+        "Year": 1997,
+        "url": "https://en.wikipedia.org/wiki/Holden_Commodore#Third_generation_(1997%E2%80%932007)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/1999_Holden_Commodore_%28VT%29_Executive_sedan_%282016-01-04%29_01.jpg/960px-1999_Holden_Commodore_%28VT%29_Executive_sedan_%282016-01-04%29_01.jpg",
+        "notes": "The best-selling generation of this ubiquitous car of Australian automotive history, family life and motorsport, which lasted for 40 years across four generations."
     },
     {
         "Make": "GAZ",
@@ -1109,7 +983,7 @@
     {
         "Make": "Tatra",
         "Country": "Czechoslovakia",
-        "Model": "T603",
+        "Model": "603",
         "Year": 1956,
         "url": "https://en.wikipedia.org/wiki/Tatra_603",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Tatra_603.jpg/960px-Tatra_603.jpg",
@@ -1131,7 +1005,7 @@
         "Year": 1964,
         "url": "https://en.wikipedia.org/wiki/%C5%A0koda_1000_MB",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-121.jpg/960px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-121.jpg",
-        "notes": "Introduced rear-engine, unibody construction to the brand, produced in a purpose-built state-of-the-art facility."
+        "notes": "Skoda's economic alternative to the western rear-engined family cars like the Renault 8 or VW Beetle."
     },
     {
         "Make": "Polski Fiat",
@@ -1152,22 +1026,13 @@
         "notes": "License-built variant of the Renault 12 that served as Romania’s primary national family car for over three decades."
     },
     {
-        "Make": "VAZ / Lada",
-        "Country": "USSR",
-        "Model": "2101 \"Zhiguli\"",
-        "Year": 1970,
-        "url": "https://en.wikipedia.org/wiki/Zhiguli_(car_brand)",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/VAZ_Zhiguli_-_UMMC_Museum_Complex.jpg/960px-VAZ_Zhiguli_-_UMMC_Museum_Complex.jpg",
-        "notes": "Heavy-duty Soviet adaptation of the Fiat 124 chassis that mobilised millions across Eastern Europe and export markets."
-    },
-    {
         "Make": "Lada",
         "Country": "USSR",
-        "Model": "Niva (VAZ-2121)",
+        "Model": "Niva",
         "Year": 1977,
         "url": "https://en.wikipedia.org/wiki/Lada_Niva",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/1987_Lada_Niva_1600.jpg/960px-1987_Lada_Niva_1600.jpg",
-        "notes": "Pioneered the modern compact crossover layout by combining a unibody structure with permanent four-wheel drive and coil springs."
+        "notes": "The Lada Niva has been in continuous production since 1977 and pioneered the modern compact crossover layout by offering permanent four-wheel drive to rural, urban and family users."
     },
     {
         "Make": "FSO",
@@ -1175,17 +1040,17 @@
         "Model": "Polonez",
         "Year": 1978,
         "url": "https://en.wikipedia.org/wiki/FSO_Polonez",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/FSO_Polonez_Caro_green_LF.jpg/960px-FSO_Polonez_Caro_green_LF.jpg",
-        "notes": "Hatchback family car engineered with emphasis on passive crash safety, remaining a Polish staple for decades."
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/FSO_Polonezw.jpg/960px-FSO_Polonezw.jpg",
+        "notes": "Hatchback family car engineered with over one million units produced and remaining a Polish staple for decades."
     },
     {
         "Make": "Zastava",
         "Country": "Yugoslavia",
-        "Model": "Koral / Yugo",
+        "Model": "Yugo",
         "Year": 1980,
         "url": "https://en.wikipedia.org/wiki/Yugo",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/1988_Yugo_GV_in_Blue%2C_front_left.jpg/960px-1988_Yugo_GV_in_Blue%2C_front_left.jpg",
-        "notes": "Fiat 127-derived supermini that became Yugoslavia's most famous international automotive export."
+        "notes": "The Yugo was derived from the Fiat 127 and became Yugoslavia's most famous international automotive export."
     },
     {
         "Make": "Škoda",
@@ -1199,11 +1064,11 @@
     {
         "Make": "Dacia",
         "Country": "Romania",
-        "Model": "Logan",
-        "Year": 2004,
-        "url": "https://en.wikipedia.org/wiki/Dacia_Logan",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Dacia_Logan_2023_Front_2_%28cropped%29.jpg/960px-Dacia_Logan_2023_Front_2_%28cropped%29.jpg",
-        "notes": "Revolutionised the modern global budget car market through ultra-low-cost, robust Renault platform engineering."
+        "Model": "Sandero",
+        "Year": 2008,
+        "url": "https://en.wikipedia.org/wiki/Dacia_Sandero",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Dacia_Sandero_1.4_MPI_2008.jpg/960px-Dacia_Sandero_1.4_MPI_2008.jpg",
+        "notes": "The compact / supermini car launched by Renault's Romanian division, Dacia, and immortalised in a long-running joke on the TV series, Top Gear"
     },
     {
         "Make": "Rimac",
@@ -1768,8 +1633,8 @@
         "Country": "United States",
         "Model": "Suburban",
         "Year": 1935,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_Suburban",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2015_Chevrolet_Suburban_1500_LTZ%2C_front_4.18.19.jpg/330px-2015_Chevrolet_Suburban_1500_LTZ%2C_front_4.18.19.jpg",
         "notes": "The longest continuous vehicle nameplate in history, evolving across 12 generations from a truck-based station wagon into a full-size SUV."
     },
     {
@@ -1777,8 +1642,8 @@
         "Country": "Germany",
         "Model": "Beetle (Type 1)",
         "Year": 1938,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Beetle",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/VW_K%C3%A4fer_Baujahr_1966.jpg/330px-VW_K%C3%A4fer_Baujahr_1966.jpg",
         "notes": "The original air-engined design achieved 65 years of unbroken continuous production across global factories before the final classic car rolled off the line in Mexico."
     },
     {
@@ -1786,8 +1651,8 @@
         "Country": "United States",
         "Model": "F-Series",
         "Year": 1948,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Ford_F-Series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg/330px-2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg",
         "notes": "Continuous production through 14 generations, establishing itself as one of the world's most commercially successful pickup truck lines."
     },
     {
@@ -1795,8 +1660,8 @@
         "Country": "Germany",
         "Model": "Transporter",
         "Year": 1950,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Transporter",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/2017_Volkswagen_Transporter_BlueMotion.jpg/330px-2017_Volkswagen_Transporter_BlueMotion.jpg",
         "notes": "Unbroken manufacturing run spanning seven generations, evolving from the original air-cooled T1 split-screen to modern passenger and commercial variants."
     },
     {
@@ -1804,8 +1669,8 @@
         "Country": "Japan",
         "Model": "Land Cruiser",
         "Year": 1951,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Toyota_Land_Cruiser",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2021_Toyota_Land_Cruiser_300_3.4_ZX_%28Colombia%29_front_view_04.png/330px-2021_Toyota_Land_Cruiser_300_3.4_ZX_%28Colombia%29_front_view_04.png",
         "notes": "Originating as the BJ light 4x4, it is Toyota's longest continuously produced vehicle line, famous for heavy-duty off-road durability."
     },
     {
@@ -1813,8 +1678,8 @@
         "Country": "United States",
         "Model": "Corvette",
         "Year": 1953,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_Corvette",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/2021_Chevrolet_Corvette_C8.jpg/330px-2021_Chevrolet_Corvette_C8.jpg",
         "notes": "America's longest unbroken sports car production run, spanning eight generations and transitioning from a front- to mid-engine layout."
     },
     {
@@ -1822,8 +1687,8 @@
         "Country": "Germany",
         "Model": "SL-Class",
         "Year": 1954,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_SL-Class",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Mercedes-AMG_SL_43_IMG_8050.jpg/330px-Mercedes-AMG_SL_43_IMG_8050.jpg",
         "notes": "Continuous production of luxury grand tourers and roadsters across seven generations, tracing directly back to the 300 SL."
     },
     {
@@ -1831,8 +1696,8 @@
         "Country": "Japan",
         "Model": "Skyline",
         "Year": 1957,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Nissan_Skyline",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/The_frontview_of_Nissan_DAA-HV37_SKYLINE_HYBRID_GT_Type_SP_%28cropped%29.jpg/330px-The_frontview_of_Nissan_DAA-HV37_SKYLINE_HYBRID_GT_Type_SP_%28cropped%29.jpg",
         "notes": "Continuous production run starting under Prince Motor Company, evolving through 13 generations from compact saloon to modern sports sedan."
     },
     {
@@ -1840,8 +1705,8 @@
         "Country": "United Kingdom",
         "Model": "Mini (Original)",
         "Year": 1959,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Achieved a 41-year unbroken production run for the original single-generation Alec Issigonis design before manufacturing ceased in 2000."
     },
     {
@@ -1849,8 +1714,8 @@
         "Country": "Germany",
         "Model": "911",
         "Year": 1963,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Porsche_911",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg/330px-Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg",
         "notes": "Unbroken 60-plus year production run of the iconic rear-engined sports car, evolving through eight distinct mechanical generations."
     },
     {
@@ -1858,8 +1723,8 @@
         "Country": "United States",
         "Model": "Mustang",
         "Year": 1964,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Ford_Mustang",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg/330px-Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg",
         "notes": "Continuous production across seven generations, pioneering the pony car segment and remaining in uninterrupted manufacture."
     },
     {
@@ -1867,8 +1732,8 @@
         "Country": "Japan",
         "Model": "Corolla",
         "Year": 1966,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Toyota_Corolla",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg/330px-Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg",
         "notes": "The world's top-selling nameplate, maintaining unbroken global production through 12 generations since its 1966 introduction."
     },
     {
@@ -1876,8 +1741,8 @@
         "Country": "Japan",
         "Model": "Civic",
         "Year": 1972,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Honda_Civic",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg/330px-Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg",
         "notes": "Continuous global production across 11 generations, transforming from a basic subcompact into a premier global family hatchback and saloon."
     },
     {
@@ -1885,8 +1750,8 @@
         "Country": "Germany",
         "Model": "Golf",
         "Year": 1974,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Golf",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2020_Volkswagen_Golf_Style_1.5_Front.jpg/330px-2020_Volkswagen_Golf_Style_1.5_Front.jpg",
         "notes": "Uninterrupted production run spanning eight generations, defining the modern European front-wheel-drive hatchback segment."
     },
     {
@@ -1894,8 +1759,8 @@
         "Country": "Germany",
         "Model": "3 Series",
         "Year": 1975,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/BMW_3_Series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/BMW_G20_%282022%29_IMG_7316_%282%29.jpg/330px-BMW_G20_%282022%29_IMG_7316_%282%29.jpg",
         "notes": "Continuous production through seven generations as the global benchmark for executive sports saloons."
     },
     {
@@ -1903,8 +1768,8 @@
         "Country": "Italy",
         "Model": "500 / 600 Jolly",
         "Year": 1958,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Pioneered the Mediterranean \"Spiaggina\" style beach car, complete with wicker seats, doorless sides, and a cloth awning canopy."
     },
     {
@@ -1912,8 +1777,8 @@
         "Country": "United Kingdom",
         "Model": "Mini Moke",
         "Year": 1964,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Originally engineered as a lightweight military vehicle, it evolved into a classic open-air resort cruiser."
     },
     {
@@ -1921,8 +1786,8 @@
         "Country": "United States",
         "Model": "Manx",
         "Year": 1964,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Meyers_Manx",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/1stMeyersManxWithBruceMeyers.jpg/330px-1stMeyersManxWithBruceMeyers.jpg",
         "notes": "The original glass-fibre dune buggy built on a shortened VW Beetle floorpan, sparking a global kit-car phenomenon."
     },
     {
@@ -1930,8 +1795,8 @@
         "Country": "Italy",
         "Model": "Fiat 600 Jungla",
         "Year": 1965,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Minimalist, doorless utility beach vehicle built by Carrozzeria Savio using standard Fiat 600 running gear."
     },
     {
@@ -1939,8 +1804,8 @@
         "Country": "East Germany",
         "Model": "601 Tramp",
         "Year": 1966,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Open-top civilian leisure adaptation derived from East Germany's military Kübelwagen version of the 601."
     },
     {
@@ -1948,8 +1813,8 @@
         "Country": "Australia",
         "Model": "Country Buggy",
         "Year": 1967,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Volkswagen_Country_Buggy",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Volkswagen_Country_Buggy.jpg/330px-Volkswagen_Country_Buggy.jpg",
         "notes": "Australian-designed, Beetle-based open utility and beach vehicle built to handle rugged local conditions."
     },
     {
@@ -1957,8 +1822,8 @@
         "Country": "France",
         "Model": "Méhari",
         "Year": 1968,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_M%C3%A9hari",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Citro%C3%ABn_M%C3%A9hari_Nice_IMG_1269.jpg/330px-Citro%C3%ABn_M%C3%A9hari_Nice_IMG_1269.jpg",
         "notes": "Lightweight utility and leisure car with a corrugated ABS plastic body based on the 2CV chassis."
     },
     {
@@ -1966,8 +1831,8 @@
         "Country": "France",
         "Model": "4 Plein Air",
         "Year": 1968,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Doorless, open-top beach car conversion of the Renault 4 saloon built in limited numbers."
     },
     {
@@ -1975,8 +1840,8 @@
         "Country": "Germany",
         "Model": "Type 181 (Trekker / \"Thing\")",
         "Year": 1969,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Utilitarian military and civilian recreation vehicle featuring flat metal panels, detachable doors, and a fold-down windscreen."
     },
     {
@@ -1984,8 +1849,8 @@
         "Country": "France",
         "Model": "Renault Rodeo (4 / 6 / 5)",
         "Year": 1970,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Glass-fibre open leisure vehicle range designed on various Renault platforms to compete directly with the Méhari."
     },
     {
@@ -1993,8 +1858,8 @@
         "Country": "Italy",
         "Model": "Rock / Midmaxi",
         "Year": 1980,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Open-top plastic and steel body beach/leisure vehicles built by Italian coachbuilder Moretti using Fiat Panda underpinnings."
     },
     {
@@ -2002,8 +1867,8 @@
         "Country": "United States",
         "Model": "Model A / Runabout",
         "Year": 1902,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "The company's inaugural single-cylinder vehicle that earned the 1908 Dewar Trophy for standardized interchangeable parts."
     },
     {
@@ -2011,8 +1876,8 @@
         "Country": "United States",
         "Model": "Model Thirty",
         "Year": 1909,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Model_Thirty",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Cadillac_Model_30_Touring_1908_%286031928677%29.jpg/330px-Cadillac_Model_30_Touring_1908_%286031928677%29.jpg",
         "notes": "Landmark early vehicle whose derivative introduced the world's first production electric self-starter and lighting in 1912."
     },
     {
@@ -2020,8 +1885,8 @@
         "Country": "United States",
         "Model": "Type 51",
         "Year": 1915,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Type_51",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/1915_Cadillac_51_%2810793180364%29.jpg/330px-1915_Cadillac_51_%2810793180364%29.jpg",
         "notes": "Pioneered the first mass-produced V8 engine in a passenger vehicle, establishing the brand's mechanical reputation."
     },
     {
@@ -2029,8 +1894,8 @@
         "Country": "United States",
         "Model": "V-16",
         "Year": 1930,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_V-16",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/1931_Cadillac_V-16_Sport_Phaeton.jpg/330px-1931_Cadillac_V-16_Sport_Phaeton.jpg",
         "notes": "Ultra-exclusive pre-war flagship powered by the world's first commercially produced V16 engine."
     },
     {
@@ -2038,8 +1903,8 @@
         "Country": "United States",
         "Model": "Sixty Special",
         "Year": 1938,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Sixty_Special",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cadillac_Fleetwood%2C_1975.png/330px-Cadillac_Fleetwood%2C_1975.png",
         "notes": "Designed by Bill Mitchell, it established the modern notchback three-box saloon silhouette with an integrated boot."
     },
     {
@@ -2056,8 +1921,8 @@
         "Country": "United States",
         "Model": "Eldorado Brougham",
         "Year": 1957,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Eldorado",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/67_Cadillac_Eldorado_%2814277560774%29_cropped.jpg/330px-67_Cadillac_Eldorado_%2814277560774%29_cropped.jpg",
         "notes": "Hand-built halo car featuring a stainless steel roof, self-levelling air suspension, and memory seats."
     },
     {
@@ -2065,8 +1930,8 @@
         "Country": "United States",
         "Model": "Coupe de Ville / DeVille",
         "Year": 1959,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Showcased the absolute peak of 1950s tailfin design before evolving into Cadillac's core luxury saloon line."
     },
     {
@@ -2074,8 +1939,8 @@
         "Country": "United States",
         "Model": "Eldorado (Eighth Gen)",
         "Year": 1967,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Radical front-wheel-drive personal luxury coupe featuring sharp, razor-edge styling and hidden headlamps."
     },
     {
@@ -2083,8 +1948,8 @@
         "Country": "United States",
         "Model": "Seville",
         "Year": 1975,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Seville",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/5th_Cadillac_Seville_.jpg/330px-5th_Cadillac_Seville_.jpg",
         "notes": "Introduced as an \"internationally sized\" compact luxury saloon built to counter high-end European imports."
     },
     {
@@ -2092,8 +1957,8 @@
         "Country": "United States",
         "Model": "Allanté",
         "Year": 1987,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Allant%C3%A9",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/1989_Cadillac_Allant%C3%A9_Convertible_4.5L_V8_front%2C_Chelsea_5.18.19.jpg/330px-1989_Cadillac_Allant%C3%A9_Convertible_4.5L_V8_front%2C_Chelsea_5.18.19.jpg",
         "notes": "Pininfarina-styled roadster assembled using an extraordinary 3,300-mile air-freight supply line between Italy and Detroit."
     },
     {
@@ -2101,8 +1966,8 @@
         "Country": "United States",
         "Model": "Escalade",
         "Year": 1999,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Escalade",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/2026_Cadillac_Escalade_ESV.jpg/330px-2026_Cadillac_Escalade_ESV.jpg",
         "notes": "Full-size luxury SUV that revitalised the brand's commercial status and became a major cultural icon."
     },
     {
@@ -2110,8 +1975,8 @@
         "Country": "United States",
         "Model": "CTS-V",
         "Year": 2004,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_CTS",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2nd_Cadillac_CTS_.jpg/330px-2nd_Cadillac_CTS_.jpg",
         "notes": "High-performance sports saloon developed on the Nürburgring to directly challenge established European performance divisions."
     },
     {
@@ -2119,8 +1984,8 @@
         "Country": "United States",
         "Model": "Lyriq",
         "Year": 2022,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Cadillac_Lyriq",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2023_Cadillac_Lyriq_in_Satin_Steel_Metallic%2C_front_left.jpg/330px-2023_Cadillac_Lyriq_in_Satin_Steel_Metallic%2C_front_left.jpg",
         "notes": "Purpose-built crossover marking the start of Cadillac's transition to a fully electric model lineup."
     },
     {
@@ -2128,8 +1993,8 @@
         "Country": "United States",
         "Model": "Curved Dash (Model R)",
         "Year": 1901,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "World's first mass-produced assembly-line automobile, establishing Ransom E. Olds as an early automotive pioneer."
     },
     {
@@ -2137,8 +2002,8 @@
         "Country": "United States",
         "Model": "Limited Touring",
         "Year": 1910,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Giant pre-war luxury vehicle featuring 42-inch wheels, representing the height of early American Brass Era opulence."
     },
     {
@@ -2146,8 +2011,8 @@
         "Country": "United States",
         "Model": "Series 60 / Dynamic 70",
         "Year": 1939,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Introduced GM's \"Hydra-Matic\" transmission for the 1940 model year, creating the world's first fully automatic mass-market gearbox."
     },
     {
@@ -2155,8 +2020,8 @@
         "Country": "United States",
         "Model": "Ninety-Eight (98)",
         "Year": 1941,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "The division's flagship luxury saloon line, showcasing top-tier GM comfort and technological features across ten generations."
     },
     {
@@ -2164,8 +2029,8 @@
         "Country": "United States",
         "Model": "Jetfire",
         "Year": 1962,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Cutlass",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/1971_Cutlass_Supreme_convertible.JPG/330px-1971_Cutlass_Supreme_convertible.JPG",
         "notes": "Groundbreaking compact performance coupe that was among the very first passenger cars equipped with a turbocharged engine."
     },
     {
@@ -2173,8 +2038,8 @@
         "Country": "United States",
         "Model": "442",
         "Year": 1964,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_442",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/1971_Oldsmobile_442_%282616277147%29.jpg/330px-1971_Oldsmobile_442_%282616277147%29.jpg",
         "notes": "Muscle car icon, named for its original setup of a 4-barrel carburettor, 4-speed manual gearbox, and dual exhausts."
     },
     {
@@ -2182,8 +2047,8 @@
         "Country": "United States",
         "Model": "Toronado",
         "Year": 1966,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Toronado",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/66Toronado.jpg/330px-66Toronado.jpg",
         "notes": "Landmark front-wheel-drive personal luxury coupe featuring radical styling and a unitised transaxle layout."
     },
     {
@@ -2191,8 +2056,8 @@
         "Country": "United States",
         "Model": "Hurst/Olds",
         "Year": 1968,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Hurst%2FOlds",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/1979_Hurst_Olds_W-30_front.jpg/330px-1979_Hurst_Olds_W-30_front.jpg",
         "notes": "Limited-production muscle car collaboration with Hurst Performance, famous for its distinctive paint schemes and \"Lightning Rod\" shifters."
     },
     {
@@ -2200,8 +2065,8 @@
         "Country": "United States",
         "Model": "Custom Cruiser",
         "Year": 1971,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Custom_Cruiser",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/1989_Oldsmobile_Custom_Cruiser_%2827129059086%29.jpg/330px-1989_Oldsmobile_Custom_Cruiser_%2827129059086%29.jpg",
         "notes": "Full-size family estate wagon famous for its 1970s power \"Clamshell\" tailgate that glided into the floor structure."
     },
     {
@@ -2209,8 +2074,8 @@
         "Country": "United States",
         "Model": "Cutlass / Cutlass Supreme",
         "Year": 1961,
-        "url": "",
-        "imageurl": "",
+        "url": "Not found",
+        "imageurl": "Not found",
         "notes": "Massively popular mid-size series that became the single best-selling car model in North America during the late 1970s and 1980s."
     },
     {
@@ -2218,8 +2083,8 @@
         "Country": "United States",
         "Model": "Aerotech",
         "Year": 1987,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Aerotech",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/OldsAerotech.jpg/330px-OldsAerotech.jpg",
         "notes": "Experimental quad-cam land-speed research vehicle that set multiple closed-course world records driven by A.J. Foyt."
     },
     {
@@ -2227,8 +2092,755 @@
         "Country": "United States",
         "Model": "Aurora",
         "Year": 1995,
-        "url": "",
-        "imageurl": "",
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_Aurora",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/1997_Oldsmobile_Aurora.jpg/330px-1997_Oldsmobile_Aurora.jpg",
         "notes": "Sleek, rigid sports saloon powered by a Northstar-derived V8, created in an effort to modernise and revitalise the brand."
+    },
+    {
+        "Make": "Pontiac",
+        "Country": "United States",
+        "Model": "GTO",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Pontiac_GTO",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/2005_Pontiac_GTO%2C_front_left%2C_10-28-2022.jpg/330px-2005_Pontiac_GTO%2C_front_left%2C_10-28-2022.jpg",
+        "notes": "Credited with popularising the 1960s American muscle car trend by fitting a 389 cu in V8 into a mid-size chassis."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United States",
+        "Model": "Shelby GT500",
+        "Year": 1967,
+        "url": "https://en.wikipedia.org/wiki/Shelby_Mustang",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/1965_Shelby_Mustang_GT350_%2820984175008%29_%28cropped%29.jpg/330px-1965_Shelby_Mustang_GT350_%2820984175008%29_%28cropped%29.jpg",
+        "notes": "High-performance derivative of the Mustang fastback equipped with Ford's big-block Cobra Jet V8 engine."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "United States",
+        "Model": "Chevelle SS",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_Chevelle",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/1970_Chevrolet_Chevelle_SS_396_Sport_Coupe%2C_front_left%2C_06-08-2024.jpg/330px-1970_Chevrolet_Chevelle_SS_396_Sport_Coupe%2C_front_left%2C_06-08-2024.jpg",
+        "notes": "Mid-size GM A-body muscle icon that reached its performance pinnacle with the 450 bhp LS6 454 V8 in 1970."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Charger (B-body)",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/Dodge_Charger_(1966)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg/330px-1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg",
+        "notes": "Coke-bottle styled hardtop coupe famed for its optional 426 Hemi engine and pop culture presence."
+    },
+    {
+        "Make": "Plymouth",
+        "Country": "United States",
+        "Model": "Road Runner",
+        "Year": 1968,
+        "url": "https://en.wikipedia.org/wiki/Plymouth_Road_Runner",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Plymouth_Road_Runner_1969_5312706.jpg/330px-Plymouth_Road_Runner_1969_5312706.jpg",
+        "notes": "Back-to-basics budget muscle car equipped with a spartan interior, Warner Bros. horn sound, and big V8 power."
+    },
+    {
+        "Make": "Oldsmobile",
+        "Country": "United States",
+        "Model": "442",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Oldsmobile_442",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/1971_Oldsmobile_442_%282616277147%29.jpg/330px-1971_Oldsmobile_442_%282616277147%29.jpg",
+        "notes": "Named for its 4-barrel carburettor, 4-speed manual gearbox, and dual exhausts, offering refined performance."
+    },
+    {
+        "Make": "AMC",
+        "Country": "United States",
+        "Model": "AMX",
+        "Year": 1968,
+        "url": "https://en.wikipedia.org/wiki/AMC_AMX",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/1968_AMC_AMX_390_Go_Package%2C_front_left_%28Cruisin%27_the_River_Lowellville_Car_Show%2C_June_19th%2C_2023%29.jpg/330px-1968_AMC_AMX_390_Go_Package%2C_front_left_%28Cruisin%27_the_River_Lowellville_Car_Show%2C_June_19th%2C_2023%29.jpg",
+        "notes": "Unique steel-bodied two-seater muscle car developed by American Motors as a lighter, shorter Corvette competitor."
+    },
+    {
+        "Make": "Plymouth",
+        "Country": "United States",
+        "Model": "Superbird",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Plymouth_Superbird",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Superbird_Yellow.jpg/330px-Superbird_Yellow.jpg",
+        "notes": "Radical aerodynamic NASCAR homologation special fitted with a protruding nose cone and high-mounted rear wing."
+    },
+    {
+        "Make": "Buick",
+        "Country": "United States",
+        "Model": "GSX / Gran Sport",
+        "Year": 1970,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "High-luxury Gran Sport derivative powered by a massive 455 cu in V8 delivering a legendary 510 lb·ft of torque."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Challenger",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Dodge_Challenger",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Dodge_Challenger_SRT8_%282015%29_Hirschaid-20220709-RM-120221_%28cropped%29.jpg/330px-Dodge_Challenger_SRT8_%282015%29_Hirschaid-20220709-RM-120221_%28cropped%29.jpg",
+        "notes": "Chrysler’s E-body entry into the muscle car wars, offering a wide array of powertrains up to the 426 Hemi."
+    },
+    {
+        "Make": "Buick",
+        "Country": "United States",
+        "Model": "Regal Grand National / GNX",
+        "Year": 1982,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "1980s turbo V6 legend in all-black trim whose limited-run GNX variant out-accelerated contemporary sports cars."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Challenger SRT Demon",
+        "Year": 2018,
+        "url": "https://en.wikipedia.org/wiki/Dodge_Challenger_(2008)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/2017_Dodge_Challenger_R_T_Scat_Pack%2C_front_right%2C_07-21-2024.jpg/330px-2017_Dodge_Challenger_R_T_Scat_Pack%2C_front_right%2C_07-21-2024.jpg",
+        "notes": "Drag-strip-optimised factory muscle car producing up to 840 bhp, complete with transbrake and drag radial tyres."
+    },
+    {
+        "Make": "IKA",
+        "Country": "Argentina",
+        "Model": "Torino",
+        "Year": 1966,
+        "url": "https://en.wikipedia.org/wiki/IKA-Renault_Torino",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/IKA_Torino_380_coup%C3%A9.jpg/330px-IKA_Torino_380_coup%C3%A9.jpg",
+        "notes": "Argentine automotive icon blending American Rambler underpinnings, a high-compression straight-six engine, and Pininfarina styling."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United Kingdom",
+        "Model": "Capri 3000GT / RS3100",
+        "Year": 1969,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Marketed as Europe’s answer to the Mustang, offering fastback pony car styling paired with Essex V6 powertrains."
+    },
+    {
+        "Make": "Opel",
+        "Country": "West Germany",
+        "Model": "Diplomat B V8",
+        "Year": 1969,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Executive German saloon equipped with an imported 5.4-litre Chevrolet V8, combining American muscle torque with European chassis dynamics."
+    },
+    {
+        "Make": "Basil Green",
+        "Country": "South Africa",
+        "Model": "Capri Perana",
+        "Year": 1970,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "South African homologation special that shoehorned a 5.0-litre Ford Windsor V8 into a Mk1 Capri bodyshell with factory endorsement."
+    },
+    {
+        "Make": "Mitsubishi",
+        "Country": "Japan",
+        "Model": "Galant GTO",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Mitsubishi_Galant_GTO",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Mitsubishi_Colt_Galant_GTO_MR.jpg/330px-Mitsubishi_Colt_Galant_GTO_MR.jpg",
+        "notes": "Japanese fastback coupe heavily influenced by American muscle styling, featuring a rear ducktail spoiler and dual-overhead-cam engine options."
+    },
+    {
+        "Make": "Ford",
+        "Country": "Australia",
+        "Model": "Falcon GT-HO Phase III",
+        "Year": 1971,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Legendary four-door Australian muscle saloon built for Bathurst homologation, powered by a 351 cu in Cleveland V8."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "Brazil",
+        "Model": "Opala SS",
+        "Year": 1971,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Brazil’s quintessential muscle car, featuring bold rally stripes and a high-torque 4.1-litre inline-six engine based on an Opel platform."
+    },
+    {
+        "Make": "Chrysler",
+        "Country": "Australia",
+        "Model": "Valiant Charger R/T E49",
+        "Year": 1972,
+        "url": "https://en.wikipedia.org/wiki/Chrysler_Valiant_Charger",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg/330px-1972_Chrysler_Valiant_VH_Charger_RT_E38_%2821759962393%29.jpg",
+        "notes": "Short-wheelbase Australian muscle coupe powered by a triple-Weber-carburetted 265 cu in \"Hemi\" straight-six engine."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "South Africa",
+        "Model": "Can-Am \"Little Chev\"",
+        "Year": 1973,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Wild South African homologation special stuffing a 5.0-litre Z28 Camaro V8 into a lightweight Vauxhall Firenza body."
+    },
+    {
+        "Make": "Aston Martin",
+        "Country": "United Kingdom",
+        "Model": "V8 Vantage",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Aston_Martin_V8_Vantage",
+        "imageurl": "No image found",
+        "notes": "Widely dubbed \"Britain’s first supercar\", featuring aggressive muscular styling, a blanked-off grille, and a 375 bhp 5.3-litre V8."
+    },
+    {
+        "Make": "Holden",
+        "Country": "Australia",
+        "Model": "Torana A9X",
+        "Year": 1977,
+        "url": "https://en.wikipedia.org/wiki/Holden_Torana",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg/330px-1977_Holden_Torana_%28LX%29_SLR_5000_A9X_sedan_%282006-11-26%29_01.jpg",
+        "notes": "Compact V8 touring car homologation special that achieved legendary motorsport dominance at the Bathurst 1000."
+    },
+    {
+        "Make": "HSV",
+        "Country": "Australia",
+        "Model": "GTSR W1",
+        "Year": 2017,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "The ultimate swan song for Australian muscle manufacturing, powered by a supercharged 6.2-litre Corvette ZR1 V8 engine."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "United States",
+        "Model": "Nomad",
+        "Year": 1955,
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_Nomad",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/1955_Chevrolet_Nomad%2C_front_right_%28Wings-n-Wheels_2023%29.jpg/330px-1955_Chevrolet_Nomad%2C_front_right_%28Wings-n-Wheels_2023%29.jpg",
+        "notes": "Iconic two-door sport wagon featuring a distinct grooved roofline and frameless door glass, establishing the American sports estate layout."
+    },
+    {
+        "Make": "Aston Martin",
+        "Country": "United Kingdom",
+        "Model": "DB5 Shooting Brake",
+        "Year": 1965,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Bespoke coachbuilt sports estate created by Harold Radford, originally commissioned by company owner David Brown to carry his polo gear and hunting dogs."
+    },
+    {
+        "Make": "Reliant",
+        "Country": "United Kingdom",
+        "Model": "Scimitar GTE",
+        "Year": 1968,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Fibreglass-bodied pioneer that popularised the practical two-door sports estate concept for the mass market."
+    },
+    {
+        "Make": "Volvo",
+        "Country": "Sweden",
+        "Model": "P1800 ES",
+        "Year": 1971,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Sporting estate derivative of the P1800 featuring an all-glass frameless rear hatch, nicknamed \"Schneewittchensarg\" (Snow White's Coffin) in Germany."
+    },
+    {
+        "Make": "Lancia",
+        "Country": "Italy",
+        "Model": "Beta HPE",
+        "Year": 1975,
+        "url": "https://en.wikipedia.org/wiki/Lancia_Beta",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/1977_Lancia_Beta_Berlina_S2_1.6.jpg/330px-1977_Lancia_Beta_Berlina_S2_1.6.jpg",
+        "notes": "\"High Performance Estate\" designed in-house, blending a sports coupe front end with a stylish shooting brake tailgate."
+    },
+    {
+        "Make": "BMW",
+        "Country": "Germany",
+        "Model": "Z3 Coupé",
+        "Year": 1998,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Unconventional shooting brake-proportioned sports car engineered for high torsional rigidity, affectionately nicknamed the \"Clown Shoe\"."
+    },
+    {
+        "Make": "Alfa Romeo",
+        "Country": "Italy",
+        "Model": "Brera",
+        "Year": 2005,
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Brera_and_Spider",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/2007_Alfa_Romeo_Brera_V6_coupe_%2823416268426%29.jpg/330px-2007_Alfa_Romeo_Brera_V6_coupe_%2823416268426%29.jpg",
+        "notes": "Giorgetto Giugiaro-designed sports 2+2 featuring a steep glass tailgate and distinct shooting brake proportions."
+    },
+    {
+        "Make": "Ferrari",
+        "Country": "Italy",
+        "Model": "FF",
+        "Year": 2011,
+        "url": "https://en.wikipedia.org/wiki/Ferrari_FF",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2013_Ferrari_FF%2C_Blu_TdF%2C_front_left.jpg/330px-2013_Ferrari_FF%2C_Blu_TdF%2C_front_left.jpg",
+        "notes": "Pininfarina-styled, four-seat V12 flagship featuring a four-wheel-drive system and a true two-door shooting brake bodyshell."
+    },
+    {
+        "Make": "Mercedes-Benz",
+        "Country": "Germany",
+        "Model": "CLS Shooting Brake",
+        "Year": 2012,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Modern four-door luxury interpretation featuring a swept roofline and an optional cherry wood luggage compartment floor."
+    },
+    {
+        "Make": "Aston Martin",
+        "Country": "United Kingdom",
+        "Model": "Vanquish Zagato Shooting Brake",
+        "Year": 2018,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Ultra-limited coachbuilt V12 grand tourer featuring Zagato’s signature double-bubble roof motif extending into a glass-roofed rear deck."
+    },
+    {
+        "Make": "Genesis",
+        "Country": "South Korea",
+        "Model": "G70 Shooting Brake",
+        "Year": 2021,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Tailored specifically for the European market, blending executive saloon chassis tuning with a swept estate silhouette."
+    },
+    {
+        "Make": "Baker",
+        "Country": "United States",
+        "Model": "Electric",
+        "Year": 1899,
+        "url": "https://en.wikipedia.org/wiki/Baker_Motor_Vehicle",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Baker-electric_1911.jpg/330px-Baker-electric_1911.jpg",
+        "notes": "Early Brass Era EV pioneer, favoured by high-profile buyers including Thomas Edison and the US White House fleet."
+    },
+    {
+        "Make": "Anderson Electric",
+        "Country": "United States",
+        "Model": "Detroit Electric",
+        "Year": 1907,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Long-running early 20th-century EV, popular for its quiet, clean operation prior to the dominance of internal combustion engines."
+    },
+    {
+        "Make": "General Motors",
+        "Country": "United States",
+        "Model": "EV1",
+        "Year": 1996,
+        "url": "https://en.wikipedia.org/wiki/General_Motors_EV1",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/EV1A014_%281%29_cropped.jpg/330px-EV1A014_%281%29_cropped.jpg",
+        "notes": "Aerodynamic two-seater coupe that served as the first purpose-built, mass-produced EV from a major modern manufacturer."
+    },
+    {
+        "Make": "Tesla",
+        "Country": "United States",
+        "Model": "Roadster (1st Gen)",
+        "Year": 2008,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Lotus Elise-based sports car that introduced lithium-ion battery cells to series-production automobiles."
+    },
+    {
+        "Make": "Nissan",
+        "Country": "Japan",
+        "Model": "Leaf",
+        "Year": 2010,
+        "url": "https://en.wikipedia.org/wiki/Nissan_Leaf",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nissan_Leaf_%28ZE2%29_autoMOBIL_T%C3%BCbingen_2025_DSC_2752.jpg/330px-Nissan_Leaf_%28ZE2%29_autoMOBIL_T%C3%BCbingen_2025_DSC_2752.jpg",
+        "notes": "World’s first mass-market, globally distributed high-volume family electric hatchback."
+    },
+    {
+        "Make": "Tesla",
+        "Country": "United States",
+        "Model": "Model S",
+        "Year": 2012,
+        "url": "https://en.wikipedia.org/wiki/Tesla_Model_S",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tesla_Model_S_%28Facelift_ab_04-2016%29_%28cropped%29.jpg/330px-Tesla_Model_S_%28Facelift_ab_04-2016%29_%28cropped%29.jpg",
+        "notes": "Executive saloon that redefined long-range usability, over-the-air updates, and electric performance expectations."
+    },
+    {
+        "Make": "BMW",
+        "Country": "Germany",
+        "Model": "i3",
+        "Year": 2013,
+        "url": "https://en.wikipedia.org/wiki/BMW_i3",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bmw_i3_2027.png/330px-Bmw_i3_2027.png",
+        "notes": "Purpose-built urban EV constructed using an advanced carbon-fibre reinforced plastic passenger cell and sustainable interior materials."
+    },
+    {
+        "Make": "Tesla",
+        "Country": "United States",
+        "Model": "Model 3",
+        "Year": 2017,
+        "url": "https://en.wikipedia.org/wiki/Tesla_Model_3",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Tesla_Model_3_%282023%29_Autofr%C3%BChling_Ulm_IMG_9282.jpg/330px-Tesla_Model_3_%282023%29_Autofr%C3%BChling_Ulm_IMG_9282.jpg",
+        "notes": "High-volume electric saloon that became the first electric car to pass one million sales worldwide."
+    },
+    {
+        "Make": "Porsche",
+        "Country": "Germany",
+        "Model": "Taycan",
+        "Year": 2019,
+        "url": "https://en.wikipedia.org/wiki/Porsche_Taycan",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/2020_Porsche_Taycan_4S_79kWh_Front.jpg/330px-2020_Porsche_Taycan_4S_79kWh_Front.jpg",
+        "notes": "Performance EV benchmark introducing 800-volt system architecture and sports car chassis tuning."
+    },
+    {
+        "Make": "SAIC-GM-Wuling",
+        "Country": "China",
+        "Model": "Hongguang MINI EV",
+        "Year": 2020,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Minimalist, ultra-affordable micro-EV that spearheaded widespread urban electrification across domestic Chinese markets."
+    },
+    {
+        "Make": "Rimac",
+        "Country": "Croatia",
+        "Model": "Nevera",
+        "Year": 2021,
+        "url": "https://en.wikipedia.org/wiki/Rimac_Nevera",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rimac_Nevera.jpg/330px-Rimac_Nevera.jpg",
+        "notes": "Croatian quad-motor electric hypercar producing nearly 2,000 bhp, setting multiple production vehicle acceleration records."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United States",
+        "Model": "Model T Runabout with Pickup Body",
+        "Year": 1925,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "The first factory-assembled mass-produced pickup truck, establishing the standardized steel cargo box layout."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Power Wagon",
+        "Year": 1945,
+        "url": "https://en.wikipedia.org/wiki/Dodge_Power_Wagon",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/54_Dodge_Power_Wagon_1_Ton_Pick-Up_%287154796521%29.jpg/330px-54_Dodge_Power_Wagon_1_Ton_Pick-Up_%287154796521%29.jpg",
+        "notes": "Adapted directly from WWII military vehicles, serving as North America's first mass-produced 4x4 civilian pickup."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United States",
+        "Model": "F-Series",
+        "Year": 1948,
+        "url": "https://en.wikipedia.org/wiki/Ford_F-Series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg/330px-2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg",
+        "notes": "America's longest-running pickup line, evolving through 14 generations to become one of the highest-selling vehicles in history."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "United States",
+        "Model": "Task Force Cameo Carrier",
+        "Year": 1955,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Pioneered smooth, flush-sided glass-fibre rear styling (\"Fleetside\") and passenger-car luxury features in light trucks."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United States",
+        "Model": "Ranchero",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Ford_Ranchero",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Austrian_500_US-CAR_DAYS_2019_45.jpg/330px-Austrian_500_US-CAR_DAYS_2019_45.jpg",
+        "notes": "Introduced the American coupe utility layout by integrating a open cargo bed into a full-size station wagon chassis."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "United States",
+        "Model": "El Camino",
+        "Year": 1959,
+        "url": "https://en.wikipedia.org/wiki/Chevrolet_El_Camino",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/1969_Chevrolet_El_Camino_SS%2C_front_5.19.19.jpg/330px-1969_Chevrolet_El_Camino_SS%2C_front_5.19.19.jpg",
+        "notes": "Iconic car-based utility model that evolved into a high-performance muscle car platform during the late 1960s and 1970s."
+    },
+    {
+        "Make": "Chevrolet",
+        "Country": "United States",
+        "Model": "C/K (3rd Gen \"Square Body\")",
+        "Year": 1973,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Longest-running generation of GM's full-size truck platform, defining 1970s and 1980s utility styling and aerodynamics."
+    },
+    {
+        "Make": "Dodge",
+        "Country": "United States",
+        "Model": "Lil' Red Express",
+        "Year": 1978,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "High-performance muscle truck exploiting an emissions-class loophole, featuring twin vertical exhaust stacks and a police-spec V8."
+    },
+    {
+        "Make": "Dodge / Ram",
+        "Country": "United States",
+        "Model": "Ram Pickup (2nd Gen)",
+        "Year": 1994,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Revolutionised modern pickup design with semi-truck \"big rig\" front styling and high-torque Cummins turbodiesel engines."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United States",
+        "Model": "F-150 SVT Raptor",
+        "Year": 2010,
+        "url": "https://en.wikipedia.org/wiki/Ford_F-Series",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg/330px-2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg",
+        "notes": "Factory-built high-speed desert off-roader featuring long-travel Fox racing suspension and a widened track."
+    },
+    {
+        "Make": "Rivian",
+        "Country": "United States",
+        "Model": "R1T",
+        "Year": 2021,
+        "url": "https://en.wikipedia.org/wiki/Rivian_R1T",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/2022_Rivian_R1T_%28in_Glacier_White%29%2C_front_6.21.22.jpg/330px-2022_Rivian_R1T_%28in_Glacier_White%29%2C_front_6.21.22.jpg",
+        "notes": "Launched as the first mass-produced fully electric consumer pickup truck, featuring quad-motor torque vectoring."
+    },
+    {
+        "Make": "Ford Bronco",
+        "Country": "United States",
+        "Model": "",
+        "Year": null,
+        "url": "https://en.wikipedia.org/wiki/Ford_Bronco",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ford_Bronco_%286th_generation%29_Outer_Banks_1X7A0384.jpg/330px-Ford_Bronco_%286th_generation%29_Outer_Banks_1X7A0384.jpg",
+        "notes": ""
+    },
+    {
+        "Make": "Bedford",
+        "Country": "United Kingdom",
+        "Model": "CA",
+        "Year": 1952,
+        "url": "https://en.wikipedia.org/wiki/Bedford_CA",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bedford_CA_%28WOY_707G%29_-_10_August_2025.jpg/330px-Bedford_CA_%28WOY_707G%29_-_10_August_2025.jpg",
+        "notes": "Distinctive pug-nosed forward-control van that dominated post-war British light commercial transport and ice cream van conversions."
+    },
+    {
+        "Make": "Morris",
+        "Country": "United Kingdom",
+        "Model": "Minor Van",
+        "Year": 1953,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Commercial panel van derivative of the Morris Minor, ubiquitous across post-war Britain for postal, phone, and small business fleets."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United Kingdom",
+        "Model": "Thames 400E",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Ford_Thames_400E",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Ford_Thames_400E_minibus_1964.jpg/330px-Ford_Thames_400E_minibus_1964.jpg",
+        "notes": "British-designed forward-control commercial van, widely used for light haulage and early campervan conversions prior to the Transit."
+    },
+    {
+        "Make": "Austin / Morris",
+        "Country": "United Kingdom",
+        "Model": "Mini Van",
+        "Year": 1960,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Ultra-compact panel van built on the longer Mini estate chassis, exempt from purchase tax in Britain at launch."
+    },
+    {
+        "Make": "Commer",
+        "Country": "United Kingdom",
+        "Model": "FC / Spacevan",
+        "Year": 1960,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Forward-control van famed for its long-serving fleet role with Post Office Telecommunications and distinctive narrow front track."
+    },
+    {
+        "Make": "Reliant",
+        "Country": "United Kingdom",
+        "Model": "Regal Supervan",
+        "Year": 1962,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Three-wheeled fibreglass light commercial van, famously embedded in British pop culture via Only Fools and Horses."
+    },
+    {
+        "Make": "Ford",
+        "Country": "United Kingdom",
+        "Model": "Transit (Mk1)",
+        "Year": 1965,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Revolutionised European light commercial transport, engineered primarily in the UK to become Britain's defining workhorse."
+    },
+    {
+        "Make": "Bedford",
+        "Country": "United Kingdom",
+        "Model": "CF",
+        "Year": 1969,
+        "url": "https://en.wikipedia.org/wiki/Bedford_CF",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Bedford_CF_based_Dormobile_Debonaire_ca_1980_Schaffen-Diest_2012.jpg/330px-Bedford_CF_based_Dormobile_Debonaire_ca_1980_Schaffen-Diest_2012.jpg",
+        "notes": "General Motors UK's direct challenger to the Ford Transit, featuring a semi-forward control design and broad range of chassis conversions."
+    },
+    {
+        "Make": "Leyland / Freight Rover",
+        "Country": "United Kingdom",
+        "Model": "Sherpa",
+        "Year": 1974,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Long-lived British Leyland commercial platform engineered with a narrow body width to negotiate tight city streets and country lanes."
+    },
+    {
+        "Make": "Austin Rover",
+        "Country": "United Kingdom",
+        "Model": "Maestro Van",
+        "Year": 1984,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Car-derived high-roof panel van that served as a staple utility vehicle for British Gas and Royal Mail throughout the 1980s and 1990s."
+    },
+    {
+        "Make": "Bedford",
+        "Country": "United Kingdom",
+        "Model": "Rascal",
+        "Year": 1986,
+        "url": "https://en.wikipedia.org/wiki/Suzuki_Carry",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Suzuki_Carry_Truck_KC_4WD_DA16T.JPG/330px-Suzuki_Carry_Truck_KC_4WD_DA16T.JPG",
+        "notes": "Luton-assembled Suzuki-derived microvan that provided nimble, ultra-compact urban delivery capabilities across Britain."
+    },
+    {
+        "Make": "LDV",
+        "Country": "United Kingdom",
+        "Model": "Convoy",
+        "Year": 1996,
+        "url": "https://en.wikipedia.org/wiki/LDV_Convoy",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/LDV_Van.jpg/330px-LDV_Van.jpg",
+        "notes": "Final evolution of the original Sherpa lineage, produced in Birmingham as a ubiquitous British minibus, police transport, and Royal Mail van."
+    },
+    {
+        "Make": "Microcars and Bubble Cars",
+        "Country": "",
+        "Model": "",
+        "Year": null,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": ""
+    },
+    {
+        "Make": "Bond",
+        "Country": "United Kingdom",
+        "Model": "Minicar",
+        "Year": 1949,
+        "url": "https://en.wikipedia.org/wiki/Bond_Minicar",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/1964_Bond_Minicar_Mark_G_Tourer.jpg/330px-1964_Bond_Minicar_Mark_G_Tourer.jpg",
+        "notes": "Simple three-wheeled aluminium/fibreglass microcar powered by a single-cylinder Villiers motorcycle engine driving the front wheel."
+    },
+    {
+        "Make": "Fuldamobil",
+        "Country": "West Germany",
+        "Model": "Fuldamobil",
+        "Year": 1950,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Early German three- and four-wheeled microcar with aluminium or fibreglass bodywork; widely licensed globally and credited with helping coin the term \"bubble car\"."
+    },
+    {
+        "Make": "Iso / BMW",
+        "Country": "Italy / West Germany",
+        "Model": "Isetta",
+        "Year": 1953,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Iconic egg-shaped bubble car featuring a front-opening refrigerator door, originally designed by Iso in Italy and built under licence by BMW."
+    },
+    {
+        "Make": "Messerschmitt",
+        "Country": "West Germany",
+        "Model": "KR200",
+        "Year": 1955,
+        "url": "https://en.wikipedia.org/wiki/Messerschmitt_KR200",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Messerschmitt_Kabinenroller.jpg/330px-Messerschmitt_Kabinenroller.jpg",
+        "notes": "Aircraft-inspired tandem two-seater Kabinenroller (cabin scooter) with a transparent acrylic bubble canopy and handlebar steering."
+    },
+    {
+        "Make": "Glas",
+        "Country": "West Germany",
+        "Model": "Goggomobil",
+        "Year": 1955,
+        "url": "Not found",
+        "imageurl": "Not found",
+        "notes": "Highly successful series of conventional-looking German microcars including saloons, coupés, and light commercial vans."
+    },
+    {
+        "Make": "Heinkel",
+        "Country": "West Germany",
+        "Model": "Kabine",
+        "Year": 1956,
+        "url": "https://en.wikipedia.org/wiki/Heinkel_Kabine",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Paris_-_Bonhams_2013_-_Heinkel_kabine_micro_car_-_1957_-_006.jpg/330px-Paris_-_Bonhams_2013_-_Heinkel_kabine_micro_car_-_1957_-_006.jpg",
+        "notes": "Lightweight steel-monocoque bubble car designed by aircraft manufacturer Heinkel, later built under licence in the UK as the Trojan 200."
+    },
+    {
+        "Make": "Vespa",
+        "Country": "France",
+        "Model": "400",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Vespa_400",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/180512-Vespa400-01.jpg/330px-180512-Vespa400-01.jpg",
+        "notes": "Tiny rear-engined, two-seater microcar designed by Piaggio and manufactured in France by ACMA to avoid competing directly with Fiat in Italy."
+    },
+    {
+        "Make": "Subaru",
+        "Country": "Japan",
+        "Model": "360",
+        "Year": 1958,
+        "url": "https://en.wikipedia.org/wiki/Subaru_360",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/1958_Subaru_360_01.jpg/330px-1958_Subaru_360_01.jpg",
+        "notes": "Nicknamed the \"Ladybug\", Japan's landmark Kei microcar featured an air-cooled two-stroke engine and fibreglass roof panel."
+    },
+    {
+        "Make": "Peel",
+        "Country": "United Kingdom",
+        "Model": "P50",
+        "Year": 1962,
+        "url": "https://en.wikipedia.org/wiki/Peel_P50",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/1964_Peel_P50_Blue.jpg/330px-1964_Peel_P50_Blue.jpg",
+        "notes": "Isle of Man-built single-seater holding the Guinness World Record as the smallest production car ever made; fitted with a rear handle for maneuvering instead of a reverse gear."
+    },
+    {
+        "Make": "Peel",
+        "Country": "United Kingdom",
+        "Model": "Trident",
+        "Year": 1964,
+        "url": "https://en.wikipedia.org/wiki/Peel_Trident",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1964_Peel_Trident_Red.jpg/330px-1964_Peel_Trident_Red.jpg",
+        "notes": "Futuristic two-seater microcar featuring a clear acrylic bubble-top canopy, dubbed the \"terrestrial flying saucer\"."
+    },
+    {
+        "Make": "Bond",
+        "Country": "United Kingdom",
+        "Model": "Bug",
+        "Year": 1970,
+        "url": "https://en.wikipedia.org/wiki/Bond_Bug",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/1973_Bond_Bug_1.jpg/330px-1973_Bond_Bug_1.jpg",
+        "notes": "Wedge-shaped, three-wheeled micro-coupé featuring a lift-up canopy, vibrant orange paintwork, and Reliant four-cylinder mechanicals."
+    },
+    {
+        "Make": "Sinclair",
+        "Country": "United Kingdom",
+        "Model": "C5",
+        "Year": 1985,
+        "url": "https://en.wikipedia.org/wiki/Sinclair_C5",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Sinclair_C5_with_high_vis_mast.jpg/330px-Sinclair_C5_with_high_vis_mast.jpg",
+        "notes": "Open-top, battery-assisted electric recumbent trike microcar designed by Sir Clive Sinclair as an urban personal commuter."
     }
 ]
