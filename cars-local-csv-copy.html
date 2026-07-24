@@ -146,7 +146,8 @@
                     const card = document.createElement('article');
                     card.className = 'car-card';
 
-                    const flagEmoji = countryFlags[car.Country] || '';
+                    const countryList = (car.Country || '').split(/,|\/|&|\band\b/i).map(c => c.trim()).filter(Boolean);
+                    const flagEmoji = countryList.map(c => countryFlags[c] || '').join('');
                     const displayYear = car.Year ? car.Year : 'N/A';
                     
                     const makeHTML = car.url 

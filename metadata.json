@@ -1,6 +1,6 @@
 {
   "name": "Cardle",
-  "description": "Classic car guessing game featuring standard daily/random challenges and multi-vehicle strategic elimination.",
+  "description": "Classic car guessing game featuring standard daily/random challenges and CARtegories strategic placement.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

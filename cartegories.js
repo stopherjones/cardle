@@ -27,6 +27,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const dailyPlayBtn = document.getElementById('daily-play-btn');
   const randomPlayBtn = document.getElementById('random-play-btn');
 
+  // Country Normalisation and Helper Utilities
+  function parseCountries(countryInput) {
+    if (Array.isArray(countryInput)) {
+      return countryInput.map(c => String(c).trim()).filter(Boolean);
+    }
+    if (!countryInput) return ['Unknown'];
+    const rawStr = String(countryInput).trim();
+    const list = rawStr.split(/,|\/|&|\band\b/i).map(c => c.trim()).filter(Boolean);
+    return list.length > 0 ? list : [rawStr];
+  }
+
+  function normalizeCountryName(str) {
+    if (!str) return '';
+    const s = String(str).trim().toLowerCase();
+    if (['usa', 'us', 'united states of america', 'america'].includes(s)) return 'united states';
+    if (['uk', 'great britain', 'britain', 'england'].includes(s)) return 'united kingdom';
+    if (['ussr', 'soviet union'].includes(s)) return 'ussr';
+    return s;
+  }
+
+  function checkCountryMatch(guess, carCountries, carCountryDisplay) {
+    if (!guess) return false;
+    const normalizedGuess = normalizeCountryName(guess);
+
+    if (normalizeCountryName(carCountryDisplay) === normalizedGuess) return true;
+
+    for (const c of carCountries) {
+      if (normalizeCountryName(c) === normalizedGuess) return true;
+    }
+
+    const guessCountries = parseCountries(guess);
+    for (const gc of guessCountries) {
+      for (const cc of carCountries) {
+        if (normalizeCountryName(gc) === normalizeCountryName(cc)) return true;
+      }
+    }
+
+    return false;
+  }
+
   // Shared Data Normalisation Pipeline
   function normaliseData(rawItems) {
     const registry = {};
@@ -34,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     rawItems.forEach(item => {
       const make = String(item.Make ?? item.make ?? item.manufacturerLabel ?? '').trim();
       const model = String(item.Model ?? item.model ?? item.carLabel ?? '').trim();
-      const country = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
+      const countryRaw = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
+      const countryList = parseCountries(countryRaw);
       const manufacturingYear = parseInt(item.Year ?? item.year, 10);
       const image = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
       const notes = String(item.notes ?? item.Notes ?? '').trim();
@@ -49,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
           id: qid,
           model,
           make,
-          country: country || 'Unknown',
+          country: countryRaw || 'Unknown',
+          countries: countryList.length ? countryList : ['Unknown'],
           year: manufacturingYear,
           image,
           notes,
@@ -65,7 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function populateOptionsPool() {
     optionsPool.make = [...new Set(gameDatabase.map(c => c.make))].sort();
     optionsPool.model = [...new Set(gameDatabase.map(c => c.model))].sort();
-    optionsPool.country = [...new Set(gameDatabase.map(c => c.country))].sort();
+
+    const allCountries = new Set();
+    gameDatabase.forEach(c => {
+      const list = c.countries && c.countries.length ? c.countries : parseCountries(c.country);
+      list.forEach(cnt => allCountries.add(cnt));
+    });
+    optionsPool.country = [...allCountries].sort();
+
     optionsPool.year = [...new Set(gameDatabase.map(c => String(c.year)))].sort((a, b) => a - b);
   }
 
@@ -448,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (category === 'country') {
         maxPoints = 1;
-        isCorrect = normaliseForCompare(guess, 'country') === normaliseForCompare(actual, 'country');
+        isCorrect = checkCountryMatch(guess, car.countries || [car.country], car.country);
         points = isCorrect ? 1 : 0;
       } else if (category === 'make') {
         maxPoints = 1;
@@ -532,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isDaily = currentMode === 'daily';
     const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
-    resultsSummary.innerHTML = `I scored <strong>${totalScore} / 10</strong> on Cardle Multi${dateSuffix}!`;
+    resultsSummary.innerHTML = `I scored <strong>${totalScore} / 10</strong> on Cardle CARtegories${dateSuffix}!`;
     resultsModal.classList.add('active');
   }
 
@@ -548,13 +597,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
   }
 
-  function getMultiShareText() {
-    const indexUrl = 'https://stopherjones.github.io/cardle/index.html';
+  function getCARtegoriesShareText() {
+    const indexUrl = window.location.origin + '/cartegories.html';
     const isDaily = currentMode === 'daily';
     const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
-    const text = `I scored ${lastTotalScore}/10 on Cardle Multi${dateSuffix}! 🚗`;
+    const text = `I scored ${lastTotalScore}/10 on Cardle CARtegories${dateSuffix}! 🚗`;
     return {
-      title: 'Cardle Multi',
+      title: 'Cardle CARtegories',
       text: text,
       url: indexUrl,
       fullText: `${text}\n${indexUrl}`
@@ -681,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (modalShareBtn) {
     modalShareBtn.addEventListener('click', () => {
-      const shareInfo = getMultiShareText();
+      const shareInfo = getCARtegoriesShareText();
       handleShareResult(shareInfo, modalShareBtn, shareToast);
     });
   }

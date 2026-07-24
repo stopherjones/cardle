@@ -13,6 +13,32 @@ let currentGameState = {
     revealOrder: []
 };
 
+// Country Normalisation and Helper Utilities
+function parseCountries(countryInput) {
+    if (Array.isArray(countryInput)) {
+        return countryInput.map(c => String(c).trim()).filter(Boolean);
+    }
+    if (!countryInput) return ['Unknown'];
+    const rawStr = String(countryInput).trim();
+    const list = rawStr.split(/,|\/|&|\band\b/i).map(c => c.trim()).filter(Boolean);
+    return list.length > 0 ? list : [rawStr];
+}
+
+function normalizeCountryName(str) {
+    if (!str) return '';
+    const s = String(str).trim().toLowerCase();
+    if (['usa', 'us', 'united states of america', 'america'].includes(s)) return 'united states';
+    if (['uk', 'great britain', 'britain', 'england'].includes(s)) return 'united kingdom';
+    if (['ussr', 'soviet union'].includes(s)) return 'ussr';
+    return s;
+}
+
+function checkCountryOverlap(countries1, countries2) {
+    const list1 = (countries1 || []).map(normalizeCountryName);
+    const list2 = (countries2 || []).map(normalizeCountryName);
+    return list1.some(c1 => list2.includes(c1));
+}
+
 // 1. Data Normalisation and Sanitisation Pipeline
 function normaliseData(rawItems) {
     const registry = {};
@@ -20,7 +46,8 @@ function normaliseData(rawItems) {
     rawItems.forEach(item => {
         const make = String(item.Make ?? item.make ?? item.manufacturerLabel ?? '').trim();
         const model = String(item.Model ?? item.model ?? item.carLabel ?? '').trim();
-        const country = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
+        const countryRaw = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
+        const countryList = parseCountries(countryRaw);
         const manufacturingYear = parseInt(item.Year ?? item.year, 10);
         const image = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
         const notes = String(item.notes ?? item.Notes ?? '').trim();
@@ -35,7 +62,8 @@ function normaliseData(rawItems) {
                 id: qid,
                 model,
                 make,
-                country: country || 'Unknown',
+                country: countryRaw || 'Unknown',
+                countries: countryList.length ? countryList : ['Unknown'],
                 year: manufacturingYear,
                 image,
                 notes,
@@ -183,7 +211,10 @@ function findCarByInput(inputString) {
     const yearMatch = searchableCars.find(car => String(car.year) === normalizedInput);
     if (yearMatch) return yearMatch;
 
-    const countryMatch = searchableCars.find(car => car.country.toLowerCase() === normalizedInput);
+    const countryMatch = searchableCars.find(car => {
+        const normInput = normalizeCountryName(normalizedInput);
+        return (car.countries || [car.country]).some(c => normalizeCountryName(c) === normInput);
+    });
     if (countryMatch) return countryMatch;
 
     return searchableCars.find(car => {
@@ -275,7 +306,10 @@ function drawFeedbackRow(guessObj) {
 
     const makeMatch = guessObj.make === targetCar.make;
     const modelMatch = guessObj.model === targetCar.model;
-    const countryMatch = guessObj.country === targetCar.country;
+    const countryMatch = checkCountryOverlap(
+        guessObj.countries || [guessObj.country],
+        targetCar.countries || [targetCar.country]
+    );
     
     let yearClass = "cell-wrong";
     let yearSymbol = "";

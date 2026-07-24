@@ -388,7 +388,7 @@
     },
     {
         "Make": "DeLorean",
-        "Country": "Northern Ireland",
+        "Country": "United Kingdom, United States",
         "Model": "DMC-12",
         "Year": 1985,
         "url": "https://en.wikipedia.org/wiki/DeLorean_time_machine",
@@ -495,8 +495,8 @@
         "notes": "Lightweight John Tojeiro-designed sports car featuring all-independent suspension, forming the engineering base for the Cobra."
     },
     {
-        "Make": "(Shelby) AC",
-        "Country": "United Kingdom",
+        "Make": "Shelby AC",
+        "Country": "United Kingdom, United States",
         "Model": "Cobra",
         "Year": 1962,
         "url": "https://en.wikipedia.org/wiki/AC_Cobra",

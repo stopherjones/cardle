@@ -1,39 +1,48 @@
-/* Multi game layout: stacked on mobile, side-by-side on desktop */
+/* CARtegories game layout: stacked on mobile, side-by-side on desktop */
+.page-cartegories .game-container,
 .page-multi .game-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
+.page-cartegories .game-board,
 .page-multi .game-board {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
+.page-cartegories .pool-section,
 .page-multi .pool-section,
+.page-cartegories .zones-section,
 .page-multi .zones-section {
   min-width: 0;
 }
 
 @media (min-width: 768px) and (orientation: portrait),
        (min-width: 1024px) {
+  .page-cartegories .game-container,
   .page-multi .game-container {
     max-width: 960px;
   }
 
+  .page-cartegories .game-board,
   .page-multi .game-board {
     flex-direction: row;
     align-items: stretch;
   }
 
+  .page-cartegories .pool-section,
   .page-multi .pool-section,
+  .page-cartegories .zones-section,
   .page-multi .zones-section {
     flex: 1;
   }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
+  .page-cartegories .game-board,
   .page-multi .game-board {
     flex-direction: column;
   }
@@ -447,6 +456,7 @@
   cursor: pointer;
 }
 
+.page-cartegories .submit-btn,
 .page-multi .submit-btn {
   width: 100%;
   padding: 0.75rem;
@@ -459,6 +469,7 @@
   cursor: pointer;
 }
 
+.page-cartegories .submit-btn:disabled,
 .page-multi .submit-btn:disabled {
   background-color: var(--border-subtle);
   color: var(--text-muted);
