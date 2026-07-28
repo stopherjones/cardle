@@ -617,28 +617,28 @@ document.addEventListener('DOMContentLoaded', () => {
         statusText = '~ Close';
       }
 
-      const pointsBadge = `${result.points} / ${result.maxPoints} ${result.maxPoints === 1 ? 'point' : 'points'}`;
+      const pointsBadge = `${result.points}/${result.maxPoints} pts`;
       const urlLinkHtml = result.carUrl
-        ? `<a href="${escapeHtml(result.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-link">🌐 Learn more about ${escapeHtml(result.fullCarName)} ↗</a>`
+        ? `<a href="${escapeHtml(result.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details on ${escapeHtml(result.fullCarName)}">Info ↗</a>`
         : '';
 
       return `
-        <div class="result-row ${statusClass}">
-          <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
-          <div class="result-body">
-            <div class="result-header">
-              <span class="result-category">${escapeHtml(result.label)}</span>
-              <span class="result-status ${statusClass}">
-                ${statusText} (${pointsBadge})
-              </span>
+        <div class="result-card ${statusClass}">
+          <div class="result-card-top">
+            <span class="result-category">${escapeHtml(result.label)}</span>
+            <span class="result-status ${statusClass}">${statusText} (${pointsBadge})</span>
+          </div>
+          <div class="result-card-content">
+            <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
+            <div class="result-body">
+              <div class="result-car-title">
+                <span class="car-badge">${escapeHtml(result.carLabel)}:</span>
+                <span class="car-name-text">${escapeHtml(result.fullCarName)}</span>
+                ${urlLinkHtml}
+              </div>
+              <div class="result-guess-row">Guess: <strong>${escapeHtml(result.guess || '—')}</strong></div>
+              ${result.isCorrect ? '' : `<div class="result-answer-row">Correct: <strong>${escapeHtml(result.actual)}</strong></div>`}
             </div>
-            <div class="result-car-title">
-              <span class="car-badge">${escapeHtml(result.carLabel)}:</span>
-              <strong class="car-name-text">${escapeHtml(result.fullCarName)}</strong>
-            </div>
-            <div class="result-guess">Your guess: ${escapeHtml(result.guess)}</div>
-            ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: <strong>${escapeHtml(result.actual)}</strong></div>`}
-            ${urlLinkHtml ? `<div class="result-link-container">${urlLinkHtml}</div>` : ''}
           </div>
         </div>
       `;
