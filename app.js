@@ -499,21 +499,95 @@ function getFormattedDate(dateStr) {
     return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-function openZoom(imgSrc, notesText = '') {
+let appGallery = [];
+let appGalleryIndex = 0;
+
+function openZoom(items, initialIndex = 0) {
     const lightbox = document.getElementById('lightbox');
+    if (!items) return;
+
+    if (typeof items === 'string') {
+        appGallery = [{ imgSrc: items, notes: arguments[1] || '' }];
+        appGalleryIndex = 0;
+    } else if (Array.isArray(items)) {
+        appGallery = items;
+        appGalleryIndex = Math.max(0, Math.min(initialIndex, appGallery.length - 1));
+    } else {
+        appGallery = [items];
+        appGalleryIndex = 0;
+    }
+
+    renderAppGalleryItem();
+    if (lightbox) lightbox.classList.add('active');
+    document.body.classList.add('modal-open');
+}
+
+function renderAppGalleryItem() {
+    if (!appGallery || appGallery.length === 0) return;
+    const item = appGallery[appGalleryIndex];
+    if (!item) return;
+
     const lightboxImg = document.getElementById('lightbox-img');
     const captionEl = document.getElementById('lightbox-caption');
-    if (lightboxImg) lightboxImg.src = imgSrc;
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const counterEl = document.getElementById('lightbox-counter');
+
+    if (lightboxImg) {
+        lightboxImg.src = item.imgSrc || item.image || item;
+        lightboxImg.alt = item.title || (item.make ? `${item.make} ${item.model}` : 'Enlarged Vehicle View');
+    }
+
     if (captionEl) {
-        if (notesText && notesText.trim()) {
-            captionEl.textContent = notesText.trim();
+        let captionHtml = '';
+        if (item.title || (item.make && item.model)) {
+            const titleText = item.title || `${item.make} ${item.model}`;
+            const subText = item.sub ? ` (${item.sub})` : '';
+            const urlLink = (item.url || item.carUrl) ? `<a href="${escapeHtml(item.url || item.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details">Info ↗</a>` : '';
+            captionHtml += `<div class="lightbox-caption-header"><strong>${escapeHtml(titleText)}${escapeHtml(subText)}</strong>${urlLink}</div>`;
+        }
+
+        if (item.notes && item.notes.trim()) {
+            captionHtml += `<div class="lightbox-notes">${escapeHtml(item.notes.trim())}</div>`;
+        }
+
+        if (captionHtml) {
+            captionEl.innerHTML = captionHtml;
+            captionEl.classList.remove('hidden');
+        } else if (item.notesText) {
+            captionEl.textContent = item.notesText;
             captionEl.classList.remove('hidden');
         } else {
-            captionEl.textContent = '';
+            captionEl.innerHTML = '';
             captionEl.classList.add('hidden');
         }
     }
-    if (lightbox) lightbox.classList.add('active');
+
+    const hasMultiple = appGallery.length > 1;
+    if (prevBtn) prevBtn.classList.toggle('hidden', !hasMultiple);
+    if (nextBtn) nextBtn.classList.toggle('hidden', !hasMultiple);
+    if (counterEl) {
+        if (hasMultiple) {
+            counterEl.textContent = `${appGalleryIndex + 1} of ${appGallery.length}`;
+            counterEl.classList.remove('hidden');
+        } else {
+            counterEl.classList.add('hidden');
+        }
+    }
+}
+
+function showNextAppZoom() {
+    if (appGallery.length > 1) {
+        appGalleryIndex = (appGalleryIndex + 1) % appGallery.length;
+        renderAppGalleryItem();
+    }
+}
+
+function showPrevAppZoom() {
+    if (appGallery.length > 1) {
+        appGalleryIndex = (appGalleryIndex - 1 + appGallery.length) % appGallery.length;
+        renderAppGalleryItem();
+    }
 }
 
 // 6. Game Termination Evaluation Display
@@ -547,6 +621,7 @@ function displayTerminationState() {
         : `I played Cardle (${MAX_GUESSES}/${MAX_GUESSES} guesses${dateSuffix})`;
 
     bodyEl.innerHTML = `
+        <div class="results-photo-hint">💡 Click on car photo for details and info</div>
         <div class="result-card">
             <div class="result-card-header">
                 <div class="result-thumb-shell" data-img="${escapeHtml(targetCar.image)}" data-notes="${escapeHtml(targetCar.notes || '')}" title="Click to zoom image">
@@ -567,11 +642,38 @@ function displayTerminationState() {
     const imgShell = bodyEl.querySelector('.result-thumb-shell');
     if (imgShell) {
         imgShell.addEventListener('click', () => {
-            openZoom(imgShell.dataset.img, imgShell.dataset.notes);
+            const gallery = [];
+            const seenImages = new Set();
+            currentGameState.guesses.forEach(g => {
+                if (g && g.image && !seenImages.has(g.image)) {
+                    seenImages.add(g.image);
+                    const isTarget = g.id === targetCar.id;
+                    gallery.push({
+                        imgSrc: g.image,
+                        title: isTarget ? `${g.make} ${g.model} (Target Car)` : `${g.make} ${g.model}`,
+                        sub: `${g.country || ''}, ${g.year || ''}`,
+                        notes: g.notes || '',
+                        url: g.url || ''
+                    });
+                }
+            });
+            if (targetCar && targetCar.image && !seenImages.has(targetCar.image)) {
+                seenImages.add(targetCar.image);
+                gallery.push({
+                    imgSrc: targetCar.image,
+                    title: `${targetCar.make} ${targetCar.model} (Target Car)`,
+                    sub: `${targetCar.country || ''}, ${targetCar.year || ''}`,
+                    notes: targetCar.notes || '',
+                    url: targetCar.url || ''
+                });
+            }
+            const targetIdx = gallery.findIndex(item => item.imgSrc === targetCar.image);
+            openZoom(gallery, targetIdx >= 0 ? targetIdx : 0);
         });
     }
 
     modal.classList.add('active');
+    document.body.classList.add('modal-open');
 }
 
 function getStandardShareText() {
@@ -757,6 +859,40 @@ window.addEventListener('DOMContentLoaded', () => {
                 refreshImageDisplay();
             }
 
+            const targetImgEl = document.getElementById('target-image');
+            if (targetImgEl) {
+                targetImgEl.addEventListener('click', () => {
+                    if (!targetCar) return;
+                    const gallery = [];
+                    const seenImages = new Set();
+                    currentGameState.guesses.forEach(g => {
+                        if (g && g.image && !seenImages.has(g.image)) {
+                            seenImages.add(g.image);
+                            const isTarget = g.id === targetCar.id;
+                            gallery.push({
+                                imgSrc: g.image,
+                                title: isTarget ? `${g.make} ${g.model} (Target Car)` : `${g.make} ${g.model}`,
+                                sub: `${g.country || ''}, ${g.year || ''}`,
+                                notes: g.notes || '',
+                                url: g.url || ''
+                            });
+                        }
+                    });
+                    if (targetCar && targetCar.image && !seenImages.has(targetCar.image)) {
+                        seenImages.add(targetCar.image);
+                        gallery.push({
+                            imgSrc: targetCar.image,
+                            title: `${targetCar.make} ${targetCar.model} (Target Car)`,
+                            sub: `${targetCar.country || ''}, ${targetCar.year || ''}`,
+                            notes: targetCar.notes || '',
+                            url: targetCar.url || ''
+                        });
+                    }
+                    const targetIdx = gallery.findIndex(item => item.imgSrc === targetCar.image);
+                    openZoom(gallery, targetIdx >= 0 ? targetIdx : 0);
+                });
+            }
+
             if (submitButton) {
                 submitButton.addEventListener('click', processGuess);
             }
@@ -777,28 +913,91 @@ window.addEventListener('DOMContentLoaded', () => {
             const viewResultsBtn = document.getElementById('view-results-btn');
             const inlinePlayAgainBtn = document.getElementById('inline-play-again-btn');
 
-            if (modalClose && lightbox) {
-                modalClose.addEventListener('click', () => {
-                    lightbox.classList.remove('active');
+            const closeZoomModal = () => {
+                if (lightbox) lightbox.classList.remove('active');
+                if (!resultsModal || !resultsModal.classList.contains('active')) {
+                    document.body.classList.remove('modal-open');
+                }
+            };
+
+            const closeResultsPopup = () => {
+                if (resultsModal) resultsModal.classList.remove('active');
+                if (!lightbox || !lightbox.classList.contains('active')) {
+                    document.body.classList.remove('modal-open');
+                }
+            };
+
+            if (modalClose) {
+                modalClose.addEventListener('click', closeZoomModal);
+            }
+
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+
+            if (lightboxNext) {
+                lightboxNext.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showNextAppZoom();
                 });
             }
 
+            if (lightboxPrev) {
+                lightboxPrev.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showPrevAppZoom();
+                });
+            }
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+
             if (lightbox) {
+                lightbox.addEventListener('touchstart', (e) => {
+                    if (e.touches && e.touches.length === 1) {
+                        touchStartX = e.touches[0].clientX;
+                        touchStartY = e.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                lightbox.addEventListener('touchend', (e) => {
+                    if (!e.changedTouches || e.changedTouches.length === 0) return;
+                    const diffX = e.changedTouches[0].clientX - touchStartX;
+                    const diffY = e.changedTouches[0].clientY - touchStartY;
+
+                    if (Math.abs(diffX) > 35 && Math.abs(diffY) < 60) {
+                        if (diffX < 0) {
+                            showNextAppZoom();
+                        } else {
+                            showPrevAppZoom();
+                        }
+                    }
+                }, { passive: true });
+
                 lightbox.addEventListener('click', (e) => {
                     if (e.target === lightbox) {
-                        lightbox.classList.remove('active');
+                        closeZoomModal();
                     }
                 });
             }
 
+            window.addEventListener('keydown', (e) => {
+                if (lightbox && lightbox.classList.contains('active')) {
+                    if (e.key === 'ArrowRight') {
+                        showNextAppZoom();
+                    } else if (e.key === 'ArrowLeft') {
+                        showPrevAppZoom();
+                    } else if (e.key === 'Escape') {
+                        closeZoomModal();
+                    }
+                }
+            });
+
             if (resultsClose && resultsModal) {
-                resultsClose.addEventListener('click', () => {
-                    resultsModal.classList.remove('active');
-                });
+                resultsClose.addEventListener('click', closeResultsPopup);
 
                 resultsModal.addEventListener('click', (event) => {
                     if (event.target === resultsModal) {
-                        resultsModal.classList.remove('active');
+                        closeResultsPopup();
                     }
                 });
             }

@@ -71,6 +71,9 @@
   <div class="modal" id="lightbox">
     <div class="lightbox-content">
       <button class="modal-close" id="modal-close" aria-label="Close image preview">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
+      <div id="lightbox-counter" class="lightbox-counter hidden">1 / 4</div>
       <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
       <div id="lightbox-caption" class="lightbox-caption hidden"></div>
     </div>
@@ -80,6 +83,7 @@
     <div class="results-panel">
       <button class="modal-close" id="results-close" aria-label="Close results">✕</button>
       <h2 id="results-title">Round Results</h2>
+      <div class="results-photo-hint">💡 Click on any car for details and info</div>
       <div class="results-list" id="results-list"></div>
       <p class="results-summary" id="results-summary"></p>
       <div id="share-toast" class="share-toast hidden">Copied results to clipboard!</div>

@@ -380,7 +380,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.querySelector('.zoom-btn').addEventListener('click', (e) => {
           e.stopPropagation();
-          openZoom(car.image);
+          const poolGallery = roundVehicles.map(v => ({
+            imgSrc: v.image,
+            title: `${v.displayLabel}: ${v.year} ${v.make} ${v.model}`,
+            notes: v.notes || '',
+            url: v.url || ''
+          }));
+          const idx = roundVehicles.findIndex(v => v.labelId === car.labelId);
+          openZoom(poolGallery, idx >= 0 ? idx : 0);
         });
 
         vehiclePool.appendChild(card);
@@ -464,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         dockSlot.innerHTML = `
           <div class="docked-thumbnail ${gameLocked ? 'locked' : ''}">
-            <img src="${escapeHtml(car.image)}" alt="${escapeHtml(fullCarName)}">
+            <img src="${escapeHtml(car.image)}" alt="${escapeHtml(fullCarName)}" style="cursor: pointer;" title="Click to zoom image">
             <div class="docked-info">
               <span class="docked-label">${escapeHtml(displayLabel)}</span>
               ${linkHtml}
@@ -473,6 +480,21 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
         input.disabled = gameLocked;
+
+        const dockedImg = dockSlot.querySelector('img');
+        if (dockedImg) {
+          dockedImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const poolGallery = roundVehicles.map(v => ({
+              imgSrc: v.image,
+              title: `${v.displayLabel}: ${v.year} ${v.make} ${v.model}`,
+              notes: v.notes || '',
+              url: v.url || ''
+            }));
+            const idx = roundVehicles.findIndex(v => v.labelId === car.labelId);
+            openZoom(poolGallery, idx >= 0 ? idx : 0);
+          });
+        }
 
         if (!gameLocked) {
           const ejectBtn = dockSlot.querySelector('.eject-btn');
@@ -619,9 +641,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pointsBadge = `${result.points}/${result.maxPoints} pts`;
-      const urlLinkHtml = result.carUrl
-        ? `<a href="${escapeHtml(result.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details on ${escapeHtml(result.fullCarName)}">Info ↗</a>`
-        : '';
 
       return `
         <div class="result-card ${statusClass}">
@@ -630,7 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="result-status ${statusClass}">${statusText} (${pointsBadge})</span>
           </div>
           <div class="result-card-content">
-            <div class="result-thumb-shell" data-img="${escapeHtml(result.carImage)}" data-notes="${escapeHtml(result.carNotes || '')}" title="Click to zoom image">
+            <div class="result-thumb-shell" data-img="${escapeHtml(result.carImage)}" data-notes="${escapeHtml(result.carNotes || '')}">
               <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
               <span class="thumb-zoom-badge">🔍</span>
             </div>
@@ -638,7 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="result-car-title">
                 <span class="car-badge">${escapeHtml(result.carLabel)}:</span>
                 <span class="car-name-text">${escapeHtml(result.fullCarName)}</span>
-                ${urlLinkHtml}
               </div>
               <div class="result-guess-row">Guess: <strong>${escapeHtml(result.guess || '—')}</strong></div>
               ${result.isCorrect ? '' : `<div class="result-answer-row">Correct: <strong>${escapeHtml(result.actual)}</strong></div>`}
@@ -648,10 +666,23 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }).join('');
 
-    resultsList.querySelectorAll('.result-thumb-shell').forEach(shell => {
-      shell.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openZoom(shell.dataset.img, shell.dataset.notes);
+    const galleryItems = results.map(result => ({
+      imgSrc: result.carImage,
+      category: result.label,
+      title: `${result.carLabel}: ${result.fullCarName}`,
+      fullCarName: result.fullCarName,
+      guess: result.guess,
+      actual: result.actual,
+      isCorrect: result.isCorrect,
+      points: result.points,
+      maxPoints: result.maxPoints,
+      notes: result.carNotes,
+      url: result.carUrl
+    }));
+
+    resultsList.querySelectorAll('.result-card').forEach((card, index) => {
+      card.addEventListener('click', (e) => {
+        openZoom(galleryItems, index);
       });
     });
 
@@ -659,6 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
     resultsSummary.innerHTML = `I scored <strong>${totalScore} / 10</strong> on Cardle CARtegories${dateSuffix}!`;
     resultsModal.classList.add('active');
+    document.body.classList.add('modal-open');
   }
 
   function getFormattedDate(dateStr) {
@@ -735,6 +767,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeResultsModal() {
     if (resultsModal) {
       resultsModal.classList.remove('active');
+    }
+    if (!lightbox || !lightbox.classList.contains('active')) {
+      document.body.classList.remove('modal-open');
     }
     const toast = document.getElementById('share-toast');
     if (toast) {
@@ -839,37 +874,170 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('input', checkSubmissionState);
   });
 
-  function openZoom(imgSrc, notesText = '') {
-    if (lightboxImg) {
-      lightboxImg.src = imgSrc;
+  let currentGallery = [];
+  let currentGalleryIndex = 0;
+
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+
+  function openZoom(items, initialIndex = 0) {
+    if (!items) return;
+    if (typeof items === 'string') {
+      currentGallery = [{ imgSrc: items, notes: arguments[1] || '' }];
+      currentGalleryIndex = 0;
+    } else if (Array.isArray(items)) {
+      currentGallery = items;
+      currentGalleryIndex = Math.max(0, Math.min(initialIndex, currentGallery.length - 1));
+    } else {
+      currentGallery = [items];
+      currentGalleryIndex = 0;
     }
+
+    renderGalleryItem();
+    if (lightbox) {
+      lightbox.classList.add('active');
+    }
+    document.body.classList.add('modal-open');
+  }
+
+  function renderGalleryItem() {
+    if (!currentGallery || currentGallery.length === 0) return;
+    const item = currentGallery[currentGalleryIndex];
+    if (!item) return;
+
+    if (lightboxImg) {
+      lightboxImg.src = item.imgSrc || item.image || item;
+      lightboxImg.alt = item.title || item.fullCarName || 'Enlarged Vehicle View';
+    }
+
     const captionEl = document.getElementById('lightbox-caption');
     if (captionEl) {
-      if (notesText && notesText.trim()) {
-        captionEl.textContent = notesText.trim();
+      let captionHtml = '';
+      if (item.category || item.title || item.fullCarName) {
+        const catBadge = item.category ? `<span class="lightbox-cat-badge">${escapeHtml(item.category)}</span>` : '';
+        const titleText = item.title || item.fullCarName || '';
+        const urlLink = (item.url || item.carUrl) ? `<a href="${escapeHtml(item.url || item.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details">Info ↗</a>` : '';
+        captionHtml += `<div class="lightbox-caption-header">${catBadge}<strong>${escapeHtml(titleText)}</strong>${urlLink}</div>`;
+      }
+
+      if (item.guess !== undefined && item.guess !== null) {
+        const statusClass = item.isCorrect ? 'correct' : (item.points > 0 ? 'partial' : 'incorrect');
+        const pointsBadge = item.pointsBadge || (item.points !== undefined ? `${item.points}/${item.maxPoints || 2} pts` : '');
+        captionHtml += `<div class="lightbox-guess-info">Guess: <strong>${escapeHtml(item.guess || '—')}</strong> ${item.isCorrect ? '✓' : '| Correct: <strong>' + escapeHtml(item.actual || '') + '</strong> ✕'} <span class="result-status ${statusClass}">${pointsBadge ? '(' + escapeHtml(pointsBadge) + ')' : ''}</span></div>`;
+      }
+
+      if (item.notes && item.notes.trim()) {
+        captionHtml += `<div class="lightbox-notes">${escapeHtml(item.notes.trim())}</div>`;
+      }
+
+      if (captionHtml) {
+        captionEl.innerHTML = captionHtml;
         captionEl.classList.remove('hidden');
       } else {
-        captionEl.textContent = '';
+        captionEl.innerHTML = '';
         captionEl.classList.add('hidden');
       }
     }
+
+    const hasMultiple = currentGallery.length > 1;
+    if (lightboxPrev) lightboxPrev.classList.toggle('hidden', !hasMultiple);
+    if (lightboxNext) lightboxNext.classList.toggle('hidden', !hasMultiple);
+    if (lightboxCounter) {
+      if (hasMultiple) {
+        lightboxCounter.textContent = `${currentGalleryIndex + 1} of ${currentGallery.length}`;
+        lightboxCounter.classList.remove('hidden');
+      } else {
+        lightboxCounter.classList.add('hidden');
+      }
+    }
+  }
+
+  function showNextZoom() {
+    if (currentGallery.length > 1) {
+      currentGalleryIndex = (currentGalleryIndex + 1) % currentGallery.length;
+      renderGalleryItem();
+    }
+  }
+
+  function showPrevZoom() {
+    if (currentGallery.length > 1) {
+      currentGalleryIndex = (currentGalleryIndex - 1 + currentGallery.length) % currentGallery.length;
+      renderGalleryItem();
+    }
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNextZoom();
+    });
+  }
+
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrevZoom();
+    });
+  }
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      if (Math.abs(diffX) > 35 && Math.abs(diffY) < 60) {
+        if (diffX < 0) {
+          showNextZoom();
+        } else {
+          showPrevZoom();
+        }
+      }
+    }, { passive: true });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (lightbox && lightbox.classList.contains('active')) {
+      if (e.key === 'ArrowRight') {
+        showNextZoom();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevZoom();
+      } else if (e.key === 'Escape') {
+        closeZoom();
+      }
+    }
+  });
+
+  function closeZoom() {
     if (lightbox) {
-      lightbox.classList.add('active');
+      lightbox.classList.remove('active');
+    }
+    if (!resultsModal || !resultsModal.classList.contains('active')) {
+      document.body.classList.remove('modal-open');
     }
   }
 
   if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      if (lightbox) {
-        lightbox.classList.remove('active');
-      }
-    });
+    modalClose.addEventListener('click', closeZoom);
   }
 
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
-        lightbox.classList.remove('active');
+        closeZoom();
       }
     });
   }
