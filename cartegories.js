@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dailyPlayBtn = document.getElementById('daily-play-btn');
   const randomPlayBtn = document.getElementById('random-play-btn');
 
-  // Country Normalisation and Helper Utilities
+  // Country Normalisation and Helper Utilities.
   function parseCountries(countryInput) {
     if (Array.isArray(countryInput)) {
       return countryInput.map(c => String(c).trim()).filter(Boolean);
@@ -382,9 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
           e.stopPropagation();
           const poolGallery = roundVehicles.map(v => ({
             imgSrc: v.image,
-            title: `${v.displayLabel}: ${v.year} ${v.make} ${v.model}`,
-            notes: v.notes || '',
-            url: v.url || ''
+            title: gameLocked ? `${v.displayLabel}: ${v.year} ${v.make} ${v.model}` : v.displayLabel,
+            notes: gameLocked ? (v.notes || '') : '',
+            url: gameLocked ? (v.url || '') : ''
           }));
           const idx = roundVehicles.findIndex(v => v.labelId === car.labelId);
           openZoom(poolGallery, idx >= 0 ? idx : 0);
@@ -487,9 +487,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             const poolGallery = roundVehicles.map(v => ({
               imgSrc: v.image,
-              title: `${v.displayLabel}: ${v.year} ${v.make} ${v.model}`,
-              notes: v.notes || '',
-              url: v.url || ''
+              title: gameLocked ? `${v.displayLabel}: ${v.year} ${v.make} ${v.model}` : v.displayLabel,
+              notes: gameLocked ? (v.notes || '') : '',
+              url: gameLocked ? (v.url || '') : ''
             }));
             const idx = roundVehicles.findIndex(v => v.labelId === car.labelId);
             openZoom(poolGallery, idx >= 0 ? idx : 0);

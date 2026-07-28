@@ -13,7 +13,7 @@ let currentGameState = {
     revealOrder: []
 };
 
-// Country Normalisation and Helper Utilities
+// Country Normalisation and Helper Utilities.
 function parseCountries(countryInput) {
     if (Array.isArray(countryInput)) {
         return countryInput.map(c => String(c).trim()).filter(Boolean);
@@ -865,16 +865,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     if (!targetCar) return;
                     const gallery = [];
                     const seenImages = new Set();
+                    const showTargetDetails = currentGameState.isGameOver;
                     currentGameState.guesses.forEach(g => {
                         if (g && g.image && !seenImages.has(g.image)) {
                             seenImages.add(g.image);
                             const isTarget = g.id === targetCar.id;
                             gallery.push({
                                 imgSrc: g.image,
-                                title: isTarget ? `${g.make} ${g.model} (Target Car)` : `${g.make} ${g.model}`,
-                                sub: `${g.country || ''}, ${g.year || ''}`,
-                                notes: g.notes || '',
-                                url: g.url || ''
+                                title: isTarget && !showTargetDetails ? 'Target Car' : `${g.make} ${g.model}`,
+                                sub: isTarget && !showTargetDetails ? '' : `${g.country || ''}, ${g.year || ''}`,
+                                notes: isTarget && !showTargetDetails ? '' : (g.notes || ''),
+                                url: isTarget && !showTargetDetails ? '' : (g.url || '')
                             });
                         }
                     });
@@ -882,10 +883,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         seenImages.add(targetCar.image);
                         gallery.push({
                             imgSrc: targetCar.image,
-                            title: `${targetCar.make} ${targetCar.model} (Target Car)`,
-                            sub: `${targetCar.country || ''}, ${targetCar.year || ''}`,
-                            notes: targetCar.notes || '',
-                            url: targetCar.url || ''
+                            title: showTargetDetails ? `${targetCar.make} ${targetCar.model} (Target Car)` : 'Target Car',
+                            sub: showTargetDetails ? `${targetCar.country || ''}, ${targetCar.year || ''}` : '',
+                            notes: showTargetDetails ? (targetCar.notes || '') : '',
+                            url: showTargetDetails ? (targetCar.url || '') : ''
                         });
                     }
                     const targetIdx = gallery.findIndex(item => item.imgSrc === targetCar.image);
