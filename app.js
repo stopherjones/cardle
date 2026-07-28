@@ -48,6 +48,9 @@ function hasValidImageUrl(url) {
 
 // 1. Data Normalisation and Sanitisation Pipeline
 function normaliseData(rawItems) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.normaliseData) {
+        return CardleDailyEngine.normaliseData(rawItems);
+    }
     const list = Array.isArray(rawItems) ? rawItems : (rawItems?.vehicles || []);
     const registry = {};
 
@@ -80,17 +83,24 @@ function normaliseData(rawItems) {
         }
     });
 
-    return Object.values(registry);
+    return Object.values(registry).sort((a, b) => a.id.localeCompare(b.id));
 }
 
 function getDateStamp(date = new Date()) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getDateStamp) {
+        return CardleDailyEngine.getDateStamp(date);
+    }
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
-// 2. Deterministic Chronological Seed Mapping
+// 2. Deterministic Chronological Cycle Mapping (No repeats until all cars chosen)
 function calculateDailyTarget(carsList) {
     const dateStamp = getDateStamp();
     currentGameState.date = dateStamp;
+
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getDailyCardleCar) {
+        return CardleDailyEngine.getDailyCardleCar(carsList);
+    }
 
     let computationHash = 0;
     for (let i = 0; i < dateStamp.length; i++) {
@@ -174,6 +184,7 @@ function clearSuggestions() {
 
 function renderSuggestions(query) {
     const suggestions = document.getElementById('car-suggestions');
+    const input = document.getElementById('user-input');
     if (!suggestions) return;
 
     const normalizedQuery = query.trim().toLowerCase();
@@ -187,18 +198,39 @@ function renderSuggestions(query) {
         });
     }
 
+    let itemsHtml = '';
     if (!matches.length) {
-        suggestions.innerHTML = '<div class="suggestion-empty">No matching vehicles found</div>';
-        suggestions.classList.remove('hidden');
-        return;
+        itemsHtml = '<div class="suggestion-empty">No matching vehicles found</div>';
+    } else {
+        itemsHtml = matches.slice(0, 50).map(car => `
+            <button type="button" class="suggestion-item" data-label="${escapeHtml(getCarDisplayLabel(car))}">
+                ${escapeHtml(getCarDisplayLabel(car))}
+            </button>
+        `).join('');
     }
 
-    suggestions.innerHTML = matches.slice(0, 50).map(car => `
-        <button type="button" class="suggestion-item" data-label="${getCarDisplayLabel(car)}">
-            ${getCarDisplayLabel(car)}
+    suggestions.innerHTML = `
+        <button type="button" class="lucky-suggestion-btn" id="lucky-suggestion-btn">
+            <span>🎲</span> I'm feeling lucky
         </button>
-    `).join('');
+        ${itemsHtml}
+    `;
     suggestions.classList.remove('hidden');
+
+    const luckyBtn = document.getElementById('lucky-suggestion-btn');
+    if (luckyBtn) {
+        luckyBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pool = (matches && matches.length > 0) ? matches : searchableCars;
+            if (pool && pool.length > 0) {
+                const randomCar = pool[Math.floor(Math.random() * pool.length)];
+                if (input) {
+                    input.value = getCarDisplayLabel(randomCar);
+                }
+                processGuess();
+            }
+        });
+    }
 }
 
 function findCarByInput(inputString) {

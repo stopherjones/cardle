@@ -10,7 +10,7 @@ const PORT = 3000;
 
 // Serve vehicles.json specifically
 app.get('/vehicles.json', (req, res) => {
-  res.sendFile(path.join(__dirname, 'cardle.json'));
+  res.sendFile(path.join(__dirname, 'vehicles.json'));
 });
 
 // Serve static files with .html fallback

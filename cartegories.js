@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Shared Data Normalisation Pipeline
   function normaliseData(rawItems) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.normaliseData) {
+      return CardleDailyEngine.normaliseData(rawItems);
+    }
     const list = Array.isArray(rawItems) ? rawItems : (rawItems?.vehicles || []);
     const registry = {};
 
@@ -108,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    return Object.values(registry);
+    return Object.values(registry).sort((a, b) => a.id.localeCompare(b.id));
   }
 
   // Populate unique options for the picker/type-ahead lists
@@ -246,17 +249,40 @@ document.addEventListener('DOMContentLoaded', () => {
       ? list.filter(item => String(item).toLowerCase().includes(normalized))
       : list;
 
+    let itemsHtml = '';
     if (matches.length === 0) {
-      container.innerHTML = `<div class="suggestion-empty">No matching ${category}s</div>`;
-      container.classList.remove('hidden');
-      return;
+      itemsHtml = `<div class="suggestion-empty">No matching ${category}s</div>`;
+    } else {
+      itemsHtml = matches.map(item => `
+        <button type="button" class="suggestion-item" data-value="${item}">${item}</button>
+      `).join('');
     }
 
-    container.innerHTML = matches.map(item => `
-      <button type="button" class="suggestion-item" data-value="${item}">${item}</button>
-    `).join('');
+    container.innerHTML = `
+      <button type="button" class="lucky-suggestion-btn">
+        <span>🎲</span> I'm feeling lucky
+      </button>
+      ${itemsHtml}
+    `;
 
     container.classList.remove('hidden');
+
+    const luckyBtn = container.querySelector('.lucky-suggestion-btn');
+    if (luckyBtn) {
+      luckyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pool = (matches && matches.length > 0) ? matches : list;
+        if (pool && pool.length > 0) {
+          const randomItem = pool[Math.floor(Math.random() * pool.length)];
+          input.value = randomItem;
+          const picker = input.closest('.picker-shell');
+          if (picker) {
+            closeSearchOverlay(picker);
+          }
+          checkSubmissionState();
+        }
+      });
+    }
 
     container.querySelectorAll('.suggestion-item').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -272,11 +298,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getDateStamp(date = new Date()) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getDateStamp) {
+      return CardleDailyEngine.getDateStamp(date);
+    }
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   }
 
   function getDailyVehicles() {
     if (gameDatabase.length < 4) return [];
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getDailyCartegoriesVehicles) {
+      return CardleDailyEngine.getDailyCartegoriesVehicles(gameDatabase);
+    }
     const dateStamp = getDateStamp();
     let computationHash = 0;
     for (let i = 0; i < dateStamp.length; i++) {
@@ -426,22 +458,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (carId) {
         const car = roundVehicles.find(v => v.labelId === carId);
+        const fullCarName = `${car.year} ${car.make} ${car.model}`;
+        const displayLabel = gameLocked ? `${car.displayLabel}: ${fullCarName}` : car.displayLabel;
+        const linkHtml = (gameLocked && car.url) ? `<a href="${escapeHtml(car.url)}" target="_blank" rel="noopener noreferrer" class="docked-link" title="Learn more about ${escapeHtml(fullCarName)}">🔗 Info ↗</a>` : '';
+
         dockSlot.innerHTML = `
-          <div class="docked-thumbnail">
-            <img src="${car.image}" alt="${car.displayLabel}">
-            <span class="docked-label">${car.displayLabel}</span>
-            <button class="eject-btn" data-eject="${category}">✕</button>
+          <div class="docked-thumbnail ${gameLocked ? 'locked' : ''}">
+            <img src="${escapeHtml(car.image)}" alt="${escapeHtml(fullCarName)}">
+            <div class="docked-info">
+              <span class="docked-label">${escapeHtml(displayLabel)}</span>
+              ${linkHtml}
+            </div>
+            ${!gameLocked ? `<button class="eject-btn" data-eject="${category}">✕</button>` : ''}
           </div>
         `;
-        input.disabled = false;
+        input.disabled = gameLocked;
 
-        dockSlot.querySelector('.eject-btn').addEventListener('click', (e) => {
-          e.stopPropagation();
-          ejectCar(category);
-        });
+        if (!gameLocked) {
+          const ejectBtn = dockSlot.querySelector('.eject-btn');
+          if (ejectBtn) {
+            ejectBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              ejectCar(category);
+            });
+          }
+        }
       } else {
         dockSlot.innerHTML = '';
-        input.disabled = true;
+        if (input) {
+          input.value = '';
+          input.disabled = true;
+        }
       }
     });
 
@@ -498,6 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = zone.querySelector(`[data-input="${category}"]`);
       const guess = input ? input.value.trim() : '';
       const actual = car[category];
+      const fullCarName = `${car.year} ${car.make} ${car.model}`;
 
       let points = 0;
       let maxPoints = 1;
@@ -535,6 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
         category,
         label: CATEGORY_LABELS[category],
         carLabel: car.displayLabel,
+        fullCarName: fullCarName,
+        carUrl: car.url || '',
         carImage: car.image,
         guess,
         actual: formatActualValue(car, category),
@@ -547,8 +597,8 @@ document.addEventListener('DOMContentLoaded', () => {
     score += totalScore;
     if (scoreEl) scoreEl.textContent = String(score);
 
-    showResults(results, totalScore);
     lockGame();
+    showResults(results, totalScore);
   }
 
   function showResults(results, totalScore) {
@@ -557,7 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resultsList.innerHTML = results.map(result => {
       let statusClass = 'incorrect';
-      let statusText = '✗ Incorrect';
+      let statusText = '✕ Incorrect';
 
       if (result.isCorrect) {
         statusClass = 'correct';
@@ -568,20 +618,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pointsBadge = `${result.points} / ${result.maxPoints} ${result.maxPoints === 1 ? 'point' : 'points'}`;
+      const urlLinkHtml = result.carUrl
+        ? `<a href="${escapeHtml(result.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-link">🌐 Learn more about ${escapeHtml(result.fullCarName)} ↗</a>`
+        : '';
 
       return `
         <div class="result-row ${statusClass}">
-          <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.carLabel)}">
+          <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
           <div class="result-body">
             <div class="result-header">
-              <span class="result-category">${result.label}</span>
-              <span class="result-car">${escapeHtml(result.carLabel)}</span>
+              <span class="result-category">${escapeHtml(result.label)}</span>
               <span class="result-status ${statusClass}">
                 ${statusText} (${pointsBadge})
               </span>
             </div>
+            <div class="result-car-title">
+              <span class="car-badge">${escapeHtml(result.carLabel)}:</span>
+              <strong class="car-name-text">${escapeHtml(result.fullCarName)}</strong>
+            </div>
             <div class="result-guess">Your guess: ${escapeHtml(result.guess)}</div>
-            ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: ${escapeHtml(result.actual)}</div>`}
+            ${result.isCorrect ? '' : `<div class="result-answer">Correct answer: <strong>${escapeHtml(result.actual)}</strong></div>`}
+            ${urlLinkHtml ? `<div class="result-link-container">${urlLinkHtml}</div>` : ''}
           </div>
         </div>
       `;
@@ -684,7 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (input) input.disabled = true;
     });
 
-    renderPool();
+    updateUI();
   }
 
   function startNewGame(mode = currentMode) {
@@ -704,11 +761,15 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = '';
         input.disabled = true;
       }
+      const dockSlot = zone.querySelector('.dock-slot');
+      if (dockSlot) {
+        dockSlot.innerHTML = '';
+      }
     });
 
     closeAllTypeaheads();
     setupRound(mode);
-    checkSubmissionState();
+    updateUI();
   }
 
   function startNextRound() {

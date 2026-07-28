@@ -14,6 +14,10 @@
       <header>
         <h1 id="home-title">CARDLE</h1>
         <p>Choose which game to play.</p>
+        <div class="daily-update-badge" id="daily-update-badge" title="Daily selection refreshes at midnight. Every car in the collection is played once before repeating.">
+          <span class="status-indicator"></span>
+          <span id="daily-update-text">Daily challenge updated for today &bull; Resets at midnight</span>
+        </div>
       </header>
 
       <div class="mode-choice-grid">
@@ -64,5 +68,16 @@
       </div>
     </section>
   </main>
+  <script src="daily-selector.js"></script>
+  <script>
+    (function() {
+      const badgeText = document.getElementById('daily-update-text');
+      if (!badgeText) return;
+      const now = new Date();
+      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-US', options);
+      badgeText.innerHTML = `New daily cars selected for <strong>${dateStr}</strong> &bull; Resets at midnight`;
+    })();
+  </script>
 </body>
 </html>

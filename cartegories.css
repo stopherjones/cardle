@@ -144,12 +144,37 @@
   height: 28px;
   object-fit: cover;
   border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.docked-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
 }
 
 .docked-label {
   font-size: 0.85rem;
   font-weight: 700;
   color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.docked-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.docked-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .eject-btn {
@@ -426,15 +451,63 @@
   color: var(--danger);
 }
 
+.result-car-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 4px 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.result-car-title .car-badge {
+  background: rgba(110, 168, 255, 0.15);
+  border: 1px solid rgba(110, 168, 255, 0.3);
+  color: var(--accent-strong);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.result-car-title .car-name-text {
+  color: #ffffff;
+}
+
 .result-guess {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .result-answer {
   margin-top: 0.35rem;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.result-link-container {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.result-url-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.result-url-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .results-summary {

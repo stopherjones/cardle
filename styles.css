@@ -82,6 +82,42 @@ header p {
     text-align: center;
 }
 
+.daily-update-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(110, 168, 255, 0.08);
+    border: 1px solid rgba(110, 168, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 4px auto 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+}
+
+.daily-update-badge:hover {
+    background: rgba(110, 168, 255, 0.12);
+    border-color: rgba(110, 168, 255, 0.35);
+}
+
+.daily-update-badge strong {
+    color: var(--accent-strong);
+    font-weight: 600;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(46, 125, 50, 0.8);
+    flex-shrink: 0;
+}
+
 .mode-switcher {
     display: flex;
     justify-content: center;
@@ -208,7 +244,7 @@ header p {
     color: var(--text-muted);
     font-size: 0.8rem;
     font-weight: 700;
-    opacity: 0.96;
+    opacity: 1;
     transition: opacity 0.25s ease;
 }
 
@@ -217,7 +253,7 @@ header p {
 }
 
 .mode-card:hover .preview-tile.obscured {
-    opacity: 0.9;
+    opacity: 1;
 }
 
 /* CARtegories preview styles */
@@ -350,7 +386,7 @@ header p {
 }
 
 .overlay-cell {
-    background: rgba(0, 0, 0, 0.95);
+    background: #000000;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-sizing: border-box;
     transition: opacity 0.25s ease;
@@ -506,6 +542,34 @@ header p {
     color: var(--text-primary);
     font-size: 0.95rem;
     cursor: pointer;
+}
+
+.lucky-suggestion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(110, 168, 255, 0.2), rgba(181, 159, 59, 0.2));
+    border: none;
+    border-bottom: 1px solid rgba(110, 168, 255, 0.35);
+    color: var(--accent-strong);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+}
+
+.lucky-suggestion-btn:hover {
+    background: linear-gradient(135deg, rgba(110, 168, 255, 0.35), rgba(181, 159, 59, 0.35));
+    color: #ffffff;
+}
+
+.lucky-suggestion-btn:active {
+    transform: scale(0.99);
 }
 
 .suggestion-item:hover {
