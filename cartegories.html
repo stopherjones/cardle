@@ -69,8 +69,11 @@
   </main>
 
   <div class="modal" id="lightbox">
-    <button class="modal-close" id="modal-close" aria-label="Close image preview">✕</button>
-    <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
+    <div class="lightbox-content">
+      <button class="modal-close" id="modal-close" aria-label="Close image preview">✕</button>
+      <img id="lightbox-img" src="" alt="Enlarged Vehicle View">
+      <div id="lightbox-caption" class="lightbox-caption hidden"></div>
+    </div>
   </div>
 
   <div class="modal results-modal" id="results-modal" role="dialog" aria-modal="true" aria-labelledby="results-title">

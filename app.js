@@ -499,6 +499,23 @@ function getFormattedDate(dateStr) {
     return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
+function openZoom(imgSrc, notesText = '') {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const captionEl = document.getElementById('lightbox-caption');
+    if (lightboxImg) lightboxImg.src = imgSrc;
+    if (captionEl) {
+        if (notesText && notesText.trim()) {
+            captionEl.textContent = notesText.trim();
+            captionEl.classList.remove('hidden');
+        } else {
+            captionEl.textContent = '';
+            captionEl.classList.add('hidden');
+        }
+    }
+    if (lightbox) lightbox.classList.add('active');
+}
+
 // 6. Game Termination Evaluation Display
 function displayTerminationState() {
     const inputControls = document.getElementById('input-controls');
@@ -532,7 +549,10 @@ function displayTerminationState() {
     bodyEl.innerHTML = `
         <div class="result-card">
             <div class="result-card-header">
-                <img class="result-card-img" src="${escapeHtml(targetCar.image)}" alt="${escapeHtml(targetCar.make + ' ' + targetCar.model)}">
+                <div class="result-thumb-shell" data-img="${escapeHtml(targetCar.image)}" data-notes="${escapeHtml(targetCar.notes || '')}" title="Click to zoom image">
+                    <img class="result-card-img" src="${escapeHtml(targetCar.image)}" alt="${escapeHtml(targetCar.make + ' ' + targetCar.model)}">
+                    <span class="thumb-zoom-badge">🔍</span>
+                </div>
                 <div class="result-card-info">
                     <div class="result-card-title">${escapeHtml(targetCar.make)} ${escapeHtml(targetCar.model)}</div>
                     <div class="result-card-sub">${escapeHtml(targetCar.country || 'Unknown')}, ${targetCar.year}</div>
@@ -543,6 +563,13 @@ function displayTerminationState() {
             ${targetCar.url ? `<div class="result-card-link"><a href="${escapeHtml(targetCar.url)}" target="_blank" rel="noopener noreferrer">Read more on Wikipedia →</a></div>` : ''}
         </div>
     `;
+
+    const imgShell = bodyEl.querySelector('.result-thumb-shell');
+    if (imgShell) {
+        imgShell.addEventListener('click', () => {
+            openZoom(imgShell.dataset.img, imgShell.dataset.notes);
+        });
+    }
 
     modal.classList.add('active');
 }
@@ -744,9 +771,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const resultsClose = document.getElementById('results-close');
             const resultsModal = document.getElementById('results-modal');
+            const lightbox = document.getElementById('lightbox');
+            const modalClose = document.getElementById('modal-close');
             const nextGameBtn = document.getElementById('next-game-btn');
             const viewResultsBtn = document.getElementById('view-results-btn');
             const inlinePlayAgainBtn = document.getElementById('inline-play-again-btn');
+
+            if (modalClose && lightbox) {
+                modalClose.addEventListener('click', () => {
+                    lightbox.classList.remove('active');
+                });
+            }
+
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.classList.remove('active');
+                    }
+                });
+            }
 
             if (resultsClose && resultsModal) {
                 resultsClose.addEventListener('click', () => {

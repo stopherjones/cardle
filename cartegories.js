@@ -586,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fullCarName: fullCarName,
         carUrl: car.url || '',
         carImage: car.image,
+        carNotes: car.notes || '',
         guess,
         actual: formatActualValue(car, category),
         points,
@@ -629,7 +630,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="result-status ${statusClass}">${statusText} (${pointsBadge})</span>
           </div>
           <div class="result-card-content">
-            <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
+            <div class="result-thumb-shell" data-img="${escapeHtml(result.carImage)}" data-notes="${escapeHtml(result.carNotes || '')}" title="Click to zoom image">
+              <img class="result-thumb" src="${escapeHtml(result.carImage)}" alt="${escapeHtml(result.fullCarName)}">
+              <span class="thumb-zoom-badge">🔍</span>
+            </div>
             <div class="result-body">
               <div class="result-car-title">
                 <span class="car-badge">${escapeHtml(result.carLabel)}:</span>
@@ -643,6 +647,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
     }).join('');
+
+    resultsList.querySelectorAll('.result-thumb-shell').forEach(shell => {
+      shell.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openZoom(shell.dataset.img, shell.dataset.notes);
+      });
+    });
 
     const isDaily = currentMode === 'daily';
     const dateSuffix = isDaily ? ` for ${getFormattedDate()}` : '';
@@ -828,9 +839,19 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('input', checkSubmissionState);
   });
 
-  function openZoom(imgSrc) {
+  function openZoom(imgSrc, notesText = '') {
     if (lightboxImg) {
       lightboxImg.src = imgSrc;
+    }
+    const captionEl = document.getElementById('lightbox-caption');
+    if (captionEl) {
+      if (notesText && notesText.trim()) {
+        captionEl.textContent = notesText.trim();
+        captionEl.classList.remove('hidden');
+      } else {
+        captionEl.textContent = '';
+        captionEl.classList.add('hidden');
+      }
     }
     if (lightbox) {
       lightbox.classList.add('active');
