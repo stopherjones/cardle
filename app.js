@@ -13,7 +13,42 @@ let currentGameState = {
     revealOrder: []
 };
 
-// Country Normalisation and Helper Utilities.
+// Helper Utilities for Normalisation and Search
+function stripAccents(str) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.stripAccents) {
+        return CardleDailyEngine.stripAccents(str);
+    }
+    if (!str) return '';
+    return String(str)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+}
+
+function normalizeForSearch(str) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.normalizeForSearch) {
+        return CardleDailyEngine.normalizeForSearch(str);
+    }
+    if (!str) return '';
+    return stripAccents(str).toLowerCase().trim();
+}
+
+function getReadMoreHtml(make, model, wikiUrl) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getReadMoreHtml) {
+        return CardleDailyEngine.getReadMoreHtml(make, model, wikiUrl);
+    }
+    const links = [];
+    if (wikiUrl) {
+        links.push(`<a href="${escapeHtml(wikiUrl)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>`);
+    }
+    const searchQuery = `${make || ''} ${model || ''}`.trim();
+    if (searchQuery) {
+        const googleAiUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}&udm=50`;
+        links.push(`<a href="${escapeHtml(googleAiUrl)}" target="_blank" rel="noopener noreferrer">Google AI</a>`);
+    }
+    if (links.length === 0) return '';
+    return `<span class="read-more-label">Read more:</span> ${links.join(' <span class="read-more-pipe">|</span> ')}`;
+}
+
 function parseCountries(countryInput) {
     if (Array.isArray(countryInput)) {
         return countryInput.map(c => String(c).trim()).filter(Boolean);
@@ -26,7 +61,7 @@ function parseCountries(countryInput) {
 
 function normalizeCountryName(str) {
     if (!str) return '';
-    const s = String(str).trim().toLowerCase();
+    const s = normalizeForSearch(str);
     if (['usa', 'us', 'united states of america', 'america'].includes(s)) return 'united states';
     if (['uk', 'great britain', 'britain', 'england'].includes(s)) return 'united kingdom';
     if (['ussr', 'soviet union'].includes(s)) return 'ussr';
@@ -187,13 +222,13 @@ function renderSuggestions(query) {
     const input = document.getElementById('user-input');
     if (!suggestions) return;
 
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = normalizeForSearch(query);
     
     // In overlay mode, show popular/all top results if query is empty
     let matches = searchableCars;
     if (normalizedQuery) {
         matches = searchableCars.filter(car => {
-            const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
+            const searchableText = normalizeForSearch(`${car.make} ${car.model} ${car.country} ${car.year}`);
             return searchableText.includes(normalizedQuery);
         });
     }
@@ -237,15 +272,15 @@ function findCarByInput(inputString) {
     const trimmedInput = inputString.trim();
     if (!trimmedInput) return null;
 
-    const normalizedInput = trimmedInput.toLowerCase();
+    const normalizedInput = normalizeForSearch(trimmedInput);
 
-    const exactLabelMatch = searchableCars.find(car => getCarDisplayLabel(car).toLowerCase() === normalizedInput);
+    const exactLabelMatch = searchableCars.find(car => normalizeForSearch(getCarDisplayLabel(car)) === normalizedInput);
     if (exactLabelMatch) return exactLabelMatch;
 
-    const simpleMatch = searchableCars.find(car => `${car.make} ${car.model}`.toLowerCase() === normalizedInput);
+    const simpleMatch = searchableCars.find(car => normalizeForSearch(`${car.make} ${car.model}`) === normalizedInput);
     if (simpleMatch) return simpleMatch;
 
-    const modelMatch = searchableCars.find(car => car.model.toLowerCase() === normalizedInput);
+    const modelMatch = searchableCars.find(car => normalizeForSearch(car.model) === normalizedInput);
     if (modelMatch) return modelMatch;
 
     const yearMatch = searchableCars.find(car => String(car.year) === normalizedInput);
@@ -258,7 +293,7 @@ function findCarByInput(inputString) {
     if (countryMatch) return countryMatch;
 
     return searchableCars.find(car => {
-        const searchableText = `${car.make} ${car.model} ${car.country} ${car.year}`.toLowerCase();
+        const searchableText = normalizeForSearch(`${car.make} ${car.model} ${car.country} ${car.year}`);
         return searchableText.includes(normalizedInput);
     });
 }
@@ -439,6 +474,13 @@ function refreshImageDisplay() {
     if (img) {
         img.className = '';
         img.style.filter = 'none';
+        if (currentGameState.isGameOver) {
+            img.style.cursor = 'pointer';
+            img.title = 'Click to zoom image';
+        } else {
+            img.style.cursor = 'default';
+            img.removeAttribute('title');
+        }
     }
     if (overlay) {
         overlay.classList.toggle('revealed', currentGameState.completed && currentGameState.victory);
@@ -488,15 +530,23 @@ function processGuess() {
 
 // Date formatting helper for daily games (e.g., "23 July 2026")
 function getFormattedDate(dateStr) {
-    let d = new Date();
+    let year, month, day;
     if (dateStr && typeof dateStr === 'string' && !dateStr.startsWith('random')) {
         const parts = dateStr.split('-');
         if (parts.length === 3) {
-            d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+            year = parseInt(parts[0], 10);
+            month = parseInt(parts[1], 10) - 1;
+            day = parseInt(parts[2], 10);
         }
     }
+    if (year === undefined) {
+        const now = new Date();
+        year = now.getUTCFullYear();
+        month = now.getUTCMonth();
+        day = now.getUTCDate();
+    }
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    return `${day} ${months[month]} ${year}`;
 }
 
 let appGallery = [];
@@ -543,8 +593,14 @@ function renderAppGalleryItem() {
         if (item.title || (item.make && item.model)) {
             const titleText = item.title || `${item.make} ${item.model}`;
             const subText = item.sub ? ` (${item.sub})` : '';
-            const urlLink = (item.url || item.carUrl) ? `<a href="${escapeHtml(item.url || item.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details">Info ↗</a>` : '';
-            captionHtml += `<div class="lightbox-caption-header"><strong>${escapeHtml(titleText)}${escapeHtml(subText)}</strong>${urlLink}</div>`;
+            captionHtml += `<div class="lightbox-caption-header"><strong>${escapeHtml(titleText)}${escapeHtml(subText)}</strong></div>`;
+            const make = item.make || (item.title ? item.title.split(' ')[0] : '');
+            const model = item.model || '';
+            const wikiUrl = item.url || item.carUrl || '';
+            const readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
+            if (readMoreHtml) {
+                captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
+            }
         }
 
         if (item.notes && item.notes.trim()) {
@@ -635,7 +691,7 @@ function displayTerminationState() {
                 </div>
             </div>
             ${targetCar.notes ? `<div class="result-card-notes">${escapeHtml(targetCar.notes)}</div>` : ''}
-            ${targetCar.url ? `<div class="result-card-link"><a href="${escapeHtml(targetCar.url)}" target="_blank" rel="noopener noreferrer">Read more on Wikipedia →</a></div>` : ''}
+            <div class="result-card-link">${getReadMoreHtml(targetCar.make, targetCar.model, targetCar.url)}</div>
         </div>
     `;
 
@@ -785,9 +841,9 @@ window.addEventListener('DOMContentLoaded', () => {
             startGame('daily');
 
             searchableCars = [...gameDatabase].sort((a, b) => {
-                const left = `${a.make} ${a.model}`.toLowerCase();
-                const right = `${b.make} ${b.model}`.toLowerCase();
-                return left.localeCompare(right);
+                const left = normalizeForSearch(`${a.make} ${a.model}`);
+                const right = normalizeForSearch(`${b.make} ${b.model}`);
+                return left.localeCompare(right, 'en', { sensitivity: 'base' });
             });
 
             const input = document.getElementById('user-input');
@@ -862,7 +918,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const targetImgEl = document.getElementById('target-image');
             if (targetImgEl) {
                 targetImgEl.addEventListener('click', () => {
-                    if (!targetCar) return;
+                    if (!targetCar || !currentGameState.isGameOver) return;
                     const gallery = [];
                     const seenImages = new Set();
                     const showTargetDetails = currentGameState.isGameOver;

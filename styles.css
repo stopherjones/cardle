@@ -653,7 +653,7 @@ header p {
 }
 
 #target-image {
-    cursor: pointer;
+    cursor: default;
 }
 
 .results-photo-hint {
@@ -958,14 +958,55 @@ header p {
 }
 
 .result-card-link {
-    margin-top: 0.2rem;
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
 
 .result-card-link a {
     color: var(--accent);
     text-decoration: underline;
     font-size: 0.85rem;
+    transition: color 0.15s ease;
 }
+
+.result-card-link a:hover {
+    color: #ffffff;
+}
+
+.read-more-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 0.2rem;
+}
+
+.read-more-pipe {
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin: 0 0.2rem;
+}
+
+.lightbox-read-more {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+}
+
+.lightbox-read-more a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.docked-links {
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.docked-links a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.hidden { display: none !important; }
 
 .modal-actions {
     display: flex;

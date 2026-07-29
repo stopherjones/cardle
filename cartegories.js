@@ -27,7 +27,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const dailyPlayBtn = document.getElementById('daily-play-btn');
   const randomPlayBtn = document.getElementById('random-play-btn');
 
-  // Country Normalisation and Helper Utilities.
+  // Country Normalisation and Helper Utilities
+  function stripAccents(str) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.stripAccents) {
+      return CardleDailyEngine.stripAccents(str);
+    }
+    if (!str) return '';
+    return String(str)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function normalizeForSearch(str) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.normalizeForSearch) {
+      return CardleDailyEngine.normalizeForSearch(str);
+    }
+    if (!str) return '';
+    return stripAccents(str).toLowerCase().trim();
+  }
+
+  function getReadMoreHtml(make, model, wikiUrl) {
+    if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.getReadMoreHtml) {
+      return CardleDailyEngine.getReadMoreHtml(make, model, wikiUrl);
+    }
+    const links = [];
+    if (wikiUrl) {
+      links.push(`<a href="${escapeHtml(wikiUrl)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>`);
+    }
+    const searchQuery = `${make || ''} ${model || ''}`.trim();
+    if (searchQuery) {
+      const googleAiUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}&udm=50`;
+      links.push(`<a href="${escapeHtml(googleAiUrl)}" target="_blank" rel="noopener noreferrer">Google AI</a>`);
+    }
+    if (links.length === 0) return '';
+    return `<span class="read-more-label">Read more:</span> ${links.join(' <span class="read-more-pipe">|</span> ')}`;
+  }
+
   function parseCountries(countryInput) {
     if (Array.isArray(countryInput)) {
       return countryInput.map(c => String(c).trim()).filter(Boolean);
@@ -40,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function normalizeCountryName(str) {
     if (!str) return '';
-    const s = String(str).trim().toLowerCase();
+    const s = normalizeForSearch(str);
     if (['usa', 'us', 'united states of america', 'america'].includes(s)) return 'united states';
     if (['uk', 'great britain', 'britain', 'england'].includes(s)) return 'united kingdom';
     if (['ussr', 'soviet union'].includes(s)) return 'ussr';
@@ -94,7 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (isNaN(manufacturingYear) || !make || !model || !hasValidImageUrl(image)) return;
 
-      const qid = `${make}-${model}`.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const cleanMake = stripAccents(make);
+      const cleanModel = stripAccents(model);
+      const qid = `${cleanMake}-${cleanModel}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
       if (!registry[qid]) {
         registry[qid] = {
@@ -116,15 +153,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Populate unique options for the picker/type-ahead lists
   function populateOptionsPool() {
-    optionsPool.make = [...new Set(gameDatabase.map(c => c.make))].sort();
-    optionsPool.model = [...new Set(gameDatabase.map(c => c.model))].sort();
+    optionsPool.make = [...new Set(gameDatabase.map(c => c.make))].sort((a, b) => {
+      const left = normalizeForSearch(a);
+      const right = normalizeForSearch(b);
+      return left.localeCompare(right, 'en', { sensitivity: 'base' });
+    });
+    optionsPool.model = [...new Set(gameDatabase.map(c => c.model))].sort((a, b) => {
+      const left = normalizeForSearch(a);
+      const right = normalizeForSearch(b);
+      return left.localeCompare(right, 'en', { sensitivity: 'base' });
+    });
 
     const allCountries = new Set();
     gameDatabase.forEach(c => {
       const list = c.countries && c.countries.length ? c.countries : parseCountries(c.country);
       list.forEach(cnt => allCountries.add(cnt));
     });
-    optionsPool.country = [...allCountries].sort();
+    optionsPool.country = [...allCountries].sort((a, b) => {
+      const left = normalizeForSearch(a);
+      const right = normalizeForSearch(b);
+      return left.localeCompare(right, 'en', { sensitivity: 'base' });
+    });
 
     optionsPool.year = [...new Set(gameDatabase.map(c => String(c.year)))].sort((a, b) => a - b);
   }
@@ -243,10 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderTypeahead(category, query, container, input) {
     const list = optionsPool[category] || [];
-    const normalized = query.trim().toLowerCase();
+    const normalized = normalizeForSearch(query);
 
     const matches = normalized
-      ? list.filter(item => String(item).toLowerCase().includes(normalized))
+      ? list.filter(item => normalizeForSearch(item).includes(normalized))
       : list;
 
     let itemsHtml = '';
@@ -467,7 +516,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const car = roundVehicles.find(v => v.labelId === carId);
         const fullCarName = `${car.year} ${car.make} ${car.model}`;
         const displayLabel = gameLocked ? `${car.displayLabel}: ${fullCarName}` : car.displayLabel;
-        const linkHtml = (gameLocked && car.url) ? `<a href="${escapeHtml(car.url)}" target="_blank" rel="noopener noreferrer" class="docked-link" title="Learn more about ${escapeHtml(fullCarName)}">🔗 Info ↗</a>` : '';
+        const readMoreHtml = gameLocked ? getReadMoreHtml(car.make, car.model, car.url) : '';
+        const linkHtml = readMoreHtml ? `<div class="docked-links" onclick="event.stopPropagation()">${readMoreHtml}</div>` : '';
 
         dockSlot.innerHTML = `
           <div class="docked-thumbnail ${gameLocked ? 'locked' : ''}">
@@ -488,6 +538,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const poolGallery = roundVehicles.map(v => ({
               imgSrc: v.image,
               title: gameLocked ? `${v.displayLabel}: ${v.year} ${v.make} ${v.model}` : v.displayLabel,
+              make: gameLocked ? v.make : '',
+              model: gameLocked ? v.model : '',
               notes: gameLocked ? (v.notes || '') : '',
               url: gameLocked ? (v.url || '') : ''
             }));
@@ -539,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const num = parseInt(trimmed, 10);
       return Number.isNaN(num) ? trimmed.toLowerCase() : num;
     }
-    return trimmed.toLowerCase();
+    return normalizeForSearch(trimmed);
   }
 
   function escapeHtml(str) {
@@ -606,6 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
         label: CATEGORY_LABELS[category],
         carLabel: car.displayLabel,
         fullCarName: fullCarName,
+        make: car.make,
+        model: car.model,
         carUrl: car.url || '',
         carImage: car.image,
         carNotes: car.notes || '',
@@ -641,6 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pointsBadge = `${result.points}/${result.maxPoints} pts`;
+      const readMoreHtml = getReadMoreHtml(result.make, result.model, result.carUrl);
 
       return `
         <div class="result-card ${statusClass}">
@@ -660,6 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="result-guess-row">Guess: <strong>${escapeHtml(result.guess || '—')}</strong></div>
               ${result.isCorrect ? '' : `<div class="result-answer-row">Correct: <strong>${escapeHtml(result.actual)}</strong></div>`}
+              ${readMoreHtml ? `<div class="result-card-link" onclick="event.stopPropagation()">${readMoreHtml}</div>` : ''}
             </div>
           </div>
         </div>
@@ -671,6 +727,8 @@ document.addEventListener('DOMContentLoaded', () => {
       category: result.label,
       title: `${result.carLabel}: ${result.fullCarName}`,
       fullCarName: result.fullCarName,
+      make: result.make,
+      model: result.model,
       guess: result.guess,
       actual: result.actual,
       isCorrect: result.isCorrect,
@@ -694,15 +752,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getFormattedDate(dateStr) {
-    let d = new Date();
+    let year, month, day;
     if (dateStr && typeof dateStr === 'string' && !dateStr.startsWith('random')) {
       const parts = dateStr.split('-');
       if (parts.length === 3) {
-        d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        year = parseInt(parts[0], 10);
+        month = parseInt(parts[1], 10) - 1;
+        day = parseInt(parts[2], 10);
       }
     }
+    if (year === undefined) {
+      const now = new Date();
+      year = now.getUTCFullYear();
+      month = now.getUTCMonth();
+      day = now.getUTCDate();
+    }
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    return `${day} ${months[month]} ${year}`;
   }
 
   function getCARtegoriesShareText() {
@@ -917,8 +983,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (item.category || item.title || item.fullCarName) {
         const catBadge = item.category ? `<span class="lightbox-cat-badge">${escapeHtml(item.category)}</span>` : '';
         const titleText = item.title || item.fullCarName || '';
-        const urlLink = (item.url || item.carUrl) ? `<a href="${escapeHtml(item.url || item.carUrl)}" target="_blank" rel="noopener noreferrer" class="result-url-icon" title="View details">Info ↗</a>` : '';
-        captionHtml += `<div class="lightbox-caption-header">${catBadge}<strong>${escapeHtml(titleText)}</strong>${urlLink}</div>`;
+        captionHtml += `<div class="lightbox-caption-header">${catBadge}<strong>${escapeHtml(titleText)}</strong></div>`;
+        const make = item.make || (item.fullCarName ? item.fullCarName.split(' ')[1] : '');
+        const model = item.model || '';
+        const wikiUrl = item.url || item.carUrl || '';
+        const readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
+        if (readMoreHtml) {
+          captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
+        }
       }
 
       if (item.guess !== undefined && item.guess !== null) {
