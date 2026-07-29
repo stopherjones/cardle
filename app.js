@@ -155,19 +155,35 @@ function selectTargetForMode(carsList, mode) {
     return calculateDailyTarget(carsList);
 }
 
-function shuffleArray(items) {
+function shuffleArray(items, seedKey = null) {
     const shuffled = [...items];
+    let getRandom = Math.random;
+
+    if (seedKey) {
+        let hash = 0;
+        const strKey = String(seedKey);
+        for (let i = 0; i < strKey.length; i++) {
+            hash = strKey.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        let seed = Math.abs(hash) || 12345;
+        getRandom = function () {
+            let t = (seed += 0x6d2b79f5);
+            t = Math.imul(t ^ (t >>> 15), t | 1);
+            t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
 
     for (let index = shuffled.length - 1; index > 0; index -= 1) {
-        const swapIndex = Math.floor(Math.random() * (index + 1));
+        const swapIndex = Math.floor(getRandom() * (index + 1));
         [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
     }
 
     return shuffled;
 }
 
-function createRandomRevealOrder(cellCount = 6) {
-    return shuffleArray(Array.from({ length: cellCount }, (_, index) => index));
+function createRandomRevealOrder(cellCount = 6, seedKey = null) {
+    return shuffleArray(Array.from({ length: cellCount }, (_, index) => index), seedKey);
 }
 
 function updateModeButtons(activeMode) {
@@ -349,14 +365,15 @@ function resetGameUI() {
 }
 
 function startGame(mode = 'daily') {
+    const dateStamp = mode === 'daily' ? getDateStamp() : `random-${Date.now()}`;
     currentGameState = {
-        date: mode === 'daily' ? getDateStamp() : `random-${Date.now()}`,
+        date: dateStamp,
         guesses: [],
         completed: false,
         victory: false,
         mode,
         overlayHiddenIndices: [],
-        revealOrder: createRandomRevealOrder()
+        revealOrder: createRandomRevealOrder(6, mode === 'daily' ? `${dateStamp}-reveal` : null)
     };
 
     if (!gameDatabase.length) {
@@ -421,7 +438,7 @@ function buildOverlay() {
     const tilePositions = shuffleArray([
         [1, 1], [1, 2], [1, 3],
         [2, 1], [2, 2], [2, 3]
-    ]);
+    ], currentGameState.mode === 'daily' ? `${currentGameState.date}-tiles` : null);
 
     Array.from(overlay.querySelectorAll('.overlay-cell')).forEach((cell, index) => {
         const [row, column] = tilePositions[index];
@@ -811,7 +828,7 @@ function hydrateSession() {
                 currentGameState.overlayHiddenIndices = [];
             }
             if (!Array.isArray(currentGameState.revealOrder)) {
-                currentGameState.revealOrder = createRandomRevealOrder();
+                currentGameState.revealOrder = createRandomRevealOrder(6, currentGameState.mode === 'daily' ? `${currentGameState.date}-reveal` : null);
             }
             currentGameState.guesses.forEach(g => drawFeedbackRow(g));
             if (currentGameState.completed) {
