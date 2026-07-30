@@ -507,10 +507,10 @@
         "Make": "Alfa Romeo",
         "Country": "Italy",
         "Model": "Giulietta",
-        "Year": 1954,
-        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_Giulietta_(2010)",
+        "Year": 2010,
+        "url": "An avant-garde masterpiece, first introduced in 1955. The DS is defined by its revolutionary hydropneumatic self-levelling suspension, directional headlights, and futuristic aerodynamics.",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/2013_Alfa_Romeo_Giulietta_%28940_MY13%29_Distinctive_hatchback_%282015-07-09%29.jpg/960px-2013_Alfa_Romeo_Giulietta_%28940_MY13%29_Distinctive_hatchback_%282015-07-09%29.jpg",
-        "notes": "Lightweight compact sports car family that democratised race-derived twin-cam engine performance for mass motoring."
+        "notes": "An elegant alternative to mainstream hatchbacks, blending emotive Italian design with punchy turbo performance and agile road manners"
     },
     {
         "Make": "Jaguar",
@@ -533,7 +533,7 @@
     {
         "Make": "Mercedes-Benz",
         "Country": "Germany",
-        "Model": "SL-Class",
+        "Model": "300 SL",
         "Year": 1954,
         "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_SL-Class",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Mercedes.Benz_300_SL_Gullwing_%287475449370%29.jpg/960px-Mercedes.Benz_300_SL_Gullwing_%287475449370%29.jpg",
@@ -552,9 +552,9 @@
         "Make": "Citroën",
         "Country": "France",
         "Model": "DS",
-        "Year": 1955,
+        "Year": 1973,
         "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_DS",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Bornholm_Rundt_2012_%282012-07-08%29%2C_by_Klugschnacker_modified.jpg/960px-Bornholm_Rundt_2012_%282012-07-08%29%2C_by_Klugschnacker_modified.jpg",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/1973_Citro%C3%ABn_D_Sp%C3%A9cial_sedan_%282011-05-12%29_02.jpg/960px-1973_Citro%C3%ABn_D_Sp%C3%A9cial_sedan_%282011-05-12%29_02.jpg",
         "notes": "An avant-garde masterpiece defined by revolutionary hydropneumatic self-levelling suspension, directional headlights, and futuristic aerodynamics that stunned the world upon its 1955 Paris Motor Show debut."
     },
     {
@@ -669,9 +669,9 @@
         "Make": "GSM",
         "Country": "South Africa",
         "Model": "Dart",
-        "Year": 1957,
+        "Year": 1959,
         "url": "https://en.wikipedia.org/wiki/Glass_Sport_Motors",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Gsmdart.jpg",
+        "imageurl": "https://commons.wikimedia.org/wiki/File:G.S.M._Dart_(1962)_1Y7A6148.jpg",
         "notes": "Lightweight fibreglass sports car developed by Glass Sport Motors that achieved notable racing success in Europe and Africa."
     },
     {
@@ -983,7 +983,7 @@
     {
         "Make": "Mercedes-Benz",
         "Country": "Germany",
-        "Model": "600 'Grand Mercedes' (W100)",
+        "Model": "600 'Grand Mercedes'",
         "Year": 1963,
         "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_600",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mercedes-Benz_600_vl_silver_TCE.jpg/960px-Mercedes-Benz_600_vl_silver_TCE.jpg",
@@ -1647,15 +1647,6 @@
         "notes": "The iconic variant of the classic Swedish sports car that features a two-door shooting brake (sports estate) layout. Introduced late in the car's production cycle, it remains one of the most distinctive and influential automotive designs in history"
     },
     {
-        "Make": "Volvo",
-        "Country": "Sweden",
-        "Model": "P1800 ES",
-        "Year": 1972,
-        "url": "https://en.wikipedia.org/wiki/Volvo_P1800#1800ES",
-        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Volve_1800ES_1971.JPG/960px-Volve_1800ES_1971.JPG",
-        "notes": "Sporting estate derivative of the P1800 featuring an all-glass frameless rear hatch, nicknamed \"Schneewittchensarg\" (Snow White's Coffin) in Germany."
-    },
-    {
         "Make": "BMW",
         "Country": "Germany",
         "Model": "2002 Turbo",
@@ -1677,10 +1668,10 @@
         "Make": "Caterham",
         "Country": "United Kingdom",
         "Model": "7",
-        "Year": 1973,
+        "Year": 2010,
         "url": "https://en.wikipedia.org/wiki/Caterham_7",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/2010_Caterham_7_Roadsport_175_1.6.jpg/960px-2010_Caterham_7_Roadsport_175_1.6.jpg",
-        "notes": "Direct evolution of the Lotus Seven design; famed for uncompromising raw speed, pure analog feedback, and phenomenal power-to-weight ratios."
+        "notes": "Direct evolution of the Lotus Seven design, first introduced in 1973 and famed for uncompromising raw speed, pure analog feedback, and phenomenal power-to-weight ratios."
     },
     {
         "Make": "Chevrolet",
@@ -1973,7 +1964,7 @@
     {
         "Make": "BMW",
         "Country": "Germany",
-        "Model": "M1 (E26)",
+        "Model": "M1",
         "Year": 1978,
         "url": "https://en.wikipedia.org/wiki/BMW_M1",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/BMW_M1%2C_front_right_%28Brooklyn%29.jpg/960px-BMW_M1%2C_front_right_%28Brooklyn%29.jpg",
@@ -2129,12 +2120,12 @@
         "Model": "Audi 100 (C3)",
         "Year": 1982,
         "url": "https://en.wikipedia.org/wiki/Audi_100#C3",
-        "imageurl": "https://commons.wikimedia.org/wiki/File:Audi_100_C3_(1988%E2%80%931991)_(10629216834).jpg",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Audi_100_C3_%281988%E2%80%931991%29_%2810629216834%29.jpg/960px-Audi_100_C3_%281988%E2%80%931991%29_%2810629216834%29.jpg",
         "notes": "Aerodynamic landmark , featuring flush glazing that set new industry standards for efficiency."
     },
     {
         "Make": "DeLorean",
-        "Country": "United Kingdom; United States",
+        "Country": "United Kingdom",
         "Model": "DMC-12",
         "Year": 1982,
         "url": "https://en.wikipedia.org/wiki/DeLorean_time_machine",
@@ -2585,7 +2576,7 @@
     {
         "Make": "Mercedes-Benz",
         "Country": "Germany",
-        "Model": "190 (W201)",
+        "Model": "190",
         "Year": 1990,
         "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_W201",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/1993_190E_2.3.jpg/960px-1993_190E_2.3.jpg",
@@ -3047,7 +3038,7 @@
         "Model": "D8",
         "Year": 1999,
         "url": "https://en.wikipedia.org/wiki/Donkervoort_D8",
-        "imageurl": "https://en.wikipedia.org/wiki/Donkervoort_D8#Audi_engines_(1999%E2%80%932012)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donkervoort_D8_Zolder.jpg/960px-Donkervoort_D8_Zolder.jpg",
         "notes": "Representing the pinnacle of ultra-lightweight boutique sports car engineering, taking the spiritual DNA of the Lotus Seven and evolving it into a ballistic, Audi-powered carbon-fibre hyper-roadster."
     },
     {
@@ -3796,5 +3787,95 @@
         "url": "https://en.wikipedia.org/wiki/Renault_5_E-Tech",
         "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Renault_5_E-Tech_Electric_DSC_7279.jpg/960px-Renault_5_E-Tech_Electric_DSC_7279.jpg",
         "notes": "A masterclass in nostalgia done right, brilliantly translating the iconic silhouette and playful spirit of the 1970s original into a thoroughly modern, tech-forward electric package"
+    },
+    {
+        "Make": "Smart",
+        "Country": "Germany",
+        "Model": "ForTwo",
+        "Year": 1998,
+        "url": "https://en.wikipedia.org/wiki/Smart_Fortwo",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Smart_City-Coup%C3%A9_passion_front.jpg/960px-Smart_City-Coup%C3%A9_passion_front.jpg",
+        "notes": "A daring, Swatch-inspired microcar experiment that redefined parallel parking and brought cheeky, ultra-compact design to dense European capitals."
+    },
+    {
+        "Make": "Nissan",
+        "Country": "Japan",
+        "Model": "Figaro",
+        "Year": 1991,
+        "url": "https://en.wikipedia.org/wiki/Nissan_Figaro",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Nissan_Figaro.jpg/960px-Nissan_Figaro.jpg",
+        "notes": "A delightful, nostalgic fixed-head convertible that blended accessible mechanicals with 1950s European charm, evolving into a beloved international cult classic."
+    },
+    {
+        "Make": "Smart",
+        "Country": "Germany",
+        "Model": "Roadster",
+        "Year": 2002,
+        "url": "https://en.wikipedia.org/wiki/Smart_Roadster",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/SR_collectors.jpg",
+        "notes": "A delightfully nimble, mid-engined pint-sized roadster that traded sheer straight-line speed for razor-sharp handling agility and pure, unadulterated fun."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "A6GCS",
+        "Year": 1954,
+        "url": "https://en.wikipedia.org/wiki/Maserati_A6",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Maserati_3500_GT_front.jpg/960px-Maserati_3500_GT_front.jpg",
+        "notes": "Famed sports-racing barchetta developed for the Mille Miglia, noted for its lightweight tubular frame and high-revving engine."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "3500 GT",
+        "Year": 1957,
+        "url": "https://en.wikipedia.org/wiki/Maserati_3500_GT",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Maserati_3500_GT_front.jpg/960px-Maserati_3500_GT_front.jpg",
+        "notes": "Maserati's first successful volume-built grand tourer, establishing the brand as a viable road-car manufacturer."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "Quattroporte (5th gen)",
+        "Year": 2003,
+        "url": "https://en.wikipedia.org/wiki/Maserati_Quattroporte#Quattroporte_V_(M139,_2003%E2%80%932012)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/2006_Maserati_Quattroporte_-_Flickr_-_The_Car_Spy_%281%29.jpg/960px-2006_Maserati_Quattroporte_-_Flickr_-_The_Car_Spy_%281%29.jpg",
+        "notes": "Pioneered the high-performance luxury sports saloon segment, combining V8 power with four-door practicality."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "Bora",
+        "Year": 1971,
+        "url": "https://en.wikipedia.org/wiki/Maserati_Bora",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Maserati_Bora_%281973%29_1Y7A6154.jpg/960px-Maserati_Bora_%281973%29_1Y7A6154.jpg",
+        "notes": "The marque's first mid-engined supercar, incorporating Citroën hydraulic tech for brakes and pop-up headlights."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "Merak",
+        "Year": 1972,
+        "url": "https://en.wikipedia.org/wiki/Maserati_Merak",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Maserati_Merak_2.jpg/960px-Maserati_Merak_2.jpg",
+        "notes": "Mid-engined V6 sister car to the Bora, offering 2+2 seating and accessible exotic performance during the 1970s oil crisis."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "Biturbo",
+        "Year": 1981,
+        "url": "https://en.wikipedia.org/wiki/Maserati_Biturbo",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/1985_Maserati_Biturbo_E%2C_front_left_%28US%29.jpg/960px-1985_Maserati_Biturbo_E%2C_front_left_%28US%29.jpg",
+        "notes": "Pioneered twin-turbochargers on a production road car, marking Maserati's pivot toward mass-market executive coupés."
+    },
+    {
+        "Make": "Maserati",
+        "Country": "Italy",
+        "Model": "GranTurismo (2nd gen)",
+        "Year": 2023,
+        "url": "https://en.wikipedia.org/wiki/Maserati_GranTurismo#GranTurismo_II_(M189,_2023%E2%80%93present)",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Maserati_GranTurismo_Trofeo_IMG_7283.jpg/960px-Maserati_GranTurismo_Trofeo_IMG_7283.jpg",
+        "notes": "Pininfarina-styled 2+2 grand tourer featuring a Ferrari-developed atmospheric V8; Maserati's modern commercial flagship."
     }
 ]

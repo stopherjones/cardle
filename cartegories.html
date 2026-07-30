@@ -11,7 +11,10 @@
 <body class="page-cartegories page-multi">
   <header>
     <a class="page-link" href="index.html">← Back home</a>
-    <h1>CARDLE</h1>
+    <div class="header-title-row">
+      <h1>CARDLE</h1>
+      <button type="button" class="info-btn" id="how-to-play-btn" aria-label="How to play" title="How to Play">i</button>
+    </div>
     <p>CARtegories game</p>
     <div class="mode-switcher" role="group" aria-label="Game mode">
       <button id="daily-play-btn" class="mode-btn active" type="button">Daily Play</button>
@@ -90,8 +93,45 @@
       <div class="modal-actions">
         <a href="index.html" class="mode-btn">Home</a>
         <button type="button" class="mode-btn share-btn" id="modal-share-btn">Share 🔗</button>
-        <button type="button" class="mode-btn" id="modal-play-daily-btn">Play Daily</button>
-        <button type="button" class="mode-btn active" id="modal-play-random-btn">Play Random</button>
+        <button type="button" class="mode-btn" id="modal-play-random-btn">Play Random</button>
+        <a href="standard.html" class="mode-btn active" id="modal-play-other-game-btn">Play Cardle</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+    <div class="results-panel info-modal-panel">
+      <button class="modal-close" id="info-modal-close" aria-label="Close instructions">✕</button>
+      <h2 id="info-modal-title">How to Play: CARtegories</h2>
+      <div class="info-modal-content">
+        <div class="info-section">
+          <h3>🎯 Objective</h3>
+          <p>Assign the four vehicles from your pool into the four category docks to score maximum points across all categories!</p>
+        </div>
+
+        <div class="info-section">
+          <h3>🏎️ Categories & Docking</h3>
+          <p>Select a car from the pool and place it into one of the four category docks:</p>
+          <ul class="info-bullets">
+            <li>🏷️ <strong>MAKE:</strong> Enter the manufacturer of the assigned car.</li>
+            <li>🚗 <strong>MODEL:</strong> Enter the exact model name of the assigned car.</li>
+            <li>🌍 <strong>COUNTRY:</strong> Enter the origin country of the assigned car.</li>
+            <li>📅 <strong>YEAR:</strong> Enter the production year of the assigned car.</li>
+          </ul>
+        </div>
+
+        <div class="info-section">
+          <h3>📊 Scoring</h3>
+          <p>Each car can only be assigned to <strong>one</strong> category dock. Choose wisely! Points are awarded for correct category answers upon submitting all guesses.</p>
+        </div>
+
+        <div class="info-section">
+          <h3>🕹️ Game Modes</h3>
+          <ul class="info-bullets">
+            <li><strong>Daily Play:</strong> Same daily pool vehicles for all players. Resets at 00:00 UTC.</li>
+            <li><strong>Random Play:</strong> Generate unlimited random vehicle pool rounds!</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

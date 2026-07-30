@@ -12,8 +12,11 @@
   <main class="home-shell">
     <section class="hero-card" aria-labelledby="home-title">
       <header>
-        <h1 id="home-title">CARDLE</h1>
-        <p>Choose which game to play.</p>
+        <div class="header-title-row">
+          <h1 id="home-title">CARDLE</h1>
+          <button type="button" class="info-btn" id="how-to-play-btn" aria-label="How to play" title="How to Play">i</button>
+        </div>
+        <p>Two game modes: Choose which game to play.</p>
         <div class="daily-update-badge" id="daily-update-badge" title="Daily selection refreshes at 00:00 UTC. Every car in the collection is played once before repeating.">
           <span class="status-indicator"></span>
           <span id="daily-update-text">Daily challenge updated for today &bull; Resets at 00:00 UTC</span>
@@ -22,6 +25,9 @@
 
       <div class="mode-choice-grid">
         <a class="mode-card" href="standard.html">
+          <span class="mode-pill">Cardle</span>
+          <h3>Play Cardle</h3>
+          <p>Guess the car as it is revealed, tile-by-tile. Use feedback to narrow in on the right car. Daily or random options.</p>
           <div class="mode-card-preview standard-preview" aria-hidden="true">
             <div class="preview-tile-container">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg/960px-AC_Shelby_Cobra_427_Oldtimertreffen_Ebern_2019_6200154.jpg" alt="" class="preview-car-img" />
@@ -35,12 +41,12 @@
               </div>
             </div>
           </div>
-          <span class="mode-pill">Cardle</span>
-          <h3>Play Cardle</h3>
-          <p>Guess the car as it is revealed, tile-by-tile. Use feedback to narrow in on the right car. Daily or random options.</p>
         </a>
 
         <a class="mode-card" href="cartegories.html">
+          <span class="mode-pill">CARtegories</span>
+          <h3>Play CARtegories</h3>
+          <p>Place each car in one of the four categories where you think you can score the most points. Daily or random options.</p>
           <div class="mode-card-preview cartegories-preview multi-preview" aria-hidden="true">
             <div class="preview-category-grid">
               <div class="preview-cat-box">
@@ -61,22 +67,70 @@
               </div>
             </div>
           </div>
-          <span class="mode-pill">CARtegories</span>
-          <h3>Play CARtegories</h3>
-          <p>Place each car in one of the four categories where you think you can score the most points. Daily or random options.</p>
         </a>
       </div>
     </section>
   </main>
+  <div class="modal" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+    <div class="results-panel info-modal-panel">
+      <button class="modal-close" id="info-modal-close" aria-label="Close instructions">✕</button>
+      <h2 id="info-modal-title">How to Play</h2>
+      <div class="info-modal-content">
+        <div class="info-section">
+          <h3>🏎️ Cardle (Standard Game)</h3>
+          <p>Guess the secret vehicle in <strong>8 guesses or fewer</strong>. The photo starts covered by <strong>8 tiles</strong>; each guess reveals another tile to give you a clearer view. Attribute feedback (Make, Model, Country, Year) guides your next guess!</p>
+        </div>
+
+        <div class="info-section">
+          <h3>📊 CARtegories Game</h3>
+          <p>Assign 4 vehicles from your pool into 4 category docks (Make, Model, Country, Year). Each vehicle can only be placed in <strong>one</strong> category dock. Try to score maximum points across all 4 categories!</p>
+        </div>
+
+        <div class="info-section">
+          <h3>🕹️ Daily vs Random Play</h3>
+          <p>Both games offer <strong>Daily Play</strong> (same challenge for everyone globally, resetting at 00:00 UTC) and <strong>Random Play</strong> (unlimited randomized rounds).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="daily-selector.js"></script>
   <script>
     (function() {
       const badgeText = document.getElementById('daily-update-text');
-      if (!badgeText) return;
-      const now = new Date();
-      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' };
-      const dateStr = now.toLocaleDateString('en-US', options);
-      badgeText.innerHTML = `New daily cars selected for <strong>${dateStr} (UTC)</strong> &bull; Resets at 00:00 UTC`;
+      if (badgeText) {
+        const now = new Date();
+        const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' };
+        const dateStr = now.toLocaleDateString('en-US', options);
+        badgeText.innerHTML = `New daily cars selected for <strong>${dateStr} (UTC)</strong> &bull; Resets at 00:00 UTC`;
+      }
+
+      const howToPlayBtn = document.getElementById('how-to-play-btn');
+      const infoModal = document.getElementById('info-modal');
+      const infoModalClose = document.getElementById('info-modal-close');
+
+      if (howToPlayBtn && infoModal) {
+        howToPlayBtn.addEventListener('click', () => {
+          infoModal.classList.add('active');
+          document.body.classList.add('modal-open');
+        });
+      }
+
+      if (infoModalClose && infoModal) {
+        infoModalClose.addEventListener('click', () => {
+          infoModal.classList.remove('active');
+          document.body.classList.remove('modal-open');
+        });
+      }
+
+      if (infoModal) {
+        infoModal.addEventListener('click', (e) => {
+          if (e.target === infoModal) {
+            infoModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+          }
+        });
+      }
     })();
   </script>
 </body>

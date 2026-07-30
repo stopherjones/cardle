@@ -896,6 +896,33 @@ document.addEventListener('DOMContentLoaded', () => {
     randomPlayBtn.addEventListener('click', () => startNewGame('random'));
   }
 
+  const howToPlayBtn = document.getElementById('how-to-play-btn');
+  const infoModal = document.getElementById('info-modal');
+  const infoModalClose = document.getElementById('info-modal-close');
+
+  if (howToPlayBtn && infoModal) {
+    howToPlayBtn.addEventListener('click', () => {
+      infoModal.classList.add('active');
+      document.body.classList.add('modal-open');
+    });
+  }
+
+  if (infoModalClose && infoModal) {
+    infoModalClose.addEventListener('click', () => {
+      infoModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  }
+
+  if (infoModal) {
+    infoModal.addEventListener('click', (e) => {
+      if (e.target === infoModal) {
+        infoModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  }
+
   if (submitBtn) {
     submitBtn.addEventListener('click', processSubmission);
   }

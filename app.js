@@ -1,5 +1,5 @@
 // State Engine Configuration Management
-const MAX_GUESSES = 6;
+const MAX_GUESSES = 8;
 let gameDatabase = [];
 let targetCar = null;
 let searchableCars = [];
@@ -182,7 +182,7 @@ function shuffleArray(items, seedKey = null) {
     return shuffled;
 }
 
-function createRandomRevealOrder(cellCount = 6, seedKey = null) {
+function createRandomRevealOrder(cellCount = 8, seedKey = null) {
     return shuffleArray(Array.from({ length: cellCount }, (_, index) => index), seedKey);
 }
 
@@ -373,7 +373,7 @@ function startGame(mode = 'daily') {
         victory: false,
         mode,
         overlayHiddenIndices: [],
-        revealOrder: createRandomRevealOrder(6, mode === 'daily' ? `${dateStamp}-reveal` : null)
+        revealOrder: createRandomRevealOrder(8, mode === 'daily' ? `${dateStamp}-reveal` : null)
     };
 
     if (!gameDatabase.length) {
@@ -428,7 +428,7 @@ function buildOverlay() {
 
     const cells = overlay.querySelectorAll('.overlay-cell');
     if (cells.length === 0) {
-        for (let i = 0; i < 6; i += 1) {
+        for (let i = 0; i < 8; i += 1) {
             const cell = document.createElement('div');
             cell.className = 'overlay-cell';
             overlay.appendChild(cell);
@@ -436,8 +436,8 @@ function buildOverlay() {
     }
 
     const tilePositions = shuffleArray([
-        [1, 1], [1, 2], [1, 3],
-        [2, 1], [2, 2], [2, 3]
+        [1, 1], [1, 2], [1, 3], [1, 4],
+        [2, 1], [2, 2], [2, 3], [2, 4]
     ], currentGameState.mode === 'daily' ? `${currentGameState.date}-tiles` : null);
 
     Array.from(overlay.querySelectorAll('.overlay-cell')).forEach((cell, index) => {
@@ -828,7 +828,7 @@ function hydrateSession() {
                 currentGameState.overlayHiddenIndices = [];
             }
             if (!Array.isArray(currentGameState.revealOrder)) {
-                currentGameState.revealOrder = createRandomRevealOrder(6, currentGameState.mode === 'daily' ? `${currentGameState.date}-reveal` : null);
+                currentGameState.revealOrder = createRandomRevealOrder(8, currentGameState.mode === 'daily' ? `${currentGameState.date}-reveal` : null);
             }
             currentGameState.guesses.forEach(g => drawFeedbackRow(g));
             if (currentGameState.completed) {
@@ -977,6 +977,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (randomButton) {
                 randomButton.addEventListener('click', () => startGame('random'));
+            }
+
+            const howToPlayBtn = document.getElementById('how-to-play-btn');
+            const infoModal = document.getElementById('info-modal');
+            const infoModalClose = document.getElementById('info-modal-close');
+
+            if (howToPlayBtn && infoModal) {
+                howToPlayBtn.addEventListener('click', () => {
+                    infoModal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                });
+            }
+
+            if (infoModalClose && infoModal) {
+                infoModalClose.addEventListener('click', () => {
+                    infoModal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                });
+            }
+
+            if (infoModal) {
+                infoModal.addEventListener('click', (e) => {
+                    if (e.target === infoModal) {
+                        infoModal.classList.remove('active');
+                        document.body.classList.remove('modal-open');
+                    }
+                });
             }
 
             const resultsClose = document.getElementById('results-close');
