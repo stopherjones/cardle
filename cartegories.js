@@ -516,15 +516,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const car = roundVehicles.find(v => v.labelId === carId);
         const fullCarName = `${car.year} ${car.make} ${car.model}`;
         const displayLabel = gameLocked ? `${car.displayLabel}: ${fullCarName}` : car.displayLabel;
-        const readMoreHtml = gameLocked ? getReadMoreHtml(car.make, car.model, car.url) : '';
-        const linkHtml = readMoreHtml ? `<div class="docked-links" onclick="event.stopPropagation()">${readMoreHtml}</div>` : '';
 
         dockSlot.innerHTML = `
           <div class="docked-thumbnail ${gameLocked ? 'locked' : ''}">
             <img src="${escapeHtml(car.image)}" alt="${escapeHtml(fullCarName)}" style="cursor: pointer;" title="Click to zoom image">
             <div class="docked-info">
               <span class="docked-label">${escapeHtml(displayLabel)}</span>
-              ${linkHtml}
             </div>
             ${!gameLocked ? `<button class="eject-btn" data-eject="${category}">✕</button>` : ''}
           </div>
@@ -695,7 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pointsBadge = `${result.points}/${result.maxPoints} pts`;
-      const readMoreHtml = getReadMoreHtml(result.make, result.model, result.carUrl);
 
       return `
         <div class="result-card ${statusClass}">
@@ -715,7 +711,6 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="result-guess-row">Guess: <strong>${escapeHtml(result.guess || '—')}</strong></div>
               ${result.isCorrect ? '' : `<div class="result-answer-row">Correct: <strong>${escapeHtml(result.actual)}</strong></div>`}
-              ${readMoreHtml ? `<div class="result-card-link" onclick="event.stopPropagation()">${readMoreHtml}</div>` : ''}
             </div>
           </div>
         </div>
@@ -1007,6 +1002,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const captionEl = document.getElementById('lightbox-caption');
     if (captionEl) {
       let captionHtml = '';
+      let readMoreHtml = '';
       if (item.category || item.title || item.fullCarName) {
         const catBadge = item.category ? `<span class="lightbox-cat-badge">${escapeHtml(item.category)}</span>` : '';
         const titleText = item.title || item.fullCarName || '';
@@ -1014,10 +1010,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const make = item.make || (item.fullCarName ? item.fullCarName.split(' ')[1] : '');
         const model = item.model || '';
         const wikiUrl = item.url || item.carUrl || '';
-        const readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
-        if (readMoreHtml) {
-          captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
-        }
+        readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
       }
 
       if (item.guess !== undefined && item.guess !== null) {
@@ -1028,6 +1021,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (item.notes && item.notes.trim()) {
         captionHtml += `<div class="lightbox-notes">${escapeHtml(item.notes.trim())}</div>`;
+      }
+
+      if (readMoreHtml) {
+        captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
       }
 
       if (captionHtml) {

@@ -607,6 +607,7 @@ function renderAppGalleryItem() {
 
     if (captionEl) {
         let captionHtml = '';
+        let readMoreHtml = '';
         if (item.title || (item.make && item.model)) {
             const titleText = item.title || `${item.make} ${item.model}`;
             const subText = item.sub ? ` (${item.sub})` : '';
@@ -614,14 +615,15 @@ function renderAppGalleryItem() {
             const make = item.make || (item.title ? item.title.split(' ')[0] : '');
             const model = item.model || '';
             const wikiUrl = item.url || item.carUrl || '';
-            const readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
-            if (readMoreHtml) {
-                captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
-            }
+            readMoreHtml = getReadMoreHtml(make, model, wikiUrl);
         }
 
         if (item.notes && item.notes.trim()) {
             captionHtml += `<div class="lightbox-notes">${escapeHtml(item.notes.trim())}</div>`;
+        }
+
+        if (readMoreHtml) {
+            captionHtml += `<div class="lightbox-read-more">${readMoreHtml}</div>`;
         }
 
         if (captionHtml) {
