@@ -10,6 +10,15 @@
         return list.length > 0 ? list : [rawStr];
     }
 
+    function sanitizeImageUrl(url) {
+        if (!url || typeof url !== 'string') return '';
+        let trimmed = url.trim();
+        if (trimmed.startsWith('http://')) {
+            trimmed = 'https://' + trimmed.slice(7);
+        }
+        return trimmed;
+    }
+
     function hasValidImageUrl(url) {
         if (!url || typeof url !== 'string') return false;
         const trimmed = url.trim().toLowerCase();
@@ -27,7 +36,8 @@
             const countryRaw = String(item.Country ?? item.country ?? item.countryLabel ?? 'Unknown').trim();
             const countryList = parseCountries(countryRaw);
             const manufacturingYear = parseInt(item.Year ?? item.year, 10);
-            const image = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
+            const imageRaw = String(item.imageurl ?? item.image ?? item.imageUrl ?? '').trim();
+            const image = sanitizeImageUrl(imageRaw);
             const notes = String(item.notes ?? item.Notes ?? '').trim();
             const url = String(item.url ?? item.URL ?? item.link ?? item.sourceUrl ?? '').trim();
 

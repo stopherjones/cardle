@@ -474,7 +474,8 @@ header p {
     color: var(--text-primary);
     padding: 12px;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 16px;
+    -webkit-appearance: none;
     min-height: 48px;
     box-sizing: border-box;
 }

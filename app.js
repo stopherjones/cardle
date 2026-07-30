@@ -13,6 +13,23 @@ let currentGameState = {
     revealOrder: []
 };
 
+function safeLocalStorageGet(key) {
+    try {
+        return localStorage.getItem(key);
+    } catch (e) {
+        console.warn('localStorage is unavailable:', e);
+        return null;
+    }
+}
+
+function safeLocalStorageSet(key, value) {
+    try {
+        localStorage.setItem(key, value);
+    } catch (e) {
+        console.warn('localStorage is unavailable:', e);
+    }
+}
+
 // Helper Utilities for Normalisation and Search
 function stripAccents(str) {
     if (typeof CardleDailyEngine !== 'undefined' && CardleDailyEngine.stripAccents) {
@@ -542,7 +559,7 @@ function processGuess() {
     }
 
     refreshImageDisplay();
-    localStorage.setItem('cardle_session', JSON.stringify(currentGameState));
+    safeLocalStorageSet('cardle_session', JSON.stringify(currentGameState));
 }
 
 // Date formatting helper for daily games (e.g., "23 July 2026")
@@ -819,7 +836,7 @@ async function handleShareResult(shareInfo, shareBtn, toastEl) {
 
 // 7. Local Storage Session Hydration Engine
 function hydrateSession() {
-    const cache = localStorage.getItem('cardle_session');
+    const cache = safeLocalStorageGet('cardle_session');
     if (!cache) return;
 
     try {
@@ -847,7 +864,7 @@ function hydrateSession() {
 }
 
 // Initialization Lifecycle Hook
-window.addEventListener('DOMContentLoaded', () => {
+function initApp() {
     fetch('vehicles.json')
         .then(res => {
             if (!res.ok) {
@@ -1143,5 +1160,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
             }
         })
-        .catch(err => console.error("Critical database fetch failure:", err));
-});
+        .catch(err => {
+            console.error("Critical database fetch failure:", err);
+            const container = document.querySelector('.game-container');
+            if (container) {
+                container.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--danger);">Failed to load game data (${err.message}). Please refresh or check your connection.</div>`;
+            }
+        });
+}
+
+if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}

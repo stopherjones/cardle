@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initCartegories() {
   let gameDatabase = [];
   let roundVehicles = [];
   let selectedCarId = null;
@@ -1139,4 +1139,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadData();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCartegories);
+} else {
+  initCartegories();
+}
