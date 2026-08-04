@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stopherjones.github.io/cardle/sitemap.xml
